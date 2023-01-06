@@ -1,21 +1,49 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class Unit : Spatial
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
+    // Stats
+    [Export]
+    public int Health;
+    [Export]
+    public int Soul;
+    [Export]
+    public int Attack;
+    [Export]
+    public int Defense;
+    [Export]
+    public int Movement;
+    // Data
+    public Vector2Int Pos;
+    public List<AUnitAction> Actions;
+    // For animations
+    private AAnimation currentAnimation;
+    private Queue<Action> actionQueue;
 
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
+    public void Move(Vector2Int target) // Move is technically an action that everything has - TODO: move to an action
     {
-        
+        // TODO: play move animation
+        actionQueue.Enqueue(() => Pos = target);
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    public override void _Process(float delta)
+    {
+        base._Process(delta);
+        if ((currentAnimation?.Done ?? true) && actionQueue.Count > 0)
+        {
+            actionQueue.Dequeue().Invoke();
+        }
+    }
+
+    public void QueueAnimation(AAnimation animation, AAnimationArgs animationArgs)
+    {
+        actionQueue.Enqueue(() => currentAnimation = animation.Begin(this, animationArgs));
+    }
+
+    public void QueueImmediateAction(Action action)
+    {
+        actionQueue.Enqueue(action);
+    }
 }
