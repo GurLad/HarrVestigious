@@ -1,0 +1,51 @@
+{
+	"identifier": "Level_0",
+	"uniqueIdentifer": "76d02f60-7820-11ed-9526-3752cfdf9bac",
+	"x": 0,
+	"y": 0,
+	"width": 192,
+	"height": 128,
+	"bgColor": "#696A79",
+	"neighbourLevels": [],
+	"customFields" : {},
+	"layers": [],
+	"entities": {
+		"Stairs": [
+			{
+				"id": "Stairs",
+				"iid": "d20c0cf0-7820-11ed-9526-a5559ed7a4cd",
+				"layer": "Objects",
+				"x": 32,
+				"y": 32,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields" : {}
+			}
+		],
+		"Orc": [
+			{
+				"id": "Orc",
+				"iid": "59e4bd90-7820-11ed-9526-7b144c422452",
+				"layer": "Objects",
+				"x": 48,
+				"y": 80,
+				"width": 16,
+				"height": 16,
+				"color": 6539085,
+				"customFields" : {}
+			},
+			{
+				"id": "Orc",
+				"iid": "5a77d5d0-7820-11ed-9526-c5a810da7a0a",
+				"layer": "Objects",
+				"x": 128,
+				"y": 64,
+				"width": 16,
+				"height": 16,
+				"color": 6539085,
+				"customFields" : {}
+			}
+		]
+	}
+}

@@ -8,9 +8,9 @@ public class LevelGenerator : Node
 {
     // General data
     [Export]
-    public TextFile WallsCSV;
+    public string WallsCSVPath;
     [Export]
-    public TextFile EntitiesJSON;
+    public string EntitiesJSONPath;
     [Export]
     public int TileSize = 16;
     [Export]
@@ -27,9 +27,19 @@ public class LevelGenerator : Node
     public override void _Ready()
     {
         base._Ready();
-        levelData = LevelData.Interpret(EntitiesJSON.ToString(), TileSize); // TEMP - fix later, tired
+        // Read CSV
+        var file = new File();
+        file.Open("res://" + WallsCSVPath, File.ModeFlags.Read);
+        string wallsCSV = file.GetAsText();
+        file.Close();
+        // Read JSON
+        file = new File();
+        file.Open("res://" + EntitiesJSONPath, File.ModeFlags.Read);
+        string entitiesJSON = file.GetAsText();
+        file.Close();
+        levelData = LevelData.Interpret(entitiesJSON.ToString(), TileSize); // TEMP - fix later, tired
         // Generate walls
-        walls = ImportWalls(WallsCSV.ToString(), levelData.Width, levelData.Height); // TEMP - fix later, tired
+        walls = ImportWalls(wallsCSV.ToString(), levelData.Width, levelData.Height); // TEMP - fix later, tired
         for (int x = 0; x < levelData.Width; x++)
         {
             for (int y = 0; y < levelData.Height; y++)
