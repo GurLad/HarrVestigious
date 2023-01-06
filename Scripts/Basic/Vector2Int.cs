@@ -14,4 +14,9 @@ public class Vector2Int // Incomplete (aka no =,+,...), but who cares
         this.x = x;
         this.y = y;
     }
+
+    public static float Distance(Vector2Int vec1, Vector2Int vec2)
+    {
+        return Mathf.Sqrt(Mathf.Pow(vec1.x - vec2.x, 2) + Mathf.Pow(vec1.y - vec2.y, 2));
+    }
 }
