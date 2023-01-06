@@ -3,16 +3,14 @@ using System;
 
 public abstract class AAnimation : Node
 {
-    [Export]
-    public float Time;
     public bool Done { get => timer.TimeLeft <= 0; }
-    private Timer timer;
+    protected Timer timer;
+    protected Spatial target;
 
     public override void _Ready()
     {
         base._Ready();
         timer = new Timer();
-        timer.WaitTime = Time;
         timer.OneShot = true;
         AddChild(timer);
     }
@@ -26,11 +24,26 @@ public abstract class AAnimation : Node
         }
     }
 
-    public virtual AAnimation Begin(Spatial target, AAnimationArgs args)
+    public abstract AAnimation Begin(Spatial target, AAnimationArgs args);
+
+    public abstract void AnimateFrame(float percent);
+}
+
+
+public abstract class AAnimation<T> : AAnimation where T : AAnimationArgs
+{
+    protected T args;
+
+    public override AAnimation Begin(Spatial target, AAnimationArgs args)
     {
+        if (!(args is T))
+        {
+            throw new Exception("Invalid args format!");
+        }
+        this.args = (T)args;
+        this.target = target;
+        timer.WaitTime = args.Time;
         timer.Start();
         return this; // For ease-of-use in unit
     }
-
-    protected abstract void AnimateFrame(float percent);
 }

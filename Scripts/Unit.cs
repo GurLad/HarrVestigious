@@ -33,13 +33,23 @@ public class Unit : Spatial
         base._Process(delta);
         if ((currentAnimation?.Done ?? true) && actionQueue.Count > 0)
         {
+            if (currentAnimation != null)
+            {
+                // Run one more frame to make sure it actually ends on 1
+                currentAnimation.AnimateFrame(1);
+                currentAnimation.QueueFree();
+            }
             actionQueue.Dequeue().Invoke();
         }
     }
 
-    public void QueueAnimation(AAnimation animation, AAnimationArgs animationArgs)
+    public void QueueAnimation<T, S>(T animation, S animationArgs) where S : AAnimationArgs where T : AAnimation<S>
     {
-        actionQueue.Enqueue(() => currentAnimation = animation.Begin(this, animationArgs));
+        actionQueue.Enqueue(() =>
+        {
+            AddChild(animation);
+            currentAnimation = animation.Begin(this, animationArgs);
+        });
     }
 
     public void QueueImmediateAction(Action action)

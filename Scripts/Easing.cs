@@ -34,4 +34,9 @@ public static class Easing
     {
         return x < 0.5 ? 2 * x * x : 1 - Mathf.Pow(-2 * x + 2, 2) / 2;
     }
+
+    public static float EaseOutQuart(float x)
+    {
+        return 1 - Mathf.Pow(1 - x, 4);
+    }
 }
