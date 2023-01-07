@@ -88,6 +88,8 @@ public class LevelGenerator : Node
                 }
             }
         }
+        // Init pathfinder
+        Pathfinder.SetMap(walls, new Vector2Int(levelData.Width, levelData.Height));
         // Generate objects
         foreach (List<Entity> entities in levelData.entities.Values)
         {
@@ -112,6 +114,7 @@ public class LevelGenerator : Node
                         unitObject.TurnFlowController = turnFlowController;
                         unitObject.PlayerUIController = playerUIController;
                         turnFlowController.AddUnit(unitObject);
+                        Pathfinder.PlaceObject(pos);
                         break;
                     default:
                         throw new System.Exception("What");
@@ -122,8 +125,6 @@ public class LevelGenerator : Node
         }
         // Camrea
         camera.Translate(new Vector3(-(levelData.Width / 2.0f - 0.5f), -(levelData.Height / 2.0f - 0.5f), (levelData.Width - 2) / 2.0f) * PhysicalSize);
-        // Init pathfinder
-        Pathfinder.SetMap(walls, new Vector2Int(levelData.Width, levelData.Height));
         // Init turn flow
         turnFlowController.Begin();
     }

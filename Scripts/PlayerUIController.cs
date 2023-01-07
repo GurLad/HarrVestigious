@@ -28,11 +28,13 @@ public class PlayerUIController : Node
             ActionButton newButton = ActionButtonScene.Instance<ActionButton>();
             newButton.Init(action, this, unit);
             buttonContainer.AddChild(newButton);
+            buttons.Add(newButton);
         }
     }
 
     public void HideUI()
     {
+        HelpLabel.GetParent<Control>().Visible = false;
         while (buttons.Count > 0)
         {
             buttons[0].QueueFree();

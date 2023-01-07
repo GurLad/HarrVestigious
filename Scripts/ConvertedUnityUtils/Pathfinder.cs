@@ -7,12 +7,30 @@ using Godot;
 public static class Pathfinder
 {
     private static int[,] map;
+    private static int[,] objects;
     private static Vector2Int size;
 
     public static void SetMap(int[,] newMap, Vector2Int newSize)
     {
         map = newMap;
         size = newSize;
+        objects = new int[newSize.x, newSize.y];
+    }
+
+    public static void PlaceObject(Vector2Int pos)
+    {
+        objects[pos.x, pos.y]++;
+    }
+
+    public static void RemoveObject(Vector2Int pos)
+    {
+        objects[pos.x, pos.y]--;
+    }
+
+    public static void MoveObject(Vector2Int oldPos, Vector2Int newPos)
+    {
+        RemoveObject(oldPos);
+        PlaceObject(newPos);
     }
 
     public static float GetTrueDistance(Vector2Int start, Vector2Int end)

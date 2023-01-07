@@ -18,7 +18,22 @@ public class Unit : Spatial
     [Export]
     public Texture Icon;
     // Data
-    public Vector2Int Pos;
+    private Vector2Int _pos;
+    public Vector2Int Pos
+    {
+        get
+        {
+            return _pos;
+        }
+        set
+        {
+            if (_pos != null)
+            {
+                Pathfinder.MoveObject(_pos, value);
+            }
+            _pos = value;
+        }
+    }
     public List<AUnitAction> Actions = new List<AUnitAction>();
     public bool HasVest;
     public bool Moved = false;
@@ -50,7 +65,8 @@ public class Unit : Spatial
             anchorAnimations.AddAnimation(UnitAnchorAnimations.Mode.Vest);
             vestObject.Visible = true;
         }
-        // All units have the wait action
+        // All units can wait and move
+        AttachAction(new UAMove());
         AttachAction(new UAWait());
     }
 
