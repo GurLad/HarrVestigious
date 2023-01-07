@@ -9,6 +9,18 @@ public class Vector2Int // Incomplete (aka no =,+,...), but who cares
     public int x { get; set; } = 0;
     public int y { get; set; } = 0;
 
+    public static bool operator ==(Vector2Int a, Vector2Int b)
+    {
+        if ((object)a == null) return (object)b == null;
+        if ((object)b == null) return (object)a == null;
+        return a.x == b.x && a.y == b.y;
+    }
+
+    public static bool operator !=(Vector2Int a, Vector2Int b)
+    {
+        return !(a == b);
+    }
+
     public static Vector2Int operator +(Vector2Int a, Vector2Int b)
     {
         return new Vector2Int(a.x + b.x, a.y + b.y);

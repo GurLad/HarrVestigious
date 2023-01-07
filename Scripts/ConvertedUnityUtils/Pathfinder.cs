@@ -188,13 +188,13 @@ public static class Pathfinder
         return 1; // No need to calculate, we know it's always 1
     }
 
-    private static bool CanMove(int x, int y)
+    private static bool CanMove(int x, int y, bool ignoreObjects = false)
     {
         if (x < 0 || y < 0 || x >= size.x || y >= size.y)
         {
             return true;
         }
-        return map[x, y] <= 0;
+        return map[x, y] <= 0 && objects[x, y] <= 0;
     }
 
     private static bool HasLineOfSight(Point start, Point end)

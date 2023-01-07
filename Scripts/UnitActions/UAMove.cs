@@ -13,6 +13,10 @@ public class UAMove : AUnitAction
 
     protected override void ActivateEffect(Vector2Int target = null)
     {
+        if (target == thisUnit.Pos)
+        {
+            return;
+        }
         List<Vector2Int> path = Pathfinder.GetPath(thisUnit.Pos, target);
         for (int i = 1; i < path.Count; i++)
         {
