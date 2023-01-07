@@ -11,11 +11,24 @@ public abstract class AUnitAction
     public abstract bool UseMoveMarkers { get; }
     protected Unit thisUnit;
 
-    public abstract void Activate(Vector2Int target = null);
+    protected abstract void ActivateEffect(Vector2Int target = null);
     public abstract void PassiveEffect();
 
     public void AttachToUnit(Unit unit)
     {
         thisUnit = unit;
+    }
+
+    public void Activate(Vector2Int target = null)
+    {
+        if (RequiresTarget && target == null)
+        {
+            throw new Exception(Name + " requires a target!");
+        }
+        ActivateEffect(target);
+        if (!FreeAction)
+        {
+            thisUnit.QueueImmediateAction(() => thisUnit.Moved = true);
+        }
     }
 }

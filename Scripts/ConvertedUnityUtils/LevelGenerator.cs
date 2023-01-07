@@ -32,6 +32,7 @@ public class LevelGenerator : Node
     private Camera camera;
     private TurnFlowController turnFlowController;
     private FloorMarker floorMarker;
+    private PlayerUIController playerUIController;
 
     public override void _Ready()
     {
@@ -40,6 +41,7 @@ public class LevelGenerator : Node
         camera = GetNode<Camera>("Objects/Camera");
         turnFlowController = GetNode<TurnFlowController>("TurnFlowController");
         floorMarker = GetNode<FloorMarker>("FloorMarker");
+        playerUIController = GetNode<PlayerUIController>("PlayerUIController");
         // Read CSV
         var file = new File();
         file.Open("res://" + WallsCSVPath, File.ModeFlags.Read);
@@ -108,6 +110,7 @@ public class LevelGenerator : Node
                         unitObject.HasVest = entity.customFields["HasVest"].boolData;
                         unitObject.FloorMarker = floorMarker;
                         unitObject.TurnFlowController = turnFlowController;
+                        unitObject.PlayerUIController = playerUIController;
                         turnFlowController.AddUnit(unitObject);
                         break;
                     default:

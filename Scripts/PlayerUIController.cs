@@ -23,12 +23,20 @@ public class PlayerUIController : Node
 
     public void ShowUI(Unit unit)
     {
-        buttons.ForEach(a => a.QueueFree());
         foreach (var action in unit.Actions)
         {
             ActionButton newButton = ActionButtonScene.Instance<ActionButton>();
             newButton.Init(action, this, unit);
             buttonContainer.AddChild(newButton);
+        }
+    }
+
+    public void HideUI()
+    {
+        while (buttons.Count > 0)
+        {
+            buttons[0].QueueFree();
+            buttons.RemoveAt(0);
         }
     }
 }

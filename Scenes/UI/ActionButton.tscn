@@ -9,3 +9,7 @@ rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
 text = "Yay"
 script = ExtResource( 1 )
+
+[connection signal="mouse_entered" from="." to="." method="_OnMouseEntered"]
+[connection signal="mouse_exited" from="." to="." method="_OnMouseLeave"]
+[connection signal="pressed" from="." to="." method="_OnPressed"]

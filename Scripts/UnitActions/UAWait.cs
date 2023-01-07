@@ -10,7 +10,7 @@ public class UAWait : AUnitAction
     public override bool FreeAction => false;
     public override bool UseMoveMarkers => false;
 
-    public override void Activate(Vector2Int target = null)
+    protected override void ActivateEffect(Vector2Int target = null)
     {
         thisUnit.QueueAnimation(new AnimDelay(), new AnimDelay.Args(1));
     }

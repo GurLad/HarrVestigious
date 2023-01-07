@@ -25,6 +25,7 @@ public class Unit : Spatial
     // External objects
     public TurnFlowController TurnFlowController;
     public FloorMarker FloorMarker;
+    public PlayerUIController PlayerUIController;
     // For animations
     private AAnimation currentAnimation;
     private Queue<Action> actionQueue = new Queue<Action>();
@@ -73,8 +74,7 @@ public class Unit : Spatial
     {
         if (HasVest)
         {
-            // TBA: player UI
-            Moved = true;
+            PlayerUIController.ShowUI(this);
         }
         else
         {
@@ -107,15 +107,7 @@ public class Unit : Spatial
         T target = (T)Actions.Find(a => a is T);
         if (target != null)
         {
-            if (target.RequiresTarget && targetPos == null)
-            {
-                throw new Exception(target.Name + " requires a target!");
-            }
             target.Activate(targetPos);
-            if (!target.FreeAction)
-            {
-                QueueImmediateAction(() => Moved = true);
-            }
         }
         else
         {

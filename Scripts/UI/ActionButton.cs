@@ -26,9 +26,10 @@ public class ActionButton : Button
         uiController.HelpLabel.GetParent<Control>().Visible = false;
     }
 
-    public override void _Pressed()
+    public void _OnPressed()
     {
         base._Pressed();
+        uiController.HideUI();
         if (Action.RequiresTarget)
         {
 
