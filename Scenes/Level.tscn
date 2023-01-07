@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/ConvertedUnityUtils/LevelGenerator.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Tiles/Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/OrcUnit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Tiles/Wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Tiles/OuterWall.tscn" type="PackedScene" id=5]
 
 [node name="Level" type="Node"]
 script = ExtResource( 1 )
@@ -10,6 +12,8 @@ WallsCSVPath = "Levels/Levels/simplified/Level_0/Terrain.csv"
 EntitiesJSONPath = "Levels/Levels/simplified/Level_0/data.json"
 PhysicalSize = 2
 FloorScene = ExtResource( 2 )
+OuterWallScene = ExtResource( 5 )
+WallScene = ExtResource( 4 )
 OrcScene = ExtResource( 3 )
 
 [node name="Objects" type="Spatial" parent="."]

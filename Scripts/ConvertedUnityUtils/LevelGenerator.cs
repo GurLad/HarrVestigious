@@ -17,6 +17,10 @@ public class LevelGenerator : Node
     // Terrain
     [Export]
     public PackedScene FloorScene;
+    [Export]
+    public PackedScene OuterWallScene;
+    [Export]
+    public PackedScene WallScene;
     // Units
     [Export]
     public PackedScene OrcScene;
@@ -54,16 +58,21 @@ public class LevelGenerator : Node
                         newFloor.Translate(new Vector2Int(x, y).To3D() * PhysicalSize);
                         objectsHolder.AddChild(newFloor);
                         break;
-                    case 1: // Wall
-                        //GameObject newWall = Instantiate(Wall, WallHolder);
-                        //newWall.transform.position += new Vector2Int(x, y).To3D() * PhysicalSize;
-                        //newWall.SetActive(true);
+                    case 1: // Outer Wall
+                        Spatial newOuterWall = OuterWallScene.Instance<Spatial>();
+                        newOuterWall.Translate(new Vector2Int(x, y).To3D() * PhysicalSize);
+                        objectsHolder.AddChild(newOuterWall);
                         break;
-                    case 2: // Void
+                    case 2: // Wall
+                        Spatial newWall = WallScene.Instance<Spatial>();
+                        newWall.Translate(new Vector2Int(x, y).To3D() * PhysicalSize);
+                        objectsHolder.AddChild(newWall);
+                        break;
+                    case 3: // Void
                         break;
                     case 4: // Door
                         break;
-                    case 3: // Pathfinding blocker - aka floor
+                    case 5: // Pathfinding blocker - aka floor
                     default:
                         break;
                 }
