@@ -15,6 +15,8 @@ public class Unit : Spatial
     public int Defense;
     [Export]
     public int Movement;
+    [Export]
+    public Texture Icon;
     // Data
     public Vector2Int Pos;
     public List<AUnitAction> Actions = new List<AUnitAction>();
