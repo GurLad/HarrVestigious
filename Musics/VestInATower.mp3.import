@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/VestInATower.mp3-e06506528db15192a47cc3fe9e80dfb1.mp3str"
+
+[deps]
+
+source_file="res://Musics/VestInATower.mp3"
+dest_files=[ "res://.import/VestInATower.mp3-e06506528db15192a47cc3fe9e80dfb1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
