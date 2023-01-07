@@ -1,15 +1,37 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Unit.cs" type="Script" id=1]
 [ext_resource path="res://Textures/Floor.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/UnitAnchorAnimations.cs" type="Script" id=3]
 [ext_resource path="res://Scenes/Vest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://particle_curve.tres" type="Texture" id=5]
 
 [sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_texture = ExtResource( 2 )
 uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3( 0, 1, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 0.2
+scale = 0.1
+scale_random = 0.1
+scale_curve = ExtResource( 5 )
+color = Color( 0.509804, 0.886275, 0.133333, 0.403922 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[sub_resource type="SphereMesh" id=6]
 
 [sub_resource type="BoxShape" id=3]
 
@@ -27,6 +49,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 2 )
+
+[node name="DamageParticles" type="Particles" parent="Anchor/MeshInstance"]
+material_override = SubResource( 4 )
+emitting = false
+amount = 80
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 6 )
 
 [node name="Vest" parent="Anchor" instance=ExtResource( 4 )]
 visible = false

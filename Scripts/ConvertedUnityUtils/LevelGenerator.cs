@@ -107,6 +107,7 @@ public class LevelGenerator : Node
                         break;
                     case "Orc":
                         entityObject = unitObject = OrcScene.Instance<Unit>();
+                        unitObject.Init();
                         unitObject.Pos = pos;
                         unitObject.HasVest = entity.customFields["HasVest"].boolData;
                         unitObject.FloorMarker = floorMarker;

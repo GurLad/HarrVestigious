@@ -36,9 +36,31 @@ public class Unit : Spatial
             _pos = value;
         }
     }
+    private bool _hasVest;
+    public bool HasVest
+    {
+        get
+        {
+            return _hasVest;
+        }
+        set
+        {
+            _hasVest = value;
+            if (!HasVest)
+            {
+                RemoveAction<UAGiveVest>();
+                vestObject.Visible = false;
+            }
+            else
+            {
+                AttachAction(new UAGiveVest());
+                vestObject.Visible = true;
+            }
+        }
+    }
     public List<AUnitAction> Actions = new List<AUnitAction>();
-    public bool HasVest;
     public bool Moved = false;
+    public bool Stunned;
     // External objects
     public TurnFlowController TurnFlowController;
     public FloorMarker FloorMarker;
@@ -49,18 +71,19 @@ public class Unit : Spatial
     // Internal objects
     private UnitAnchorAnimations anchorAnimations;
     private Spatial vestObject;
+    private Particles damageParticles;
+
+    public void Init()
+    {
+        vestObject = GetNode<Spatial>("Anchor/Vest");
+    }
 
     public override void _Ready()
     {
         base._Ready();
-        vestObject = GetNode<Spatial>("Anchor/Vest");
         anchorAnimations = GetNode<UnitAnchorAnimations>("Anchor");
+        damageParticles = GetNode<Particles>("Anchor/MeshInstance/DamageParticles");
         anchorAnimations.AddAnimation(UnitAnchorAnimations.Mode.Breath);
-        if (HasVest)
-        {
-            anchorAnimations.AddAnimation(UnitAnchorAnimations.Mode.Vest);
-            vestObject.Visible = true;
-        }
         // All units can move, attack and wait
         AttachAction(new UAMove());
         AttachAction(new UAAttack());
@@ -119,6 +142,15 @@ public class Unit : Spatial
         Actions.Add(unitAction);
     }
 
+    public void RemoveAction<T>() where T : AUnitAction
+    {
+        T target = (T)Actions.Find(a => a is T);
+        if (target != null)
+        {
+            Actions.Remove(target);
+        }
+    }
+
     public void UseAction<T>(Vector2Int targetPos = null) where T : AUnitAction
     {
         T target = (T)Actions.Find(a => a is T);
@@ -157,6 +189,7 @@ public class Unit : Spatial
     public void TakeDamage(int amount)
     {
         Health -= amount;
+        damageParticles.Emitting = true;
         if (Health <= 0)
         {
             // TBA

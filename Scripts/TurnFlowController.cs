@@ -61,6 +61,11 @@ public class TurnFlowController : Node
         ActivateUnit(currentUnit);
     }
 
+    public void UpdateUI()
+    {
+        allUnits.ForEach(a => a.UpdateUnitData(a.Unit));
+    }
+
     private void NextUnit()
     {
         DeactivateUnit(currentUnit);
