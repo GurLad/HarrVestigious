@@ -3,7 +3,7 @@ using System;
 
 public class UnitAnchorAnimations : Spatial
 {
-    public enum Mode { None = 0, Breath = 1, Shake = 2, Flying = 4 }
+    public enum Mode { None = 0, Breath = 1, Shake = 2, Flying = 4, Vest = 8 }
     // Breath
     [Export]
     public Vector2 BreathSizeRange;

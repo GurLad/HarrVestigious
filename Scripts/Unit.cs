@@ -18,6 +18,7 @@ public class Unit : Spatial
     // Data
     public Vector2Int Pos;
     public List<AUnitAction> Actions = new List<AUnitAction>();
+    public bool HasVest;
     // For animations
     private AAnimation currentAnimation;
     private Queue<Action> actionQueue = new Queue<Action>();
@@ -34,6 +35,10 @@ public class Unit : Spatial
         base._Ready();
         anchorAnimations = GetNode<UnitAnchorAnimations>("Anchor");
         anchorAnimations.AddAnimation(UnitAnchorAnimations.Mode.Breath);
+        if (HasVest)
+        {
+            anchorAnimations.AddAnimation(UnitAnchorAnimations.Mode.Vest);
+        }
     }
 
     public override void _Process(float delta)
