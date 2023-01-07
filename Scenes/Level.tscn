@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/ConvertedUnityUtils/LevelGenerator.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Tiles/Floor.tscn" type="PackedScene" id=2]
@@ -9,13 +9,7 @@
 [ext_resource path="res://tower_env.tres" type="Environment" id=7]
 [ext_resource path="res://Scripts/TurnFlowController.cs" type="Script" id=8]
 [ext_resource path="res://game_theme.tres" type="Theme" id=9]
-[ext_resource path="res://Textures/Orc.png" type="Texture" id=10]
-[ext_resource path="res://UI/UITurn.png" type="Texture" id=11]
-
-[sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 11 )
-region_rect = Rect2( 0, 16, 256, 224 )
-margin_right = 93.5302
+[ext_resource path="res://Scenes/UI/UnitPanel.tscn" type="PackedScene" id=10]
 
 [node name="Level" type="Node"]
 script = ExtResource( 1 )
@@ -30,6 +24,8 @@ OrcScene = ExtResource( 3 )
 
 [node name="TurnFlowController" type="Node" parent="."]
 script = ExtResource( 8 )
+BasePanel = ExtResource( 10 )
+PanelHolderPath = NodePath("../GameUI/VBoxContainer")
 
 [node name="Objects" type="Spatial" parent="."]
 
@@ -83,35 +79,3 @@ anchor_bottom = 1.0
 margin_right = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
-
-[node name="PanelContainer" type="Panel" parent="GameUI/VBoxContainer"]
-margin_top = 270.0
-margin_right = 200.0
-margin_bottom = 330.0
-rect_min_size = Vector2( 0, 60 )
-size_flags_horizontal = 3
-size_flags_vertical = 6
-theme = ExtResource( 9 )
-custom_styles/panel = SubResource( 1 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GameUI/VBoxContainer/PanelContainer"]
-margin_left = 6.0
-margin_top = 6.0
-margin_right = 59.0
-margin_bottom = 55.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource( 9 )
-
-[node name="TextureRect" type="TextureRect" parent="GameUI/VBoxContainer/PanelContainer/HBoxContainer"]
-margin_right = 49.0
-margin_bottom = 49.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource( 9 )
-texture = ExtResource( 10 )
-
-[node name="TextureRect2" type="TextureRect" parent="GameUI/VBoxContainer/PanelContainer/HBoxContainer"]
-margin_left = 53.0
-margin_right = 53.0
-margin_bottom = 49.0

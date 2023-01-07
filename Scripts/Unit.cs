@@ -21,6 +21,7 @@ public class Unit : Spatial
     public Vector2Int Pos;
     public List<AUnitAction> Actions = new List<AUnitAction>();
     public bool HasVest;
+    public bool Moved = false;
     // For animations
     private AAnimation currentAnimation;
     private Queue<Action> actionQueue = new Queue<Action>();
@@ -56,6 +57,12 @@ public class Unit : Spatial
             }
             actionQueue.Dequeue().Invoke();
         }
+    }
+
+    public void BeginTurn()
+    {
+        // Temp - just do nothing
+        Moved = true;
     }
 
     public void QueueAnimation<T, S>(T animation, S animationArgs) where S : AAnimationArgs where T : AAnimation<S>

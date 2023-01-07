@@ -30,12 +30,14 @@ public class LevelGenerator : Node
     private int[,] walls;
     private Spatial objectsHolder;
     private Camera camera;
+    private TurnFlowController turnFlowController;
 
     public override void _Ready()
     {
         base._Ready();
         objectsHolder = GetNode<Spatial>("Objects");
         camera = GetNode<Camera>("Objects/Camera");
+        turnFlowController = GetNode<TurnFlowController>("TurnFlowController");
         // Read CSV
         var file = new File();
         file.Open("res://" + WallsCSVPath, File.ModeFlags.Read);
@@ -86,6 +88,7 @@ public class LevelGenerator : Node
             foreach (Entity entity in entities)
             {
                 Spatial entityObject = null;
+                Unit unitObject;
                 Vector2Int pos = new Vector2Int(entity.x / TileSize, entity.y / TileSize);
                 switch (entity.id)
                 {
@@ -97,7 +100,8 @@ public class LevelGenerator : Node
                         break;
                     case "Stairs":
                     case "Orc":
-                        entityObject = OrcScene.Instance<Unit>();
+                        entityObject = unitObject = OrcScene.Instance<Unit>();
+                        turnFlowController.AddUnit(unitObject);
                         break;
                     default:
                         throw new System.Exception("What");

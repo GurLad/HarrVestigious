@@ -17,7 +17,7 @@ public static class Easing
         float c1 = 1.70158f;
         float c3 = c1 + 1;
 
-        return 1 - (c3 * x * x * x - c1 * x * x);
+        return (c3 * x * x * x - c1 * x * x);
     }
 
     public static float EaseOutQuad(float x)

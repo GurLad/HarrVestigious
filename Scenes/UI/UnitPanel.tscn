@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Textures/Orc.png" type="Texture" id=1]
 [ext_resource path="res://UI/UITurn.png" type="Texture" id=2]
 [ext_resource path="res://game_theme.tres" type="Theme" id=3]
 [ext_resource path="res://UI/UIVest.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/UI/UnitPanel.cs" type="Script" id=5]
+[ext_resource path="res://UI/UIFree.png" type="Texture" id=6]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
@@ -19,6 +21,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 6
 theme = ExtResource( 3 )
 custom_styles/panel = SubResource( 1 )
+script = ExtResource( 5 )
+InactiveSize = 160.0
+ActiveSize = 200.0
+VestTexture = ExtResource( 4 )
+FreeTexture = ExtResource( 6 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 6.0
@@ -42,3 +49,6 @@ margin_left = 52.0
 margin_right = 100.0
 margin_bottom = 49.0
 texture = ExtResource( 4 )
+
+[node name="AnimationDelay" type="Timer" parent="."]
+wait_time = 0.3
