@@ -102,16 +102,55 @@ rect_min_size = Vector2( 200, 0 )
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameUI/ActionButtonsUI"]
-margin_top = 520.0
+margin_top = 513.0
 margin_right = 200.0
-margin_bottom = 560.0
+margin_bottom = 567.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="GameUI/ActionButtonsUI/VBoxContainer"]
 margin_right = 200.0
-margin_bottom = 40.0
+margin_bottom = 54.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
 text = "Yay"
+
+[node name="HelpPanel" type="CenterContainer" parent="GameUI"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -850.0
+margin_right = -250.0
+
+[node name="PanelContainer" type="PanelContainer" parent="GameUI/HelpPanel"]
+margin_top = 316.0
+margin_right = 600.0
+margin_bottom = 764.0
+rect_min_size = Vector2( 600, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="GameUI/HelpPanel/PanelContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 550.0
+margin_bottom = 398.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Move your unit.
+Moving is a free action - you can act again afterwards.
+aaa
+aa
+a
+a
+a
+a
+a
+a
+a
+a"
+align = 1
+valign = 1
+autowrap = true
