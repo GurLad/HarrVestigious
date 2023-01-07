@@ -56,6 +56,7 @@ public class Unit : Spatial
                 // Run one more frame to make sure it actually ends on 1
                 currentAnimation.AnimateFrame(1);
                 currentAnimation.QueueFree();
+                currentAnimation = null;
             }
             actionQueue.Dequeue().Invoke();
         }
