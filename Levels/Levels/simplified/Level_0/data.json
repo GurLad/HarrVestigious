@@ -19,7 +19,7 @@
 				"y": 32,
 				"width": 16,
 				"height": 16,
-				"color": 16705377,
+				"color": 39387,
 				"customFields" : {}
 			}
 		],
@@ -45,6 +45,40 @@
 				"height": 16,
 				"color": 6539085,
 				"customFields" : {}
+			}
+		],
+		"Torch": [
+			{
+				"id": "Torch",
+				"iid": "b5cbe920-7820-11ed-9526-e52d11521a32",
+				"layer": "Objects",
+				"x": 48,
+				"y": 64,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 4,
+						"cy": 4
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "f8f6bc20-7820-11ed-9526-090a324aef5c",
+				"layer": "Objects",
+				"x": 80,
+				"y": 48,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 6,
+						"cy": 3
+					}
+				}
 			}
 		]
 	}

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/ConvertedUnityUtils/LevelGenerator.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Tiles/Floor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/OrcUnit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Units/OrcUnit.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Tiles/Wall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Tiles/OuterWall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Torch.tscn" type="PackedScene" id=6]
 
 [node name="Level" type="Node"]
 script = ExtResource( 1 )
@@ -14,6 +15,7 @@ PhysicalSize = 2
 FloorScene = ExtResource( 2 )
 OuterWallScene = ExtResource( 5 )
 WallScene = ExtResource( 4 )
+TorchScene = ExtResource( 6 )
 OrcScene = ExtResource( 3 )
 
 [node name="Objects" type="Spatial" parent="."]

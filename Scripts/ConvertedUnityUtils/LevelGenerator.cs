@@ -23,6 +23,8 @@ public class LevelGenerator : Node
     public PackedScene WallScene;
     // Units
     [Export]
+    public PackedScene TorchScene;
+    [Export]
     public PackedScene OrcScene;
     private LevelData levelData;
     private int[,] walls;
@@ -83,10 +85,15 @@ public class LevelGenerator : Node
         {
             foreach (Entity entity in entities)
             {
-                Unit entityObject = null;
+                Spatial entityObject = null;
                 Vector2Int pos = new Vector2Int(entity.x / TileSize, entity.y / TileSize);
                 switch (entity.id)
                 {
+                    case "Torch":
+                        entityObject = TorchScene.Instance<Spatial>();
+                        Vector3 offset = entity.customFields["Direction"].ToVector2Int().To3D() - pos.To3D();
+                        entityObject.Translate(offset);
+                        break;
                     case "Stairs":
                     case "Orc":
                         entityObject = OrcScene.Instance<Unit>();
