@@ -26,6 +26,7 @@ public class Unit : Spatial
     private AAnimation currentAnimation;
     private Queue<Action> actionQueue = new Queue<Action>();
     private UnitAnchorAnimations anchorAnimations;
+    private Spatial vestObject;
 
     public void Move(Vector2Int target) // Move is technically an action that everything has - TODO: move to an action
     {
@@ -36,11 +37,13 @@ public class Unit : Spatial
     public override void _Ready()
     {
         base._Ready();
+        vestObject = GetNode<Spatial>("Anchor/Vest");
         anchorAnimations = GetNode<UnitAnchorAnimations>("Anchor");
         anchorAnimations.AddAnimation(UnitAnchorAnimations.Mode.Breath);
         if (HasVest)
         {
             anchorAnimations.AddAnimation(UnitAnchorAnimations.Mode.Vest);
+            vestObject.Visible = true;
         }
         // All units have the wait action
         AttachAction(new UAWait());

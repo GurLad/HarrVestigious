@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Unit.cs" type="Script" id=1]
 [ext_resource path="res://Textures/Floor.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/UnitAnchorAnimations.cs" type="Script" id=3]
+[ext_resource path="res://Scenes/Vest.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -24,3 +25,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 2 )
+
+[node name="Vest" parent="Anchor" instance=ExtResource( 4 )]
+visible = false
