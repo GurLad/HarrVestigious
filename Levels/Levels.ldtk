@@ -372,19 +372,155 @@
 						},
 						{
 							"__identifier": "Torch",
-							"__grid": [5,3],
+							"__grid": [0,5],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
 							"__smartColor": "#FEE761",
-							"iid": "f8f6bc20-7820-11ed-9526-090a324aef5c",
+							"iid": "c3e72360-7820-11ed-9526-cd915d1cdeed",
 							"width": 16,
 							"height": 16,
 							"defUid": 7,
-							"px": [80,48],
-							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 6, "cy": 3 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+							"px": [0,80],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 1, "cy": 5 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["6,3"]
+								"params": ["1,5"]
+							}] }]
+						},
+						{
+							"__identifier": "Torch",
+							"__grid": [0,2],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#FEE761",
+							"iid": "cda8b260-7820-11ed-9526-4109933263ef",
+							"width": 16,
+							"height": 16,
+							"defUid": 7,
+							"px": [0,32],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 1, "cy": 2 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["1,2"]
+							}] }]
+						},
+						{
+							"__identifier": "Torch",
+							"__grid": [11,5],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#FEE761",
+							"iid": "cf6d6cd0-7820-11ed-9526-c9810e1c5921",
+							"width": 16,
+							"height": 16,
+							"defUid": 7,
+							"px": [176,80],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 10, "cy": 5 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["10,5"]
+							}] }]
+						},
+						{
+							"__identifier": "Torch",
+							"__grid": [11,2],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#FEE761",
+							"iid": "d09216b0-7820-11ed-9526-95d326421819",
+							"width": 16,
+							"height": 16,
+							"defUid": 7,
+							"px": [176,32],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 10, "cy": 2 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["10,2"]
+							}] }]
+						},
+						{
+							"__identifier": "Torch",
+							"__grid": [8,0],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#FEE761",
+							"iid": "d1f7e840-7820-11ed-9526-c37da34abff6",
+							"width": 16,
+							"height": 16,
+							"defUid": 7,
+							"px": [128,0],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 8, "cy": 1 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["8,1"]
+							}] }]
+						},
+						{
+							"__identifier": "Torch",
+							"__grid": [3,0],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#FEE761",
+							"iid": "d33b64c0-7820-11ed-9526-3f8136b2a1af",
+							"width": 16,
+							"height": 16,
+							"defUid": 7,
+							"px": [48,0],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 3, "cy": 1 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["3,1"]
+							}] }]
+						},
+						{
+							"__identifier": "Torch",
+							"__grid": [8,7],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#FEE761",
+							"iid": "d766e600-7820-11ed-9526-c3833d61ee2e",
+							"width": 16,
+							"height": 16,
+							"defUid": 7,
+							"px": [128,112],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 8, "cy": 6 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["8,6"]
+							}] }]
+						},
+						{
+							"__identifier": "Torch",
+							"__grid": [3,7],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#FEE761",
+							"iid": "d8e28980-7820-11ed-9526-6349b55d4e0a",
+							"width": 16,
+							"height": 16,
+							"defUid": 7,
+							"px": [48,112],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 3, "cy": 6 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["3,6"]
+							}] }]
+						},
+						{
+							"__identifier": "Torch",
+							"__grid": [6,5],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#FEE761",
+							"iid": "db0eb850-7820-11ed-9526-9b040c68ac49",
+							"width": 16,
+							"height": 16,
+							"defUid": 7,
+							"px": [96,80],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 6, "cy": 4 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+								"id": "V_String",
+								"params": ["6,4"]
 							}] }]
 						}
 					]

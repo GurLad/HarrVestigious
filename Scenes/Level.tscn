@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/ConvertedUnityUtils/LevelGenerator.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Tiles/Floor.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Tiles/Wall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Tiles/OuterWall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Torch.tscn" type="PackedScene" id=6]
+[ext_resource path="res://tower_env.tres" type="Environment" id=7]
 
 [node name="Level" type="Node"]
 script = ExtResource( 1 )
@@ -22,3 +23,39 @@ OrcScene = ExtResource( 3 )
 
 [node name="Camera" type="Camera" parent="Objects"]
 transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 0, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Objects"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0 )
+light_color = Color( 1, 0.988235, 0.65098, 1 )
+light_energy = 0.266
+light_indirect_energy = 0.0
+light_cull_mask = 4294967293
+
+[node name="Test" type="Spatial" parent="Objects"]
+visible = false
+
+[node name="Floor" parent="Objects/Test" instance=ExtResource( 2 )]
+
+[node name="Floor2" parent="Objects/Test" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="Floor3" parent="Objects/Test" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+
+[node name="Floor4" parent="Objects/Test" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
+
+[node name="Floor5" parent="Objects/Test" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
+
+[node name="Floor6" parent="Objects/Test" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2 )
+
+[node name="Wall2" parent="Objects/Test" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+
+[node name="Torch" parent="Objects/Test" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.834, 0, 0 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 7 )

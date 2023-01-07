@@ -92,6 +92,7 @@ public class LevelGenerator : Node
                     case "Torch":
                         entityObject = TorchScene.Instance<Spatial>();
                         Vector3 offset = entity.customFields["Direction"].ToVector2Int().To3D() - pos.To3D();
+                        offset = offset.Normalized() * 1.166f;
                         entityObject.Translate(offset);
                         break;
                     case "Stairs":

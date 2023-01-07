@@ -66,17 +66,145 @@
 			},
 			{
 				"id": "Torch",
-				"iid": "f8f6bc20-7820-11ed-9526-090a324aef5c",
+				"iid": "c3e72360-7820-11ed-9526-cd915d1cdeed",
 				"layer": "Objects",
-				"x": 80,
-				"y": 48,
+				"x": 0,
+				"y": 80,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 1,
+						"cy": 5
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "cda8b260-7820-11ed-9526-4109933263ef",
+				"layer": "Objects",
+				"x": 0,
+				"y": 32,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 1,
+						"cy": 2
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "cf6d6cd0-7820-11ed-9526-c9810e1c5921",
+				"layer": "Objects",
+				"x": 176,
+				"y": 80,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 10,
+						"cy": 5
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "d09216b0-7820-11ed-9526-95d326421819",
+				"layer": "Objects",
+				"x": 176,
+				"y": 32,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 10,
+						"cy": 2
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "d1f7e840-7820-11ed-9526-c37da34abff6",
+				"layer": "Objects",
+				"x": 128,
+				"y": 0,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 8,
+						"cy": 1
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "d33b64c0-7820-11ed-9526-3f8136b2a1af",
+				"layer": "Objects",
+				"x": 48,
+				"y": 0,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 3,
+						"cy": 1
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "d766e600-7820-11ed-9526-c3833d61ee2e",
+				"layer": "Objects",
+				"x": 128,
+				"y": 112,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 8,
+						"cy": 6
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "d8e28980-7820-11ed-9526-6349b55d4e0a",
+				"layer": "Objects",
+				"x": 48,
+				"y": 112,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 3,
+						"cy": 6
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "db0eb850-7820-11ed-9526-9b040c68ac49",
+				"layer": "Objects",
+				"x": 96,
+				"y": 80,
 				"width": 16,
 				"height": 16,
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
 						"cx": 6,
-						"cy": 3
+						"cy": 4
 					}
 				}
 			}

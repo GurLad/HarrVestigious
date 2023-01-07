@@ -9,5 +9,5 @@ uv1_scale = Vector3( 3, 2, 1 )
 
 [node name="OrcUnit" instance=ExtResource( 1 )]
 
-[node name="MeshInstance" parent="." index="0"]
+[node name="MeshInstance" parent="Anchor" index="0"]
 material/0 = SubResource( 1 )
