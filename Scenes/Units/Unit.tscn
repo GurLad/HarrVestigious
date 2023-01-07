@@ -37,5 +37,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="Anchor/Area"]
 shape = SubResource( 3 )
 
+[connection signal="input_event" from="Anchor/Area" to="." method="_OnInputEvent"]
 [connection signal="mouse_entered" from="Anchor/Area" to="." method="_OnMouseEntered"]
 [connection signal="mouse_exited" from="Anchor/Area" to="." method="_OnMouseLeave"]

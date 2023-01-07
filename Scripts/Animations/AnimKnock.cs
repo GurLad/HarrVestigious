@@ -17,9 +17,19 @@ public class AnimKnock : AAnimation<AnimKnock.Args>
         {
             percent *= 2;
         }
-        float percentEased = (percent <= 1 ^ args.Back) ? Easing.EaseInQuart(percent) : Easing.EaseOutQuart(2 - percent);
-        Vector3 rotationAxis = args.Direction.To3D().Normalized();
-        target.Transform = target.Transform.Rotated(rotationAxis, args.Degree * percentEased);
+        float percentEased;
+        if (!args.Back)
+        {
+            percentEased = (percent <= 1) ? Easing.EaseInQuart(percent) : Easing.EaseOutQuart(2 - percent);
+        }
+        else
+        {
+            percentEased = (percent <= 1) ? Easing.EaseOutQuart(percent) : Easing.EaseInQuart(2 - percent);
+        }
+        Vector3 rotationAxis = new Vector2Int(-args.Direction.y, args.Direction.x).To3D().Normalized();
+        Transform temp = new Transform(baseTransform.basis, baseTransform.origin);
+        temp.basis = temp.basis.Rotated(rotationAxis, args.Degree * percentEased);
+        target.Transform = temp;
     }
 
     public class Args : AAnimationArgs
@@ -31,7 +41,7 @@ public class AnimKnock : AAnimation<AnimKnock.Args>
 
         public Args(float time, float degree, Vector2Int direction, bool oneWay, bool back) : base(time)
         {
-            Degree = degree;
+            Degree = degree * Mathf.Pi / 180;
             Direction = direction;
             OneWay = oneWay;
             Back = back;

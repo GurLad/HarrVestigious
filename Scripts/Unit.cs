@@ -181,6 +181,11 @@ public class Unit : Spatial
         }
     }
 
+    public void _OnInputEvent(Node camera, InputEvent inputEvent, Vector3 position, Vector3 normal, int shapeIdx)
+    {
+        FloorMarker.FloorInputEvent(Pos, camera, inputEvent, position, normal, shapeIdx);
+    }
+
     protected virtual void AIAction()
     {
         // By default, does the wait action (aka action 0)

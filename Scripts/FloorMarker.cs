@@ -21,6 +21,15 @@ public class FloorMarker : Node
         floors[x, y].Init(new Vector2Int(x, y), this);
     }
 
+    public void FloorInputEvent(Vector2Int pos, Node camera, InputEvent inputEvent, Vector3 position, Vector3 normal, int shapeIdx)
+    {
+        if (floors[pos.x, pos.y] == null)
+        {
+            throw new Exception("Clicking on a unit that's not a floor!");
+        }
+        floors[pos.x, pos.y]._OnInputEvent(camera, inputEvent, position, normal, shapeIdx);
+    }
+
     public void ClearMarkers()
     {
         for (int x = 0; x < size.x; x++)
