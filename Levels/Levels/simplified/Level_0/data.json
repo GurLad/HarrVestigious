@@ -10,19 +10,6 @@
 	"customFields" : {},
 	"layers": [],
 	"entities": {
-		"Stairs": [
-			{
-				"id": "Stairs",
-				"iid": "d20c0cf0-7820-11ed-9526-a5559ed7a4cd",
-				"layer": "Objects",
-				"x": 32,
-				"y": 32,
-				"width": 16,
-				"height": 16,
-				"color": 39387,
-				"customFields" : {}
-			}
-		],
 		"Orc": [
 			{
 				"id": "Orc",
@@ -33,7 +20,9 @@
 				"width": 16,
 				"height": 16,
 				"color": 6539085,
-				"customFields" : {}
+				"customFields": {
+					"HasVest": true
+				}
 			},
 			{
 				"id": "Orc",
@@ -44,7 +33,22 @@
 				"width": 16,
 				"height": 16,
 				"color": 6539085,
-				"customFields" : {}
+				"customFields": {
+					"HasVest": false
+				}
+			},
+			{
+				"id": "Orc",
+				"iid": "24b5bae0-7820-11ed-9526-13cb1bdc20b7",
+				"layer": "Objects",
+				"x": 32,
+				"y": 32,
+				"width": 16,
+				"height": 16,
+				"color": 6539085,
+				"customFields": {
+					"HasVest": false
+				}
 			}
 		],
 		"Torch": [

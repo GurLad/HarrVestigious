@@ -11,7 +11,7 @@
 	"iid": "76cf4500-7820-11ed-9526-9724dacb70fd",
 	"jsonVersion": "1.2.3",
 	"appBuildId": 464726,
-	"nextUid": 9,
+	"nextUid": 12,
 	"identifierStyle": "Capitalize",
 	"worldLayout": "Free",
 	"worldGridWidth": 256,
@@ -208,7 +208,40 @@
 			"limitBehavior": "MoveLastOne",
 			"pivotX": 0,
 			"pivotY": 0,
-			"fieldDefs": []
+			"fieldDefs": [
+				{
+					"identifier": "HasVest",
+					"doc": null,
+					"__type": "Bool",
+					"uid": 9,
+					"type": "F_Bool",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "ValueOnly",
+					"editorDisplayPos": "Center",
+					"editorLinkStyle": "StraightArrow",
+					"editorAlwaysShow": false,
+					"editorShowInWorld": true,
+					"editorCutLongValues": true,
+					"editorTextSuffix": null,
+					"editorTextPrefix": null,
+					"useForSmartColor": false,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null,
+					"symmetricalRef": false,
+					"autoChainRef": true,
+					"allowOutOfLevelRef": true,
+					"allowedRefs": "OnlySame",
+					"allowedRefTags": [],
+					"tilesetUid": null
+				}
+			]
 		},
 		{
 			"identifier": "Skeleton",
@@ -235,7 +268,40 @@
 			"limitBehavior": "MoveLastOne",
 			"pivotX": 0,
 			"pivotY": 0,
-			"fieldDefs": []
+			"fieldDefs": [
+				{
+					"identifier": "HasVest",
+					"doc": null,
+					"__type": "Bool",
+					"uid": 10,
+					"type": "F_Bool",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "ValueOnly",
+					"editorDisplayPos": "Center",
+					"editorLinkStyle": "StraightArrow",
+					"editorAlwaysShow": false,
+					"editorShowInWorld": true,
+					"editorCutLongValues": true,
+					"editorTextSuffix": null,
+					"editorTextPrefix": null,
+					"useForSmartColor": false,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null,
+					"symmetricalRef": false,
+					"autoChainRef": true,
+					"allowOutOfLevelRef": true,
+					"allowedRefs": "OnlySame",
+					"allowedRefTags": [],
+					"tilesetUid": null
+				}
+			]
 		},
 		{
 			"identifier": "Orc",
@@ -262,7 +328,40 @@
 			"limitBehavior": "MoveLastOne",
 			"pivotX": 0,
 			"pivotY": 0,
-			"fieldDefs": []
+			"fieldDefs": [
+				{
+					"identifier": "HasVest",
+					"doc": null,
+					"__type": "Bool",
+					"uid": 11,
+					"type": "F_Bool",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "ValueOnly",
+					"editorDisplayPos": "Center",
+					"editorLinkStyle": "StraightArrow",
+					"editorAlwaysShow": false,
+					"editorShowInWorld": true,
+					"editorCutLongValues": true,
+					"editorTextSuffix": null,
+					"editorTextPrefix": null,
+					"useForSmartColor": false,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null,
+					"symmetricalRef": false,
+					"autoChainRef": true,
+					"allowOutOfLevelRef": true,
+					"allowedRefs": "OnlySame",
+					"allowedRefTags": [],
+					"tilesetUid": null
+				}
+			]
 		}
 	], "tilesets": [], "enums": [], "externalEnums": [], "levelFields": [] },
 	"levels": [
@@ -312,20 +411,6 @@
 					"gridTiles": [],
 					"entityInstances": [
 						{
-							"__identifier": "Stairs",
-							"__grid": [2,2],
-							"__pivot": [0,0],
-							"__tags": [],
-							"__tile": null,
-							"__smartColor": "#0099DB",
-							"iid": "d20c0cf0-7820-11ed-9526-a5559ed7a4cd",
-							"width": 16,
-							"height": 16,
-							"defUid": 3,
-							"px": [32,32],
-							"fieldInstances": []
-						},
-						{
 							"__identifier": "Orc",
 							"__grid": [3,5],
 							"__pivot": [0,0],
@@ -337,7 +422,10 @@
 							"height": 16,
 							"defUid": 6,
 							"px": [48,80],
-							"fieldInstances": []
+							"fieldInstances": [{ "__identifier": "HasVest", "__value": true, "__type": "Bool", "__tile": null, "defUid": 11, "realEditorValues": [{
+								"id": "V_Bool",
+								"params": [ true ]
+							}] }]
 						},
 						{
 							"__identifier": "Orc",
@@ -351,7 +439,7 @@
 							"height": 16,
 							"defUid": 6,
 							"px": [128,64],
-							"fieldInstances": []
+							"fieldInstances": [{ "__identifier": "HasVest", "__value": false, "__type": "Bool", "__tile": null, "defUid": 11, "realEditorValues": [] }]
 						},
 						{
 							"__identifier": "Torch",
@@ -522,6 +610,20 @@
 								"id": "V_String",
 								"params": ["6,4"]
 							}] }]
+						},
+						{
+							"__identifier": "Orc",
+							"__grid": [2,2],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#63C74D",
+							"iid": "24b5bae0-7820-11ed-9526-13cb1bdc20b7",
+							"width": 16,
+							"height": 16,
+							"defUid": 6,
+							"px": [32,32],
+							"fieldInstances": [{ "__identifier": "HasVest", "__value": false, "__type": "Bool", "__tile": null, "defUid": 11, "realEditorValues": [] }]
 						}
 					]
 				},

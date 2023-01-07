@@ -52,3 +52,4 @@ texture = ExtResource( 4 )
 
 [node name="AnimationDelay" type="Timer" parent="."]
 wait_time = 0.3
+one_shot = true

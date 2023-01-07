@@ -98,9 +98,9 @@ public class LevelGenerator : Node
                         offset = offset.Normalized() * 1.166f;
                         entityObject.Translate(offset);
                         break;
-                    case "Stairs":
                     case "Orc":
                         entityObject = unitObject = OrcScene.Instance<Unit>();
+                        unitObject.HasVest = entity.customFields["HasVest"].boolData;
                         turnFlowController.AddUnit(unitObject);
                         break;
                     default:
@@ -114,6 +114,8 @@ public class LevelGenerator : Node
         camera.Translate(new Vector3(-(levelData.Width / 2.0f - 0.5f), -(levelData.Height / 2.0f - 0.5f), levelData.Width / 2.0f) * PhysicalSize);
         // Init pathfinder
         Pathfinder.SetMap(walls, new Vector2Int(levelData.Width, levelData.Height));
+        // Init turn flow
+        turnFlowController.Begin();
     }
 
     private int SafeGetWall(int x, int y)
@@ -182,9 +184,11 @@ public class LevelGenerator : Node
         public int cx;
         public int cy;
         public System.Int64 intData;
+        public bool boolData;
 
         public EntityField() { }
         public EntityField(System.Int64 data) { intData = data; }
+        public EntityField(bool data) { boolData = data; }
 
         public Vector2Int ToVector2Int()
         {
@@ -195,5 +199,9 @@ public class LevelGenerator : Node
             new EntityField(i);
         public static implicit operator System.Int64(EntityField ef) =>
             ef.intData;
+        public static implicit operator EntityField(bool b) =>
+            new EntityField(b);
+        public static implicit operator bool(EntityField ef) =>
+            ef.boolData;
     }
 }
