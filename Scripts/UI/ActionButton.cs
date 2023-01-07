@@ -32,7 +32,7 @@ public class ActionButton : Button
         uiController.HideUI();
         if (Action.RequiresTarget)
         {
-
+            player.PrepareTargetedAction(Action);
         }
         else
         {

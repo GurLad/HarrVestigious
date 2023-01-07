@@ -48,12 +48,6 @@ public class Unit : Spatial
     private UnitAnchorAnimations anchorAnimations;
     private Spatial vestObject;
 
-    public void Move(Vector2Int target) // Move is technically an action that everything has - TODO: move to an action
-    {
-        // TODO: play move animation
-        actionQueue.Enqueue(() => Pos = target);
-    }
-
     public override void _Ready()
     {
         base._Ready();
@@ -86,8 +80,12 @@ public class Unit : Spatial
         }
     }
 
-    public void BeginTurn()
+    public void BeginTurn(bool resetExhaustedActions = true)
     {
+        if (resetExhaustedActions)
+        {
+            Actions.ForEach(a => a.Exhausted = false);
+        }
         if (HasVest)
         {
             PlayerUIController.ShowUI(this);
@@ -138,7 +136,7 @@ public class Unit : Spatial
             List<Vector2Int> possibleMoves = Pathfinder.GetMoveArea(Pos, Movement);
             foreach (Vector2Int move in possibleMoves)
             {
-                FloorMarker.AddMarker(move, FloorMarker.MarkType.Move);
+                FloorMarker.AddMarker(move, FloorMarker.MarkType.Move, action);
             }
         }
     }

@@ -25,10 +25,13 @@ public class FloorMarker : Node
         {
             for (int y = 0; y < size.y; y++)
             {
-                floors[x, y].RemoveMarker(MarkType.PreviewMove);
-                floors[x, y].RemoveMarker(MarkType.PreviewAttack);
-                floors[x, y].RemoveMarker(MarkType.Move);
-                floors[x, y].RemoveMarker(MarkType.Attack);
+                if (floors[x, y] != null)
+                {
+                    floors[x, y].RemoveMarker(MarkType.PreviewMove);
+                    floors[x, y].RemoveMarker(MarkType.PreviewAttack);
+                    floors[x, y].RemoveMarker(MarkType.Move);
+                    floors[x, y].RemoveMarker(MarkType.Attack);
+                }
             }
         }
     }

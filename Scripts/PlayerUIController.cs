@@ -25,6 +25,10 @@ public class PlayerUIController : Node
     {
         foreach (var action in unit.Actions)
         {
+            if (action.Exhausted)
+            {
+                continue;
+            }
             ActionButton newButton = ActionButtonScene.Instance<ActionButton>();
             newButton.Init(action, this, unit);
             buttonContainer.AddChild(newButton);

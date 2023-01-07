@@ -9,6 +9,7 @@ public abstract class AUnitAction
     public abstract bool RequiresTarget { get; }
     public abstract bool FreeAction { get; }
     public abstract bool UseMoveMarkers { get; }
+    public bool Exhausted;
     protected Unit thisUnit;
 
     protected abstract void ActivateEffect(Vector2Int target = null);
@@ -29,6 +30,11 @@ public abstract class AUnitAction
         if (!FreeAction)
         {
             thisUnit.QueueImmediateAction(() => thisUnit.Moved = true);
+        }
+        else
+        {
+            Exhausted = true;
+            thisUnit.QueueImmediateAction(() => thisUnit.BeginTurn(false));
         }
     }
 }

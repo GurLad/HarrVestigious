@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 
 public class LevelGenerator : Node
 {
+    public static readonly int PHYSICAL_SIZE = 2;
     // General data
     [Export]
     public string WallsCSVPath;
@@ -12,8 +13,6 @@ public class LevelGenerator : Node
     public string EntitiesJSONPath;
     [Export]
     public int TileSize = 16;
-    [Export]
-    public int PhysicalSize = 1;
     // Terrain
     [Export]
     public PackedScene FloorScene;
@@ -64,18 +63,18 @@ public class LevelGenerator : Node
                 {
                     case 0: // Floor
                         Floor newFloor = FloorScene.Instance<Floor>();
-                        newFloor.Translate(new Vector2Int(x, y).To3D() * PhysicalSize);
+                        newFloor.Translate(new Vector2Int(x, y).To3D());
                         objectsHolder.AddChild(newFloor);
                         floorMarker.AddFloor(x, y, newFloor);
                         break;
                     case 1: // Outer Wall
                         Spatial newOuterWall = OuterWallScene.Instance<Spatial>();
-                        newOuterWall.Translate(new Vector2Int(x, y).To3D() * PhysicalSize);
+                        newOuterWall.Translate(new Vector2Int(x, y).To3D());
                         objectsHolder.AddChild(newOuterWall);
                         break;
                     case 2: // Wall
                         Spatial newWall = WallScene.Instance<Spatial>();
-                        newWall.Translate(new Vector2Int(x, y).To3D() * PhysicalSize);
+                        newWall.Translate(new Vector2Int(x, y).To3D());
                         objectsHolder.AddChild(newWall);
                         break;
                     case 3: // Void
@@ -119,12 +118,12 @@ public class LevelGenerator : Node
                     default:
                         throw new System.Exception("What");
                 }
-                entityObject.Translate(pos.To3D() * PhysicalSize);
+                entityObject.Translate(pos.To3D());
                 objectsHolder.AddChild(entityObject);
             }
         }
         // Camrea
-        camera.Translate(new Vector3(-(levelData.Width / 2.0f - 0.5f), -(levelData.Height / 2.0f - 0.5f), (levelData.Width - 2) / 2.0f) * PhysicalSize);
+        camera.Translate(new Vector3(-(levelData.Width / 2.0f - 0.5f), -(levelData.Height / 2.0f - 0.5f), (levelData.Width - 2) / 2.0f) * PHYSICAL_SIZE);
         // Init turn flow
         turnFlowController.Begin();
     }
