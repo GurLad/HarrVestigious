@@ -16,39 +16,43 @@ margin_right = 93.5302
 margin_top = 270.0
 margin_right = 200.0
 margin_bottom = 330.0
-rect_min_size = Vector2( 160, 60 )
+rect_min_size = Vector2( 320, 120 )
 size_flags_horizontal = 2
 size_flags_vertical = 6
 theme = ExtResource( 3 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 5 )
 InactiveSize = 160.0
-ActiveSize = 200.0
+ActiveSize = 400.0
 VestTexture = ExtResource( 4 )
 FreeTexture = ExtResource( 6 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 6.0
-margin_top = 6.0
-margin_right = 59.0
-margin_bottom = 55.0
+margin_top = 12.0
+margin_right = 154.0
+margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
 
 [node name="UnitIcon" type="TextureRect" parent="HBoxContainer"]
-margin_right = 48.0
-margin_bottom = 49.0
+margin_right = 96.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 96, 96 )
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 6
 theme = ExtResource( 3 )
 texture = ExtResource( 1 )
+stretch_mode = 6
 
 [node name="VestIcon" type="TextureRect" parent="HBoxContainer"]
-margin_left = 52.0
-margin_right = 100.0
-margin_bottom = 49.0
+margin_left = 100.0
+margin_right = 196.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 96, 96 )
 texture = ExtResource( 4 )
+stretch_mode = 5
 
 [node name="AnimationDelay" type="Timer" parent="."]
 wait_time = 0.3

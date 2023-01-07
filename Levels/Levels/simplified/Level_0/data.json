@@ -1,9 +1,9 @@
 {
 	"identifier": "Level_0",
 	"uniqueIdentifer": "76d02f60-7820-11ed-9526-3752cfdf9bac",
-	"x": 0,
+	"x": -16,
 	"y": 0,
-	"width": 192,
+	"width": 224,
 	"height": 128,
 	"bgColor": "#696A79",
 	"neighbourLevels": [],
@@ -15,7 +15,7 @@
 				"id": "Orc",
 				"iid": "59e4bd90-7820-11ed-9526-7b144c422452",
 				"layer": "Objects",
-				"x": 48,
+				"x": 64,
 				"y": 80,
 				"width": 16,
 				"height": 16,
@@ -28,7 +28,7 @@
 				"id": "Orc",
 				"iid": "5a77d5d0-7820-11ed-9526-c5a810da7a0a",
 				"layer": "Objects",
-				"x": 128,
+				"x": 144,
 				"y": 64,
 				"width": 16,
 				"height": 16,
@@ -41,7 +41,7 @@
 				"id": "Orc",
 				"iid": "24b5bae0-7820-11ed-9526-13cb1bdc20b7",
 				"layer": "Objects",
-				"x": 32,
+				"x": 48,
 				"y": 32,
 				"width": 16,
 				"height": 16,
@@ -56,14 +56,14 @@
 				"id": "Torch",
 				"iid": "b5cbe920-7820-11ed-9526-e52d11521a32",
 				"layer": "Objects",
-				"x": 48,
+				"x": 64,
 				"y": 64,
 				"width": 16,
 				"height": 16,
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 4,
+						"cx": 5,
 						"cy": 4
 					}
 				}
@@ -72,14 +72,14 @@
 				"id": "Torch",
 				"iid": "c3e72360-7820-11ed-9526-cd915d1cdeed",
 				"layer": "Objects",
-				"x": 0,
+				"x": 16,
 				"y": 80,
 				"width": 16,
 				"height": 16,
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 1,
+						"cx": 2,
 						"cy": 5
 					}
 				}
@@ -88,14 +88,14 @@
 				"id": "Torch",
 				"iid": "cda8b260-7820-11ed-9526-4109933263ef",
 				"layer": "Objects",
-				"x": 0,
+				"x": 16,
 				"y": 32,
 				"width": 16,
 				"height": 16,
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 1,
+						"cx": 2,
 						"cy": 2
 					}
 				}
@@ -104,14 +104,14 @@
 				"id": "Torch",
 				"iid": "cf6d6cd0-7820-11ed-9526-c9810e1c5921",
 				"layer": "Objects",
-				"x": 176,
+				"x": 192,
 				"y": 80,
 				"width": 16,
 				"height": 16,
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 10,
+						"cx": 11,
 						"cy": 5
 					}
 				}
@@ -120,14 +120,14 @@
 				"id": "Torch",
 				"iid": "d09216b0-7820-11ed-9526-95d326421819",
 				"layer": "Objects",
-				"x": 176,
+				"x": 192,
 				"y": 32,
 				"width": 16,
 				"height": 16,
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 10,
+						"cx": 11,
 						"cy": 2
 					}
 				}
@@ -136,14 +136,14 @@
 				"id": "Torch",
 				"iid": "d1f7e840-7820-11ed-9526-c37da34abff6",
 				"layer": "Objects",
-				"x": 128,
+				"x": 144,
 				"y": 0,
 				"width": 16,
 				"height": 16,
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 8,
+						"cx": 9,
 						"cy": 1
 					}
 				}
@@ -152,14 +152,14 @@
 				"id": "Torch",
 				"iid": "d33b64c0-7820-11ed-9526-3f8136b2a1af",
 				"layer": "Objects",
-				"x": 48,
+				"x": 64,
 				"y": 0,
 				"width": 16,
 				"height": 16,
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 3,
+						"cx": 4,
 						"cy": 1
 					}
 				}
@@ -168,14 +168,14 @@
 				"id": "Torch",
 				"iid": "d766e600-7820-11ed-9526-c3833d61ee2e",
 				"layer": "Objects",
-				"x": 128,
+				"x": 144,
 				"y": 112,
 				"width": 16,
 				"height": 16,
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 8,
+						"cx": 9,
 						"cy": 6
 					}
 				}
@@ -184,14 +184,14 @@
 				"id": "Torch",
 				"iid": "d8e28980-7820-11ed-9526-6349b55d4e0a",
 				"layer": "Objects",
-				"x": 48,
+				"x": 64,
 				"y": 112,
 				"width": 16,
 				"height": 16,
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 3,
+						"cx": 4,
 						"cy": 6
 					}
 				}
@@ -200,14 +200,14 @@
 				"id": "Torch",
 				"iid": "db0eb850-7820-11ed-9526-9b040c68ac49",
 				"layer": "Objects",
-				"x": 96,
+				"x": 112,
 				"y": 80,
 				"width": 16,
 				"height": 16,
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 6,
+						"cx": 7,
 						"cy": 4
 					}
 				}

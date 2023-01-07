@@ -369,10 +369,10 @@
 			"identifier": "Level_0",
 			"iid": "76d02f60-7820-11ed-9526-3752cfdf9bac",
 			"uid": 0,
-			"worldX": 0,
+			"worldX": -16,
 			"worldY": 0,
 			"worldDepth": 0,
-			"pxWid": 192,
+			"pxWid": 224,
 			"pxHei": 128,
 			"__bgColor": "#696A79",
 			"bgColor": null,
@@ -389,7 +389,7 @@
 				{
 					"__identifier": "Objects",
 					"__type": "Entities",
-					"__cWid": 12,
+					"__cWid": 14,
 					"__cHei": 8,
 					"__gridSize": 16,
 					"__opacity": 1,
@@ -412,7 +412,7 @@
 					"entityInstances": [
 						{
 							"__identifier": "Orc",
-							"__grid": [3,5],
+							"__grid": [4,5],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -421,7 +421,7 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 6,
-							"px": [48,80],
+							"px": [64,80],
 							"fieldInstances": [{ "__identifier": "HasVest", "__value": true, "__type": "Bool", "__tile": null, "defUid": 11, "realEditorValues": [{
 								"id": "V_Bool",
 								"params": [ true ]
@@ -429,7 +429,7 @@
 						},
 						{
 							"__identifier": "Orc",
-							"__grid": [8,4],
+							"__grid": [9,4],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -438,12 +438,12 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 6,
-							"px": [128,64],
+							"px": [144,64],
 							"fieldInstances": [{ "__identifier": "HasVest", "__value": false, "__type": "Bool", "__tile": null, "defUid": 11, "realEditorValues": [] }]
 						},
 						{
 							"__identifier": "Torch",
-							"__grid": [3,4],
+							"__grid": [4,4],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -452,15 +452,15 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 7,
-							"px": [48,64],
-							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 4, "cy": 4 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+							"px": [64,64],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 5, "cy": 4 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["4,4"]
+								"params": ["5,4"]
 							}] }]
 						},
 						{
 							"__identifier": "Torch",
-							"__grid": [0,5],
+							"__grid": [1,5],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -469,15 +469,15 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 7,
-							"px": [0,80],
-							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 1, "cy": 5 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+							"px": [16,80],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 2, "cy": 5 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["1,5"]
+								"params": ["2,5"]
 							}] }]
 						},
 						{
 							"__identifier": "Torch",
-							"__grid": [0,2],
+							"__grid": [1,2],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -486,15 +486,15 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 7,
-							"px": [0,32],
-							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 1, "cy": 2 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+							"px": [16,32],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 2, "cy": 2 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["1,2"]
+								"params": ["2,2"]
 							}] }]
 						},
 						{
 							"__identifier": "Torch",
-							"__grid": [11,5],
+							"__grid": [12,5],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -503,15 +503,15 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 7,
-							"px": [176,80],
-							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 10, "cy": 5 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+							"px": [192,80],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 11, "cy": 5 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["10,5"]
+								"params": ["11,5"]
 							}] }]
 						},
 						{
 							"__identifier": "Torch",
-							"__grid": [11,2],
+							"__grid": [12,2],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -520,15 +520,15 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 7,
-							"px": [176,32],
-							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 10, "cy": 2 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+							"px": [192,32],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 11, "cy": 2 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["10,2"]
+								"params": ["11,2"]
 							}] }]
 						},
 						{
 							"__identifier": "Torch",
-							"__grid": [8,0],
+							"__grid": [9,0],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -537,15 +537,15 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 7,
-							"px": [128,0],
-							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 8, "cy": 1 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+							"px": [144,0],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 9, "cy": 1 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["8,1"]
+								"params": ["9,1"]
 							}] }]
 						},
 						{
 							"__identifier": "Torch",
-							"__grid": [3,0],
+							"__grid": [4,0],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -554,15 +554,15 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 7,
-							"px": [48,0],
-							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 3, "cy": 1 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+							"px": [64,0],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 4, "cy": 1 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["3,1"]
+								"params": ["4,1"]
 							}] }]
 						},
 						{
 							"__identifier": "Torch",
-							"__grid": [8,7],
+							"__grid": [9,7],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -571,15 +571,15 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 7,
-							"px": [128,112],
-							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 8, "cy": 6 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+							"px": [144,112],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 9, "cy": 6 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["8,6"]
+								"params": ["9,6"]
 							}] }]
 						},
 						{
 							"__identifier": "Torch",
-							"__grid": [3,7],
+							"__grid": [4,7],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -588,15 +588,15 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 7,
-							"px": [48,112],
-							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 3, "cy": 6 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+							"px": [64,112],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 4, "cy": 6 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["3,6"]
+								"params": ["4,6"]
 							}] }]
 						},
 						{
 							"__identifier": "Torch",
-							"__grid": [6,5],
+							"__grid": [7,5],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -605,15 +605,15 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 7,
-							"px": [96,80],
-							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 6, "cy": 4 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
+							"px": [112,80],
+							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 7, "cy": 4 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["6,4"]
+								"params": ["7,4"]
 							}] }]
 						},
 						{
 							"__identifier": "Orc",
-							"__grid": [2,2],
+							"__grid": [3,2],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -622,7 +622,7 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 6,
-							"px": [32,32],
+							"px": [48,32],
 							"fieldInstances": [{ "__identifier": "HasVest", "__value": false, "__type": "Bool", "__tile": null, "defUid": 11, "realEditorValues": [] }]
 						}
 					]
@@ -630,7 +630,7 @@
 				{
 					"__identifier": "Terrain",
 					"__type": "IntGrid",
-					"__cWid": 12,
+					"__cWid": 14,
 					"__cHei": 8,
 					"__gridSize": 16,
 					"__opacity": 1,
@@ -646,9 +646,10 @@
 					"visible": true,
 					"optionalRules": [],
 					"intGridCsv": [
-						2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,3,1,1,
-						2,2,1,1,1,1,1,1,1,1,1,1,2,2,1,1,3,1,1,1,1,1,1,1,2,2,1,1,1,1,1,3,1,1,1,
-						1,2,2,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2
+						2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,2,2,2,2,1,1,1,1,1,
+						1,1,3,1,1,2,2,2,2,1,1,1,1,1,1,1,1,1,1,2,2,2,2,1,1,3,1,1,1,1,1,1,1,2,2,
+						2,2,1,1,1,1,1,3,1,1,1,1,2,2,2,2,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,
+						2,2,2,2,2,2,2
 					],
 					"autoLayerTiles": [],
 					"seed": 6210788,

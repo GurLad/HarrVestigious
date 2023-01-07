@@ -118,7 +118,7 @@ public class LevelGenerator : Node
             }
         }
         // Camrea
-        camera.Translate(new Vector3(-(levelData.Width / 2.0f - 0.5f), -(levelData.Height / 2.0f - 0.5f), levelData.Width / 2.0f) * PhysicalSize);
+        camera.Translate(new Vector3(-(levelData.Width / 2.0f - 0.5f), -(levelData.Height / 2.0f - 0.5f), (levelData.Width - 2) / 2.0f) * PhysicalSize);
         // Init pathfinder
         Pathfinder.SetMap(walls, new Vector2Int(levelData.Width, levelData.Height));
         // Init turn flow
