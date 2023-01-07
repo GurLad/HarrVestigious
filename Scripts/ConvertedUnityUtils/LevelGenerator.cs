@@ -31,6 +31,7 @@ public class LevelGenerator : Node
     private Spatial objectsHolder;
     private Camera camera;
     private TurnFlowController turnFlowController;
+    private FloorMarker floorMarker;
 
     public override void _Ready()
     {
@@ -38,6 +39,7 @@ public class LevelGenerator : Node
         objectsHolder = GetNode<Spatial>("Objects");
         camera = GetNode<Camera>("Objects/Camera");
         turnFlowController = GetNode<TurnFlowController>("TurnFlowController");
+        floorMarker = GetNode<FloorMarker>("FloorMarker");
         // Read CSV
         var file = new File();
         file.Open("res://" + WallsCSVPath, File.ModeFlags.Read);
@@ -48,9 +50,10 @@ public class LevelGenerator : Node
         file.Open("res://" + EntitiesJSONPath, File.ModeFlags.Read);
         string entitiesJSON = file.GetAsText();
         file.Close();
-        levelData = LevelData.Interpret(entitiesJSON.ToString(), TileSize); // TEMP - fix later, tired
+        levelData = LevelData.Interpret(entitiesJSON, TileSize);
         // Generate walls
-        walls = ImportWalls(wallsCSV.ToString(), levelData.Width, levelData.Height); // TEMP - fix later, tired
+        walls = ImportWalls(wallsCSV, levelData.Width, levelData.Height);
+        floorMarker.NewLevel(new Vector2Int(levelData.Width, levelData.Height));
         for (int x = 0; x < levelData.Width; x++)
         {
             for (int y = 0; y < levelData.Height; y++)
@@ -58,9 +61,10 @@ public class LevelGenerator : Node
                 switch (walls[x, y])
                 {
                     case 0: // Floor
-                        Spatial newFloor = FloorScene.Instance<Spatial>();
+                        Floor newFloor = FloorScene.Instance<Floor>();
                         newFloor.Translate(new Vector2Int(x, y).To3D() * PhysicalSize);
                         objectsHolder.AddChild(newFloor);
+                        floorMarker.AddFloor(x, y, newFloor);
                         break;
                     case 1: // Outer Wall
                         Spatial newOuterWall = OuterWallScene.Instance<Spatial>();
@@ -100,7 +104,10 @@ public class LevelGenerator : Node
                         break;
                     case "Orc":
                         entityObject = unitObject = OrcScene.Instance<Unit>();
+                        unitObject.Pos = pos;
                         unitObject.HasVest = entity.customFields["HasVest"].boolData;
+                        unitObject.FloorMarker = floorMarker;
+                        unitObject.TurnFlowController = turnFlowController;
                         turnFlowController.AddUnit(unitObject);
                         break;
                     default:

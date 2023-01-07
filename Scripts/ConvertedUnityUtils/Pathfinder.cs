@@ -91,6 +91,30 @@ public static class Pathfinder
         return null;
     }
 
+    public static List<Vector2Int> GetMoveArea(Vector2Int start, int move)
+    {
+        List<Vector2Int> result = new List<Vector2Int>();
+        result.Add(start);
+        if (move <= 0)
+        {
+            return result;
+        }
+        for (int i = -1; i <= 1; i++)
+        {
+            for (int j = -1; j <= 1; j++)
+            {
+                if ((i != 0 && j == 0) || (j != 0 && i == 0))
+                {
+                    if (CanMove(start.x + i, start.y + j))
+                    {
+                        result.AddRange(GetMoveArea(start + new Vector2Int(i, j), move - 1));
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
     private static List<Vector2Int> RecoverPath(Dictionary<Point, Point> cameFrom, Point current)
     {
         void Squash(List<Point> totalPathArg, int curr, int next)
@@ -109,24 +133,24 @@ public static class Pathfinder
             totalPath.Add(current);
         }
         // Post-process path
-        if (totalPath.Count > 2) // No need to squash if it's just 2 steps...
-        {
-            int curr = 0, next = 2;
-            while (next < totalPath.Count)
-            {
-                if (!HasLineOfSight(totalPath[curr], totalPath[next]))
-                {
-                    Squash(totalPath, curr, next);
-                    curr++;
-                    next = curr + 2; // Must have a line of sight with neighbors, so no need to check them
-                }
-                else
-                {
-                    next++;
-                }
-            }
-            Squash(totalPath, curr, next);
-        }
+        //if (totalPath.Count > 2) // No need to squash if it's just 2 steps...
+        //{
+        //    int curr = 0, next = 2;
+        //    while (next < totalPath.Count)
+        //    {
+        //        if (!HasLineOfSight(totalPath[curr], totalPath[next]))
+        //        {
+        //            Squash(totalPath, curr, next);
+        //            curr++;
+        //            next = curr + 2; // Must have a line of sight with neighbors, so no need to check them
+        //        }
+        //        else
+        //        {
+        //            next++;
+        //        }
+        //    }
+        //    Squash(totalPath, curr, next);
+        //}
         // Reverse & convert path
         List<Vector2Int> reversed = new List<Vector2Int>();
         for (int i = totalPath.Count - 1; i >= 0; i--)

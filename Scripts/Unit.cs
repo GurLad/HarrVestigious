@@ -22,9 +22,13 @@ public class Unit : Spatial
     public List<AUnitAction> Actions = new List<AUnitAction>();
     public bool HasVest;
     public bool Moved = false;
+    // External objects
+    public TurnFlowController TurnFlowController;
+    public FloorMarker FloorMarker;
     // For animations
     private AAnimation currentAnimation;
     private Queue<Action> actionQueue = new Queue<Action>();
+    // Internal objects
     private UnitAnchorAnimations anchorAnimations;
     private Spatial vestObject;
 
@@ -121,12 +125,20 @@ public class Unit : Spatial
 
     public void _OnMouseEntered()
     {
-
+        List<Vector2Int> possibleMoves = Pathfinder.GetMoveArea(Pos, Movement);
+        foreach (Vector2Int move in possibleMoves)
+        {
+            FloorMarker.AddMarker(move, FloorMarker.MarkType.PreviewMove);
+        }
     }
 
     public void _OnMouseLeave()
     {
-
+        List<Vector2Int> possibleMoves = Pathfinder.GetMoveArea(Pos, Movement);
+        foreach (Vector2Int move in possibleMoves)
+        {
+            FloorMarker.RemoveMarker(move, FloorMarker.MarkType.PreviewMove);
+        }
     }
 
     protected virtual void AIAction()

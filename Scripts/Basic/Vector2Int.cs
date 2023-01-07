@@ -9,6 +9,11 @@ public class Vector2Int // Incomplete (aka no =,+,...), but who cares
     public int x { get; set; } = 0;
     public int y { get; set; } = 0;
 
+    public static Vector2Int operator +(Vector2Int a, Vector2Int b)
+    {
+        return new Vector2Int(a.x + b.x, a.y + b.y);
+    }
+
     public Vector2Int(int x, int y)
     {
         this.x = x;
