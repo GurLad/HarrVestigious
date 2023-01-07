@@ -119,6 +119,16 @@ public class Unit : Spatial
         }
     }
 
+    public void _OnMouseEntered()
+    {
+
+    }
+
+    public void _OnMouseLeave()
+    {
+
+    }
+
     protected virtual void AIAction()
     {
         // By default, does the wait action (aka action 0)

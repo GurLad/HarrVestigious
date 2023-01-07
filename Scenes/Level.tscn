@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/ConvertedUnityUtils/LevelGenerator.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Tiles/Floor.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scripts/TurnFlowController.cs" type="Script" id=8]
 [ext_resource path="res://game_theme.tres" type="Theme" id=9]
 [ext_resource path="res://Scenes/UI/UnitPanel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/FloorMarker.cs" type="Script" id=11]
 
 [node name="Level" type="Node"]
 script = ExtResource( 1 )
@@ -25,7 +26,10 @@ OrcScene = ExtResource( 3 )
 [node name="TurnFlowController" type="Node" parent="."]
 script = ExtResource( 8 )
 BasePanel = ExtResource( 10 )
-PanelHolderPath = NodePath("../GameUI/CenterContainer/VBoxContainer")
+PanelHolderPath = NodePath("../GameUI/TurnFlowUI/VBoxContainer")
+
+[node name="FloorMarker" type="Node" parent="."]
+script = ExtResource( 11 )
 
 [node name="Objects" type="Spatial" parent="."]
 
@@ -74,14 +78,22 @@ anchor_bottom = 1.0
 mouse_filter = 2
 theme = ExtResource( 9 )
 
-[node name="CenterContainer" type="CenterContainer" parent="GameUI"]
+[node name="TurnFlowUI" type="CenterContainer" parent="GameUI"]
 anchor_bottom = 1.0
 margin_right = 200.0
+mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameUI/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameUI/TurnFlowUI"]
 margin_top = 300.0
 margin_right = 200.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 200, 0 )
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
+
+[node name="ActionButtonsUI" type="CenterContainer" parent="GameUI"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2

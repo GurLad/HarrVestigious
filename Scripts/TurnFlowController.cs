@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class TurnFlowController : Node
 {
-    public static TurnFlowController Current;
     [Export]
     public PackedScene BasePanel;
     [Export]
@@ -16,7 +15,6 @@ public class TurnFlowController : Node
     public override void _Ready()
     {
         base._Ready();
-        Current = this;
         panelHolder = GetNode<Control>(PanelHolderPath);
     }
 
