@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/ConvertedUnityUtils/LevelGenerator.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Tiles/Floor.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://game_theme.tres" type="Theme" id=9]
 [ext_resource path="res://Scenes/UI/UnitPanel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scripts/FloorMarker.cs" type="Script" id=11]
+[ext_resource path="res://Scenes/UI/ActionButton.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/PlayerUIController.cs" type="Script" id=13]
 
 [node name="Level" type="Node"]
 script = ExtResource( 1 )
@@ -30,6 +32,12 @@ PanelHolderPath = NodePath("../GameUI/TurnFlowUI/VBoxContainer")
 
 [node name="FloorMarker" type="Node" parent="."]
 script = ExtResource( 11 )
+
+[node name="PlayerUIController" type="Node" parent="."]
+script = ExtResource( 13 )
+ButtonContainerPath = NodePath("../GameUI/ActionButtonsUI/VBoxContainer")
+HelpLabelPath = NodePath("../GameUI/HelpPanel/PanelContainer/Label")
+ActionButtonScene = ExtResource( 12 )
 
 [node name="Objects" type="Spatial" parent="."]
 
@@ -102,19 +110,12 @@ rect_min_size = Vector2( 200, 0 )
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameUI/ActionButtonsUI"]
-margin_top = 513.0
+margin_top = 540.0
 margin_right = 200.0
-margin_bottom = 567.0
+margin_bottom = 540.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="Button" type="Button" parent="GameUI/ActionButtonsUI/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 54.0
-rect_min_size = Vector2( 0, 40 )
-size_flags_horizontal = 3
-text = "Yay"
 
 [node name="HelpPanel" type="CenterContainer" parent="GameUI"]
 anchor_left = 1.0
@@ -122,11 +123,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -850.0
 margin_right = -250.0
+mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="GameUI/HelpPanel"]
-margin_top = 316.0
+visible = false
+margin_top = 490.0
 margin_right = 600.0
-margin_bottom = 764.0
+margin_bottom = 590.0
 rect_min_size = Vector2( 600, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3

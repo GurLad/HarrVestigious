@@ -8,6 +8,7 @@ public abstract class AUnitAction
     public abstract Vector2Int Range { get; }
     public abstract bool RequiresTarget { get; }
     public abstract bool FreeAction { get; }
+    public abstract bool UseMoveMarkers { get; }
     protected Unit thisUnit;
 
     public abstract void Activate(Vector2Int target = null);

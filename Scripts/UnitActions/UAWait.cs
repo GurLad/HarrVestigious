@@ -8,6 +8,7 @@ public class UAWait : AUnitAction
     public override Vector2Int Range => Vector2Int.Zero;
     public override bool RequiresTarget => false;
     public override bool FreeAction => false;
+    public override bool UseMoveMarkers => false;
 
     public override void Activate(Vector2Int target = null)
     {

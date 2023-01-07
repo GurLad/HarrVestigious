@@ -123,6 +123,18 @@ public class Unit : Spatial
         }
     }
 
+    public void PrepareTargetedAction(AUnitAction action)
+    {
+        if (action.UseMoveMarkers)
+        {
+            List<Vector2Int> possibleMoves = Pathfinder.GetMoveArea(Pos, Movement);
+            foreach (Vector2Int move in possibleMoves)
+            {
+                FloorMarker.AddMarker(move, FloorMarker.MarkType.Move);
+            }
+        }
+    }
+
     public void _OnMouseEntered()
     {
         List<Vector2Int> possibleMoves = Pathfinder.GetMoveArea(Pos, Movement);
