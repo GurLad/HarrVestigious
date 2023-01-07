@@ -13,4 +13,19 @@ public static class ExtensionMethods
     {
         return new Vector2Int(Mathf.RoundToInt(vector3.z), Mathf.RoundToInt(vector3.x));
     }
+
+    public static float NextFloat(this Random random, Vector2 range)
+    {
+        return random.NextFloat(range.x, range.y);
+    }
+
+    public static float NextFloat(this Random random, float minValue, float maxValue)
+    {
+        return (float)(random.NextDouble() * (maxValue - minValue) + minValue);
+    }
+
+    public static float Percent(this Timer timer)
+    {
+        return 1 - timer.TimeLeft / timer.WaitTime;
+    }
 }

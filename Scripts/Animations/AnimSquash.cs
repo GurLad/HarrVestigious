@@ -19,7 +19,7 @@ public class AnimSquash : AAnimation<AnimSquash.Args>
         }
         Vector3 scaleFullSquash = (Vector3.One - args.Direction.Normalized() * args.Strength) * baseScale;
         float percentEased = Easing.EaseOutQuart(percent <= 1 ? percent : (2 - percent));
-        target.Transform = target.Transform.Scaled(scaleFullSquash * percentEased + baseScale * (1 - percentEased));
+        target.Scale = scaleFullSquash * percentEased + baseScale * (1 - percentEased);
     }
 
     public class Args : AAnimationArgs

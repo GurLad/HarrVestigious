@@ -21,11 +21,19 @@ public class Unit : Spatial
     // For animations
     private AAnimation currentAnimation;
     private Queue<Action> actionQueue = new Queue<Action>();
+    private UnitAnchorAnimations anchorAnimations;
 
     public void Move(Vector2Int target) // Move is technically an action that everything has - TODO: move to an action
     {
         // TODO: play move animation
         actionQueue.Enqueue(() => Pos = target);
+    }
+
+    public override void _Ready()
+    {
+        base._Ready();
+        anchorAnimations = GetNode<UnitAnchorAnimations>("Anchor");
+        anchorAnimations.AddAnimation(UnitAnchorAnimations.Mode.Breath);
     }
 
     public override void _Process(float delta)

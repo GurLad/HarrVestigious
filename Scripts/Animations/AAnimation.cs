@@ -20,7 +20,7 @@ public abstract class AAnimation : Node
         base._Process(delta);
         if (!Done)
         {
-            AnimateFrame(1 - timer.TimeLeft / timer.WaitTime);
+            AnimateFrame(timer.Percent());
         }
     }
 
