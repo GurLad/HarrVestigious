@@ -50,6 +50,11 @@ public class TurnFlowController : Node
         }
     }
 
+    public Unit GetUnitAtPos(Vector2Int pos)
+    {
+        return allUnits.Find(a => a.Unit.Pos == pos)?.Unit;
+    }
+
     public void Begin()
     {
         currentUnit = allUnits.FindIndex(a => a.Unit.HasVest);

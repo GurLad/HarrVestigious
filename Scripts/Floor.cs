@@ -8,6 +8,7 @@ public class Floor : Spatial
     private Dictionary<FloorMarker.MarkType, Spatial> markers = new Dictionary<FloorMarker.MarkType, Spatial>();
     private AUnitAction clickAction;
     private FloorMarker floorMarker;
+    private FloorMarker.MarkType currentMarks;
 
     public override void _Ready()
     {
@@ -26,6 +27,7 @@ public class Floor : Spatial
 
     public void AddMarker(FloorMarker.MarkType markType, AUnitAction action = null)
     {
+        currentMarks |= markType;
         markers[markType].Visible = true;
         if (action != null)
         {
@@ -35,6 +37,7 @@ public class Floor : Spatial
 
     public void RemoveMarker(FloorMarker.MarkType markType)
     {
+        currentMarks &= ~markType;
         markers[markType].Visible = false;
         if (markType == FloorMarker.MarkType.Move || markType == FloorMarker.MarkType.Attack)
         {
@@ -46,6 +49,10 @@ public class Floor : Spatial
     {
         if (inputEvent is InputEventMouseButton && clickAction != null)
         {
+            if ((currentMarks & FloorMarker.MarkType.Attack) != FloorMarker.MarkType.None && floorMarker.TurnFlowController.GetUnitAtPos(Pos) == null)
+            {
+                return;
+            }
             clickAction.Activate(Pos);
             floorMarker.ClearMarkers();
         }

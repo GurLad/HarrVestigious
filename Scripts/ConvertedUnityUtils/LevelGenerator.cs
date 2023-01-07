@@ -54,7 +54,7 @@ public class LevelGenerator : Node
         levelData = LevelData.Interpret(entitiesJSON, TileSize);
         // Generate walls
         walls = ImportWalls(wallsCSV, levelData.Width, levelData.Height);
-        floorMarker.NewLevel(new Vector2Int(levelData.Width, levelData.Height));
+        floorMarker.NewLevel(new Vector2Int(levelData.Width, levelData.Height), turnFlowController);
         for (int x = 0; x < levelData.Width; x++)
         {
             for (int y = 0; y < levelData.Height; y++)

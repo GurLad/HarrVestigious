@@ -16,6 +16,8 @@ public class Unit : Spatial
     [Export]
     public int Movement;
     [Export]
+    public Vector2 AttackRange = Vector2.One;
+    [Export]
     public Texture Icon;
     // Data
     private Vector2Int _pos;
@@ -59,8 +61,9 @@ public class Unit : Spatial
             anchorAnimations.AddAnimation(UnitAnchorAnimations.Mode.Vest);
             vestObject.Visible = true;
         }
-        // All units can wait and move
+        // All units can move, attack and wait
         AttachAction(new UAMove());
+        AttachAction(new UAAttack());
         AttachAction(new UAWait());
     }
 
@@ -138,6 +141,25 @@ public class Unit : Spatial
             {
                 FloorMarker.AddMarker(move, FloorMarker.MarkType.Move, action);
             }
+        }
+        else
+        {
+            List<Vector2Int> possibleMoves = Pathfinder.GetAttackArea(Pos, action.Range);
+            foreach (Vector2Int move in possibleMoves)
+            {
+                FloorMarker.AddMarker(move, FloorMarker.MarkType.Attack, action);
+            }
+        }
+    }
+
+    // Attacks & stuff
+
+    public void TakeDamage(int amount)
+    {
+        Health -= amount;
+        if (Health <= 0)
+        {
+            // TBA
         }
     }
 

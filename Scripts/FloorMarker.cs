@@ -4,11 +4,13 @@ using System;
 public class FloorMarker : Node
 {
     public enum MarkType { None, PreviewMove = 1, PreviewAttack = 2, Move = 4, Attack = 8 }
+    public TurnFlowController TurnFlowController;
     private Floor[,] floors;
     private Vector2Int size;
 
-    public void NewLevel(Vector2Int size)
+    public void NewLevel(Vector2Int size, TurnFlowController turnFlowController)
     {
+        TurnFlowController = turnFlowController;
         this.size = size;
         floors = new Floor[size.x, size.y];
     }

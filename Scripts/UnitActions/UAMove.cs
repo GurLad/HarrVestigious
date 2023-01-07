@@ -25,6 +25,7 @@ public class UAMove : AUnitAction
         }
         thisUnit.QueueAnimation(new AnimSquash(), new AnimSquash.Args(0.3f, 0.3f, new Vector3(0, 1, 0), false));
         thisUnit.QueueImmediateAction(() => thisUnit.Pos = target);
+        thisUnit.QueueAnimation(new AnimDelay(), new AnimDelay.Args(0.2f));
     }
 
     public override void PassiveEffect()

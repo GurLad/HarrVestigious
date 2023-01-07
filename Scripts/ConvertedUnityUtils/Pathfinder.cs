@@ -133,6 +133,33 @@ public static class Pathfinder
         return result;
     }
 
+    public static List<Vector2Int> GetAttackArea(Vector2Int start, Vector2Int range, int move = 0)
+    {
+        List<Vector2Int> result = new List<Vector2Int>();
+        if (move >= range.x && move <= range.y)
+        {
+            result.Add(start);
+        }
+        if (move >= range.y)
+        {
+            return result;
+        }
+        for (int i = -1; i <= 1; i++)
+        {
+            for (int j = -1; j <= 1; j++)
+            {
+                if ((i != 0 && j == 0) || (j != 0 && i == 0))
+                {
+                    if (CanMove(start.x + i, start.y + j, true))
+                    {
+                        result.AddRange(GetAttackArea(start + new Vector2Int(i, j), range, move + 1));
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
     private static List<Vector2Int> RecoverPath(Dictionary<Point, Point> cameFrom, Point current)
     {
         void Squash(List<Point> totalPathArg, int curr, int next)
@@ -194,7 +221,7 @@ public static class Pathfinder
         {
             return true;
         }
-        return map[x, y] <= 0 && objects[x, y] <= 0;
+        return map[x, y] <= 0 && (ignoreObjects || objects[x, y] <= 0);
     }
 
     private static bool HasLineOfSight(Point start, Point end)

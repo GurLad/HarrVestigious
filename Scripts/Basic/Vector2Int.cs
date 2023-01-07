@@ -37,6 +37,8 @@ public class Vector2Int // Incomplete (aka no =,+,...), but who cares
         this.y = y;
     }
 
+    public Vector2Int(Vector2 vector2) : this(Mathf.RoundToInt(vector2.x), Mathf.RoundToInt(vector2.y)) { }
+
     public static float Distance(Vector2Int vec1, Vector2Int vec2)
     {
         return Mathf.Sqrt(Mathf.Pow(vec1.x - vec2.x, 2) + Mathf.Pow(vec1.y - vec2.y, 2));
