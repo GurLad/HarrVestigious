@@ -7,6 +7,12 @@
 [node name="Level" type="Node"]
 script = ExtResource( 1 )
 WallsCSVPath = "Levels/Levels/simplified/Level_0/Terrain.csv"
-EntitiesJSONPath = "NullLevels/Levels/simplified/Level_0/data.json"
+EntitiesJSONPath = "Levels/Levels/simplified/Level_0/data.json"
+PhysicalSize = 2
 FloorScene = ExtResource( 2 )
 OrcScene = ExtResource( 3 )
+
+[node name="Objects" type="Spatial" parent="."]
+
+[node name="Camera" type="Camera" parent="Objects"]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 0, 0, 0 )

@@ -17,10 +17,10 @@ public class Unit : Spatial
     public int Movement;
     // Data
     public Vector2Int Pos;
-    public List<AUnitAction> Actions;
+    public List<AUnitAction> Actions = new List<AUnitAction>();
     // For animations
     private AAnimation currentAnimation;
-    private Queue<Action> actionQueue;
+    private Queue<Action> actionQueue = new Queue<Action>();
 
     public void Move(Vector2Int target) // Move is technically an action that everything has - TODO: move to an action
     {

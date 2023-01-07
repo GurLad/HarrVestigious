@@ -2,7 +2,6 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using System.Numerics;
 
 public class LevelGenerator : Node
 {
@@ -23,10 +22,14 @@ public class LevelGenerator : Node
     public PackedScene OrcScene;
     private LevelData levelData;
     private int[,] walls;
+    private Spatial objectsHolder;
+    private Camera camera;
 
     public override void _Ready()
     {
         base._Ready();
+        objectsHolder = GetNode<Spatial>("Objects");
+        camera = GetNode<Camera>("Objects/Camera");
         // Read CSV
         var file = new File();
         file.Open("res://" + WallsCSVPath, File.ModeFlags.Read);
@@ -49,7 +52,7 @@ public class LevelGenerator : Node
                     case 0: // Floor
                         Spatial newFloor = FloorScene.Instance<Spatial>();
                         newFloor.Translate(new Vector2Int(x, y).To3D() * PhysicalSize);
-                        AddChild(newFloor);
+                        objectsHolder.AddChild(newFloor);
                         break;
                     case 1: // Wall
                         //GameObject newWall = Instantiate(Wall, WallHolder);
@@ -83,9 +86,11 @@ public class LevelGenerator : Node
                         throw new System.Exception("What");
                 }
                 entityObject.Translate(pos.To3D() * PhysicalSize);
-                AddChild(entityObject);
+                objectsHolder.AddChild(entityObject);
             }
         }
+        // Camrea
+        camera.Translate(new Vector3(-(levelData.Width / 2.0f - 0.5f), -(levelData.Height / 2.0f - 0.5f), levelData.Width / 2.0f) * PhysicalSize);
         // Init pathfinder
         Pathfinder.SetMap(walls, new Vector2Int(levelData.Width, levelData.Height));
     }

@@ -84,7 +84,7 @@
 			"parallaxScaling": true,
 			"requiredTags": [],
 			"excludedTags": [],
-			"intGridValues": [ { "value": 1, "identifier": "Wall", "color": "#3E2731" }, { "value": 2, "identifier": "Floor", "color": "#E4A672" } ],
+			"intGridValues": [ { "value": 1, "identifier": "Floor", "color": "#E4A672" }, { "value": 2, "identifier": "Wall", "color": "#3E2731" } ],
 			"autoRuleGroups": [],
 			"autoSourceLayerDefUid": null,
 			"tilesetDefUid": null,
@@ -310,9 +310,9 @@
 					"visible": true,
 					"optionalRules": [],
 					"intGridCsv": [
-						1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,1,1,2,2,2,2,2,2,2,1,2,2,
-						1,1,2,2,2,2,2,2,2,2,2,2,1,1,2,1,2,2,2,2,2,2,2,2,1,1,2,2,2,2,1,2,2,2,2,
-						2,1,1,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1
+						2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,2,2,1,1,1,1,1,1,1,2,1,1,
+						2,2,1,1,1,1,1,1,1,1,1,1,2,2,1,1,2,1,1,1,1,1,1,1,2,2,1,1,1,1,1,2,1,1,1,
+						1,2,2,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2
 					],
 					"autoLayerTiles": [],
 					"seed": 6210788,
