@@ -42,6 +42,8 @@ public class Unit : Spatial
         {
             anchorAnimations.AddAnimation(UnitAnchorAnimations.Mode.Vest);
         }
+        // All units have the wait action
+        AttachAction(new UAWait());
     }
 
     public override void _Process(float delta)
@@ -61,15 +63,22 @@ public class Unit : Spatial
 
     public void BeginTurn()
     {
-        // Temp - just do nothing
-        Moved = true;
+        if (HasVest)
+        {
+            // TBA: player UI
+            Moved = true;
+        }
+        else
+        {
+            AIAction();
+        }
     }
 
     public void QueueAnimation<T, S>(T animation, S animationArgs) where S : AAnimationArgs where T : AAnimation<S>
     {
+        AddChild(animation);
         actionQueue.Enqueue(() =>
         {
-            AddChild(animation);
             currentAnimation = animation.Begin(this, animationArgs);
         });
     }
@@ -77,5 +86,38 @@ public class Unit : Spatial
     public void QueueImmediateAction(Action action)
     {
         actionQueue.Enqueue(action);
+    }
+
+    public void AttachAction(AUnitAction unitAction)
+    {
+        unitAction.AttachToUnit(this);
+        Actions.Add(unitAction);
+    }
+
+    public void UseAction<T>(Vector2Int targetPos = null) where T : AUnitAction
+    {
+        T target = (T)Actions.Find(a => a is T);
+        if (target != null)
+        {
+            if (target.RequiresTarget && targetPos == null)
+            {
+                throw new Exception(target.Name + " requires a target!");
+            }
+            target.Activate(targetPos);
+            if (!target.FreeAction)
+            {
+                QueueImmediateAction(() => Moved = true);
+            }
+        }
+        else
+        {
+            throw new Exception("Unit can't use " + nameof(T) + "!");
+        }
+    }
+
+    protected virtual void AIAction()
+    {
+        // By default, does the wait action (aka action 0)
+        UseAction<UAWait>();
     }
 }

@@ -28,9 +28,8 @@ public class AnimSquash : AAnimation<AnimSquash.Args>
         public Vector3 Direction;
         public bool OneWay;
 
-        public Args(float time, float strength, Vector3 direction, bool oneWay)
+        public Args(float time, float strength, Vector3 direction, bool oneWay) : base(time)
         {
-            Time = time;
             Strength = strength;
             Direction = direction;
             OneWay = oneWay;
