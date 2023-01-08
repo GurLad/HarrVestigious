@@ -67,6 +67,7 @@ public class Unit : Spatial
     public List<AUnitAction> Actions = new List<AUnitAction>();
     public bool Moved = false;
     public bool Stunned;
+    public bool Animating => currentAnimation != null || actionQueue.Count > 0;
     // External objects
     public TurnFlowController TurnFlowController;
     public FloorMarker FloorMarker;
@@ -103,7 +104,7 @@ public class Unit : Spatial
     public override void _Process(float delta)
     {
         base._Process(delta);
-        if ((currentAnimation?.Done ?? true) && actionQueue.Count > 0)
+        if (currentAnimation?.Done ?? actionQueue.Count > 0)
         {
             if (currentAnimation != null)
             {
@@ -112,7 +113,10 @@ public class Unit : Spatial
                 currentAnimation.QueueFree();
                 currentAnimation = null;
             }
-            actionQueue.Dequeue().Invoke();
+            if (actionQueue.Count > 0)
+            {
+                actionQueue.Dequeue().Invoke();
+            }
         }
     }
 
@@ -260,7 +264,8 @@ public class Unit : Spatial
         TurnFlowController.UpdateUI();
         if (Health <= 0)
         {
-            // TBA
+            QueueAnimation(new AnimDie(), new AnimDie.Args(0.7f));
+            QueueImmediateAction(() => TurnFlowController.RemoveUnit(this));
         }
     }
 

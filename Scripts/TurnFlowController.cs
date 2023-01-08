@@ -41,8 +41,10 @@ public class TurnFlowController : Node
         UnitPanel panel = allUnits.Find(a => a.Unit == unit);
         if (panel != null)
         {
-            panel.QueueFree();
+            Pathfinder.RemoveObject(panel.Unit.Pos);
+            allUnits.Remove(panel);
             panel.Unit.QueueFree();
+            panel.QueueFree();
         }
         else
         {
@@ -94,8 +96,20 @@ public class TurnFlowController : Node
 
     private void NextUnit()
     {
-        DeactivateUnit(currentUnit);
-        ActivateUnit((currentUnit + 1) % allUnits.Count);
+        int nextTarget = (currentUnit + 1) % allUnits.Count;
+        if (!allUnits[nextTarget].Unit.Animating)
+        {
+            if (currentUnit != nextTarget)
+            {
+                DeactivateUnit(currentUnit);
+                ActivateUnit(nextTarget);
+            }
+            else
+            {
+                allUnits[currentUnit].Unit.Moved = false;
+                allUnits[currentUnit].Unit.BeginTurn();
+            }
+        }
     }
 
     private void DeactivateUnit(int index)

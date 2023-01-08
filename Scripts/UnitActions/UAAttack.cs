@@ -19,8 +19,8 @@ public class UAAttack : AUnitAction
             thisUnit.QueueAnimation(new AnimKnock(), new AnimKnock.Args(0.3f, 30, targetUnit.Pos - thisUnit.Pos, true, false));
             thisUnit.QueueImmediateAction(() =>
             {
-                targetUnit.TakeDamage(thisUnit.Attack - targetUnit.Defense);
                 targetUnit.QueueAnimation(new AnimKnock(), new AnimKnock.Args(0.8f, 50, targetUnit.Pos - thisUnit.Pos, false, true));
+                targetUnit.TakeDamage(thisUnit.Attack - targetUnit.Defense);
             });
             thisUnit.QueueAnimation(new AnimKnock(), new AnimKnock.Args(0.3f, -30, targetUnit.Pos - thisUnit.Pos, true, false));
             thisUnit.QueueAnimation(new AnimDelay(), new AnimDelay.Args(0.5f));
