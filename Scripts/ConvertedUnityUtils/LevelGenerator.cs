@@ -115,7 +115,7 @@ public class LevelGenerator : Node
 
     public void Win()
     {
-        Transition(() => GenerateLevel((currentLevel + 1) & 8), BeginLevel);
+        Transition(() => GenerateLevel((currentLevel + 1) % 8), BeginLevel);
     }
 
     public void Lose()
