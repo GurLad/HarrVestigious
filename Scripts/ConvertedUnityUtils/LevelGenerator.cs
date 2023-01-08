@@ -64,7 +64,7 @@ public class LevelGenerator : Node
         blackScreen = GetNode<Control>("GameUI/BlackScreen");
         transitionTimer = GetNode<Timer>("TransitionTimer");
         // Generate first level
-        GenerateLevel(4);
+        GenerateLevel(0);
         transitionTimer.Start();
         postTransition = BeginLevel;
         state = State.FadeIn;
