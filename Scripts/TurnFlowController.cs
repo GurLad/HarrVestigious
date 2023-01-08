@@ -42,7 +42,8 @@ public class TurnFlowController : Node
 
     public void RemoveUnit(Unit unit)
     {
-        UnitPanel panel = allUnits.Find(a => a.Unit == unit);
+        int unitIndex = allUnits.FindIndex(a => a.Unit == unit);
+        UnitPanel panel = allUnits[unitIndex];
         if (panel != null)
         {
             if (unit.HasVest)
@@ -55,6 +56,10 @@ public class TurnFlowController : Node
                 allUnits.Remove(panel);
                 panel.Unit.QueueFree();
                 panel.QueueFree();
+                if (unitIndex <= currentUnit)
+                {
+                    currentUnit--;
+                }
             }
         }
         else

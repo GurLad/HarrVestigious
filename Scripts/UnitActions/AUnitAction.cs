@@ -27,6 +27,7 @@ public abstract class AUnitAction
         {
             throw new Exception(Name + " requires a target!");
         }
+        thisUnit.PlayerUIController.HideUI(false);
         ActivateEffect(target);
         if (!FreeAction)
         {

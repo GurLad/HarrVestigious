@@ -21,6 +21,7 @@ public class UAGiveVest : AUnitAction
                 thisUnit.HasVest = false;
                 thisUnit.Stunned = true;
                 targetUnit.HasVest = true;
+                targetUnit.PlaySFX(Unit.SFXType.Begin);
                 thisUnit.TurnFlowController.UpdateUI();
             });
             thisUnit.QueueAnimation(new AnimKnock(), new AnimKnock.Args(0.3f, -30, targetUnit.Pos - thisUnit.Pos, true, false));

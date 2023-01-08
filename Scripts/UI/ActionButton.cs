@@ -62,7 +62,7 @@ public class ActionButton : Button
         base._Pressed();
         _OnMouseLeave();
         clicked = true;
-        uiController.HideUI();
+        uiController.HideUI(Action.RequiresTarget);
         if (Action.RequiresTarget)
         {
             player.PrepareTargetedAction(Action);
