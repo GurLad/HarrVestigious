@@ -32,4 +32,9 @@ public class UAMove : AUnitAction
     {
         // Do nothing
     }
+
+    public override bool ValidTarget(Unit target)
+    {
+        return true;
+    }
 }

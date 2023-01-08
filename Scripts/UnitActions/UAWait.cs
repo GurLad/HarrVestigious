@@ -12,11 +12,16 @@ public class UAWait : AUnitAction
 
     protected override void ActivateEffect(Vector2Int target = null)
     {
-        thisUnit.QueueAnimation(new AnimDelay(), new AnimDelay.Args(0.5f));
+        thisUnit.QueueAnimation(new AnimDelay(), new AnimDelay.Args(0.25f));
     }
 
     public override void PassiveEffect()
     {
         // Do nothing
+    }
+
+    public override bool ValidTarget(Unit target)
+    {
+        return true;
     }
 }

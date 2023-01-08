@@ -35,4 +35,9 @@ public class UAAttack : AUnitAction
     {
         // Do nothing
     }
+
+    public override bool ValidTarget(Unit target)
+    {
+        return true;
+    }
 }

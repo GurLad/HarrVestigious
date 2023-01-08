@@ -14,6 +14,7 @@ public abstract class AUnitAction
 
     protected abstract void ActivateEffect(Vector2Int target = null);
     public abstract void PassiveEffect();
+    public abstract bool ValidTarget(Unit target);
 
     public void AttachToUnit(Unit unit)
     {

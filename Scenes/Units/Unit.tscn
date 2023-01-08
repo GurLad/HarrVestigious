@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Unit.cs" type="Script" id=1]
 [ext_resource path="res://Textures/Floor.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/UnitAnchorAnimations.cs" type="Script" id=3]
 [ext_resource path="res://Scenes/Vest.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Particles/die_particles.tres" type="Material" id=5]
+[ext_resource path="res://particle_curve.tres" type="Texture" id=6]
+[ext_resource path="res://Scripts/Basic/Rotate.cs" type="Script" id=7]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -17,6 +19,28 @@ flags_transparent = true
 vertex_color_use_as_albedo = true
 
 [sub_resource type="SphereMesh" id=6]
+
+[sub_resource type="SpatialMaterial" id=9]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 5
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.8
+emission_ring_height = 0.0
+emission_ring_axis = Vector3( 0, 1, 0 )
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.1
+angular_velocity = 85.55
+scale = 0.1
+scale_curve = ExtResource( 6 )
+color = Color( 0.980392, 0.92549, 0.494118, 0.627451 )
+
+[sub_resource type="SphereMesh" id=8]
 
 [sub_resource type="BoxShape" id=3]
 
@@ -49,6 +73,19 @@ draw_pass_1 = SubResource( 6 )
 
 [node name="Vest" parent="Anchor" instance=ExtResource( 4 )]
 visible = false
+
+[node name="StunnedObject" type="Spatial" parent="Anchor"]
+visible = false
+
+[node name="Particles" type="Particles" parent="Anchor/StunnedObject"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22222, 0 )
+material_override = SubResource( 9 )
+amount = 12
+lifetime = 2.0
+process_material = SubResource( 7 )
+draw_pass_1 = SubResource( 8 )
+script = ExtResource( 7 )
+Speed = 2.0
 
 [node name="Area" type="Area" parent="Anchor"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )

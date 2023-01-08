@@ -4,7 +4,7 @@ using System;
 public class UAGiveVest : AUnitAction
 {
     public override string Name => "Transfer Vest";
-    public override string Description => "Gives the Cursed Vest to a target.\nRequires the target to be adjacent.";
+    public override string Description => "Gives the Cursed Vest to a target, granting you control over it.\nStuns the current wearer for 1 turn.\nYou cannot give the vest to stunned targets.";
     public override Vector2Int Range => new Vector2Int(thisUnit.AttackRange);
     public override bool RequiresTarget => true;
     public override bool FreeAction => false;
@@ -19,6 +19,7 @@ public class UAGiveVest : AUnitAction
             thisUnit.QueueImmediateAction(() =>
             {
                 thisUnit.HasVest = false;
+                thisUnit.Stunned = true;
                 targetUnit.HasVest = true;
                 thisUnit.TurnFlowController.UpdateUI();
             });
@@ -34,5 +35,10 @@ public class UAGiveVest : AUnitAction
     public override void PassiveEffect()
     {
         // Do nothing
+    }
+
+    public override bool ValidTarget(Unit target)
+    {
+        return !target.Stunned;
     }
 }

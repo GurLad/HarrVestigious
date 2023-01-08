@@ -75,9 +75,21 @@ public class Unit : Spatial
             }
         }
     }
+    private bool _stunned;
+    public bool Stunned
+    {
+        get
+        {
+            return _stunned;
+        }
+        set
+        {
+            _stunned = value;
+            stunnedObject.Visible = Stunned;
+        }
+    }
     public List<AUnitAction> Actions = new List<AUnitAction>();
     public bool Moved = false;
-    public bool Stunned;
     public bool Animating => currentAnimation != null || actionQueue.Count > 0;
     // External objects
     public TurnFlowController TurnFlowController;
@@ -89,6 +101,7 @@ public class Unit : Spatial
     // Internal objects
     private UnitAnchorAnimations anchorAnimations;
     private Spatial vestObject;
+    private Spatial stunnedObject;
     private Particles damageParticles;
     private AudioStreamPlayer3D audioPlayer;
     // Misc
@@ -97,6 +110,7 @@ public class Unit : Spatial
     public void Init()
     {
         vestObject = GetNode<Spatial>("Anchor/Vest");
+        stunnedObject = GetNode<Spatial>("Anchor/StunnedObject");
     }
 
     public override void _Ready()
@@ -152,7 +166,15 @@ public class Unit : Spatial
         }
         else
         {
-            AIAction();
+            if (Stunned)
+            {
+                Stunned = false;
+                UseAction<UAWait>();
+            }
+            else
+            {
+                AIAction();
+            }
         }
     }
 

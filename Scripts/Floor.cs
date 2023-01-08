@@ -50,7 +50,9 @@ public class Floor : Spatial
     {
         if (inputEvent is InputEventMouseButton && clickAction != null)
         {
-            if ((currentMarks & FloorMarker.MarkType.Attack) != FloorMarker.MarkType.None && floorMarker.TurnFlowController.GetUnitAtPos(Pos) == null)
+            Unit atPos = floorMarker.TurnFlowController.GetUnitAtPos(Pos);
+            if ((currentMarks & FloorMarker.MarkType.Attack) != FloorMarker.MarkType.None &&
+                (atPos == null || !clickAction.ValidTarget(atPos)))
             {
                 return;
             }
