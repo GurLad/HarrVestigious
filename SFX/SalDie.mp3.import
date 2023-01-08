@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SalDie.mp3-c4322d133c48dba0b0a0c3d40c79dd19.mp3str"
+
+[deps]
+
+source_file="res://SFX/SalDie.mp3"
+dest_files=[ "res://.import/SalDie.mp3-c4322d133c48dba0b0a0c3d40c79dd19.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

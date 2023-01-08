@@ -109,6 +109,7 @@ public class Unit : Spatial
     // Misc
     private Random rng = new Random();
     private Vector2Int initalPos;
+    private static int salMode;
 
     public void Init()
     {
@@ -128,6 +129,13 @@ public class Unit : Spatial
         AttachAction(new UAMove());
         AttachAction(new UAAttack());
         AttachAction(new UAWait());
+        // Hardcoded Sal stuff
+        if (UnitType == "Sal")
+        {
+            AttachAction(new UASalSummon());
+            UASalSummon.Mode = 0;
+            salMode = 0;
+        }
     }
 
     public override void _Process(float delta)
@@ -327,7 +335,7 @@ public class Unit : Spatial
         };
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, Unit killer)
     {
         Health -= amount;
         damageParticles.Emitting = true;
@@ -336,6 +344,7 @@ public class Unit : Spatial
         if (Health <= 0)
         {
             Die();
+            //killer.QueueAnimation(new AnimDelay(), new AnimDelay.Args(0.5f));
         }
     }
 
@@ -479,6 +488,33 @@ public class Unit : Spatial
                 break;
             case "Golem":
                 UseAction<UAWait>();
+                break;
+            case "Sal":
+                switch (salMode)
+                {
+                    case 0:
+                        if (TryAttackFromPlace())
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            UseAction<UAWait>();
+                        }
+                        salMode = 1;
+                        break;
+                    case 1:
+                        UseAction<UASalSummon>();
+                        Stunned = true;
+                        salMode = 0;
+                        break;
+                    case 2:
+                        UseAction<UAWait>();
+                        salMode = 0;
+                        break;
+                    default:
+                        break;
+                }
                 break;
             default:
                 break;

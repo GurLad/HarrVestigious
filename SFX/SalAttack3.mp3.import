@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SalAttack3.mp3-5401fa66d6ece0e671db7d7db1752adb.mp3str"
+
+[deps]
+
+source_file="res://SFX/SalAttack3.mp3"
+dest_files=[ "res://.import/SalAttack3.mp3-5401fa66d6ece0e671db7d7db1752adb.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

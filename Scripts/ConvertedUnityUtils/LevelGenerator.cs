@@ -6,6 +6,9 @@ using Newtonsoft.Json;
 public class LevelGenerator : Node
 {
     public static readonly int PHYSICAL_SIZE = 2;
+    public static PackedScene SalSkeleton;
+    public static PackedScene SalOrc;
+    public static Spatial SalHolder;
     private enum State { Idle, FadeOut, FadeIn }
     // General data
     [Export]
@@ -40,6 +43,8 @@ public class LevelGenerator : Node
     public PackedScene ImpScene;
     [Export]
     public PackedScene GolemScene;
+    [Export]
+    public PackedScene SalScene;
     private LevelData levelData;
     private int[,] walls;
     private Spatial objectsHolder;
@@ -68,10 +73,14 @@ public class LevelGenerator : Node
         blackScreen = GetNode<Control>("GameUI/BlackScreen");
         transitionTimer = GetNode<Timer>("TransitionTimer");
         // Generate first level
-        GenerateLevel(6);
+        GenerateLevel(7);
         transitionTimer.Start();
         postTransition = BeginLevel;
         state = State.FadeIn;
+        // Hardcoded
+        SalSkeleton = SkeletonScene;
+        SalOrc = OrcScene;
+        SalHolder = objectsHolder;
     }
 
     public override void _Process(float delta)
@@ -106,7 +115,7 @@ public class LevelGenerator : Node
 
     public void Win()
     {
-        Transition(() => GenerateLevel(currentLevel + 1), BeginLevel);
+        Transition(() => GenerateLevel((currentLevel + 1) & 8), BeginLevel);
     }
 
     public void Lose()
@@ -244,6 +253,10 @@ public class LevelGenerator : Node
                         break;
                     case "Golem":
                         entityObject = unitObject = GolemScene.Instance<Unit>();
+                        CreateUnit(unitObject, pos, entity);
+                        break;
+                    case "Sal":
+                        entityObject = unitObject = SalScene.Instance<Unit>();
                         CreateUnit(unitObject, pos, entity);
                         break;
                     default:
