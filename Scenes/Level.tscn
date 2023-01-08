@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/ConvertedUnityUtils/LevelGenerator.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Tiles/Floor.tscn" type="PackedScene" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://Scenes/Units/GoblinUnit.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Units/SkeletonUnit.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scripts/TutorialController.cs" type="Script" id=20]
+[ext_resource path="res://Scenes/Units/ImpUnit.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Units/GolemUnit.tscn" type="PackedScene" id=22]
 
 [node name="Level" type="Node"]
 script = ExtResource( 1 )
@@ -35,6 +37,8 @@ LadderScene = ExtResource( 17 )
 OrcScene = ExtResource( 3 )
 GoblinScene = ExtResource( 18 )
 SkeletonScene = ExtResource( 19 )
+ImpScene = ExtResource( 21 )
+GolemScene = ExtResource( 22 )
 
 [node name="TurnFlowController" type="Node" parent="."]
 script = ExtResource( 8 )
@@ -53,7 +57,7 @@ ActionButtonScene = ExtResource( 12 )
 
 [node name="TutorialController" type="Node" parent="."]
 script = ExtResource( 20 )
-Tutorials = [ [ "You play as the titular Cursed Vest of Harvesting. You control the monster currently wearing it, and your goal in each level is to reach the ladder. If a monster dies while wearing the vest, you lose.", "Each monster has six stats: Health, Soul, Attack, Defence, Movement and Range. You can view those on the left side of the screen.", "After every turn, the vest harvests one soul from its wearer. If the wearer runs out of souls, they die. The other monsters will attack you if you enter their range.", "New monster type: Orcs.\\nOrcs are lazy – they never move on their own. Orcs are sturdy but slow." ], [  ], [ "New monster type: Goblins.\\nGoblins are hyperactive - they will walk back and forth until you enter their range. Goblins are very quick, but weak and squishy." ], [  ], [ "New monster type: Skeleton.\\nSkeletons are aggressive – they will chase you across the map. Skeletons can attack from afar, but are very fragile." ] ]
+Tutorials = [ [ "You play as the titular Cursed Vest of Harvesting. You control the monster currently wearing it, and your goal in each level is to reach the ladder. If a monster dies while wearing the vest, you lose.", "Each monster has six stats: Health, Soul, Attack, Defence, Movement and Range. You can view those on the left side of the screen.", "After every turn, the vest harvests one soul from its wearer. If the wearer runs out of souls, they die. The other monsters will attack you if you enter their range.", "New monster type: Orcs.\\nOrcs are lazy – they never move on their own. Orcs are sturdy but slow." ], [  ], [ "New monster type: Goblins.\\nGoblins are hyperactive - they will walk back and forth until you enter their range. Goblins are very quick, but weak and squishy." ], [  ], [ "New monster type: Skeleton.\\nSkeletons are aggressive – they will chase you across the map. Skeletons can attack from afar, but are very fragile." ], [ "New monster type: Imp.\\nImps are patient – they will wait for you to enter their range, then attack. Imps have very high movement and attack, but no soul." ], [ "New monster type: Golem\\nGolems are dumb – they will never attack nor move. Golems have armour, but are weak and slow." ] ]
 FullPanelPath = NodePath("../GameUI/TutorialContainer")
 LabelPath = NodePath("../GameUI/TutorialContainer/PanelContainer/VBoxContainer/TutorialLabel")
 
@@ -227,7 +231,6 @@ environment = ExtResource( 7 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
-autoplay = true
 
 [node name="TransitionTimer" type="Timer" parent="."]
 wait_time = 0.3

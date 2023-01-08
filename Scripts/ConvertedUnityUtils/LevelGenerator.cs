@@ -36,6 +36,10 @@ public class LevelGenerator : Node
     public PackedScene GoblinScene;
     [Export]
     public PackedScene SkeletonScene;
+    [Export]
+    public PackedScene ImpScene;
+    [Export]
+    public PackedScene GolemScene;
     private LevelData levelData;
     private int[,] walls;
     private Spatial objectsHolder;
@@ -64,7 +68,7 @@ public class LevelGenerator : Node
         blackScreen = GetNode<Control>("GameUI/BlackScreen");
         transitionTimer = GetNode<Timer>("TransitionTimer");
         // Generate first level
-        GenerateLevel(0);
+        GenerateLevel(6);
         transitionTimer.Start();
         postTransition = BeginLevel;
         state = State.FadeIn;
@@ -232,6 +236,14 @@ public class LevelGenerator : Node
                         break;
                     case "Skeleton":
                         entityObject = unitObject = SkeletonScene.Instance<Unit>();
+                        CreateUnit(unitObject, pos, entity);
+                        break;
+                    case "Imp":
+                        entityObject = unitObject = ImpScene.Instance<Unit>();
+                        CreateUnit(unitObject, pos, entity);
+                        break;
+                    case "Golem":
+                        entityObject = unitObject = GolemScene.Instance<Unit>();
                         CreateUnit(unitObject, pos, entity);
                         break;
                     default:

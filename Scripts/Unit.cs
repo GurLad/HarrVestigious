@@ -463,6 +463,23 @@ public class Unit : Spatial
                     UseAction<UAWait>();
                 }
                 break;
+            case "Imp":
+                if (TryAttackFromPlace())
+                {
+                    return;
+                }
+                else if (TryMoveToAttack())
+                {
+                    return;
+                }
+                else
+                {
+                    UseAction<UAWait>();
+                }
+                break;
+            case "Golem":
+                UseAction<UAWait>();
+                break;
             default:
                 break;
         }
