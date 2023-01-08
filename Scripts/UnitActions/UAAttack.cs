@@ -15,7 +15,7 @@ public class UAAttack : AUnitAction
         Unit targetUnit = thisUnit.TurnFlowController.GetUnitAtPos(target);
         if (targetUnit != null)
         {
-            thisUnit.QueueImmediateAction(() => thisUnit.PlaySFX(Unit.SFXType.Damaged));
+            thisUnit.QueueImmediateAction(() => thisUnit.PlaySFX(Unit.SFXType.Attack));
             thisUnit.QueueAnimation(new AnimKnock(), new AnimKnock.Args(0.3f, 30, targetUnit.Pos - thisUnit.Pos, true, false));
             thisUnit.QueueImmediateAction(() =>
             {

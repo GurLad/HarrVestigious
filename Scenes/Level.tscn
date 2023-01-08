@@ -13,7 +13,7 @@
 [ext_resource path="res://Scripts/FloorMarker.cs" type="Script" id=11]
 [ext_resource path="res://Scenes/UI/ActionButton.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scripts/PlayerUIController.cs" type="Script" id=13]
-[ext_resource path="res://Musics/VestInATower1.1.mp3" type="AudioStream" id=14]
+[ext_resource path="res://Musics/VestInATower1.1.wav" type="AudioStream" id=14]
 
 [node name="Level" type="Node"]
 script = ExtResource( 1 )

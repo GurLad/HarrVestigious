@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/VestInATower1.1.wav-1c43e9fa16f8c2d54dd00e11f18ddadb.sample"
+
+[deps]
+
+source_file="res://Musics/VestInATower1.1.wav"
+dest_files=[ "res://.import/VestInATower1.1.wav-1c43e9fa16f8c2d54dd00e11f18ddadb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

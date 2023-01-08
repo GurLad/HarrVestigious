@@ -19,11 +19,33 @@ public class ActionButton : Button
     {
         uiController.HelpLabel.Text = Action.Description;
         uiController.HelpLabel.GetParent<Control>().Visible = true;
+        if (Action.RequiresTarget)
+        {
+            if (Action.UseMoveMarkers)
+            {
+                player._OnMouseEntered();
+            }
+            else
+            {
+                // TBA
+            }
+        }
     }
 
     public void _OnMouseLeave()
     {
         uiController.HelpLabel.GetParent<Control>().Visible = false;
+        if (Action.RequiresTarget)
+        {
+            if (Action.UseMoveMarkers)
+            {
+                player._OnMouseLeave();
+            }
+            else
+            {
+                // TBA
+            }
+        }
     }
 
     public void _OnPressed()
