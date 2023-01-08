@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Terrain-int.png-f9ba0cd1c1a44c14c70a47b5cd258d02.stex"
+path="res://.import/Golem.png-7e9fbe5a328182a0800219114946b794.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/Levels/simplified/Level_0/Terrain-int.png"
-dest_files=[ "res://.import/Terrain-int.png-f9ba0cd1c1a44c14c70a47b5cd258d02.stex" ]
+source_file="res://Textures/Golem.png"
+dest_files=[ "res://.import/Golem.png-7e9fbe5a328182a0800219114946b794.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ flags/repeat=1
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
