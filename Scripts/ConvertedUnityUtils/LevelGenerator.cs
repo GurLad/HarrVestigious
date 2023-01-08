@@ -228,7 +228,7 @@ public class LevelGenerator : Node
                     case "Goblin":
                         entityObject = unitObject = GoblinScene.Instance<Unit>();
                         CreateUnit(unitObject, pos, entity);
-                        unitObject.PatrolPoint = new Vector2Int(entity.customFields["PatrolPoint"].cx, entity.customFields["PatrolPoint"].cy);
+                        unitObject.PatrolPoint = new Vector2Int(entity.customFields["Patrol"].cx, entity.customFields["Patrol"].cy);
                         break;
                     case "Skeleton":
                         entityObject = unitObject = SkeletonScene.Instance<Unit>();

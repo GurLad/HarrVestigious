@@ -9,6 +9,7 @@ public class UAAttack : AUnitAction
     public override bool RequiresTarget => true;
     public override bool FreeAction => false;
     public override bool UseMoveMarkers => false;
+    public override int SortOrder => 2;
 
     protected override void ActivateEffect(Vector2Int target = null)
     {

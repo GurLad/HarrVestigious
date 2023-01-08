@@ -9,6 +9,7 @@ public abstract class AUnitAction
     public abstract bool RequiresTarget { get; }
     public abstract bool FreeAction { get; }
     public abstract bool UseMoveMarkers { get; }
+    public abstract int SortOrder { get; }
     public bool Exhausted;
     protected Unit thisUnit;
 

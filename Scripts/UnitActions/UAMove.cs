@@ -10,6 +10,7 @@ public class UAMove : AUnitAction
     public override bool RequiresTarget => true;
     public override bool FreeAction => true;
     public override bool UseMoveMarkers => true;
+    public override int SortOrder => 0;
 
     protected override void ActivateEffect(Vector2Int target = null)
     {

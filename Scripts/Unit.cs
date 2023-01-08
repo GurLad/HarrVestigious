@@ -200,6 +200,7 @@ public class Unit : Spatial
     {
         unitAction.AttachToUnit(this);
         Actions.Add(unitAction);
+        Actions.Sort((a, b) => a.SortOrder > b.SortOrder ? 1 : (a.SortOrder < b.SortOrder ? -1 : 0));
     }
 
     public bool CanUseAction<T>() where T : AUnitAction

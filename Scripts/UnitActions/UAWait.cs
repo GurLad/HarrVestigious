@@ -9,6 +9,7 @@ public class UAWait : AUnitAction
     public override bool RequiresTarget => false;
     public override bool FreeAction => false;
     public override bool UseMoveMarkers => false;
+    public override int SortOrder => 3;
 
     protected override void ActivateEffect(Vector2Int target = null)
     {

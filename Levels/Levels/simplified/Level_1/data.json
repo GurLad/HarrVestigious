@@ -39,7 +39,7 @@
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 3,
+						"cx": 2,
 						"cy": 5
 					}
 				}
@@ -55,7 +55,7 @@
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 3,
+						"cx": 2,
 						"cy": 2
 					}
 				}
@@ -103,7 +103,7 @@
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 10,
+						"cx": 9,
 						"cy": 1
 					}
 				}
@@ -119,7 +119,7 @@
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 5,
+						"cx": 4,
 						"cy": 1
 					}
 				}
@@ -135,7 +135,7 @@
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 10,
+						"cx": 9,
 						"cy": 6
 					}
 				}
@@ -151,22 +151,9 @@
 				"color": 16705377,
 				"customFields": {
 					"Direction": {
-						"cx": 5,
+						"cx": 4,
 						"cy": 6
 					}
-				}
-			},
-			{
-				"id": "Torch",
-				"iid": "510a2c80-7820-11ed-9526-f1ea50a220de",
-				"layer": "Objects",
-				"x": 128,
-				"y": 64,
-				"width": 16,
-				"height": 16,
-				"color": 16705377,
-				"customFields": {
-					"Direction": null
 				}
 			}
 		],
@@ -175,7 +162,7 @@
 				"id": "Orc",
 				"iid": "ba301470-7820-11ed-9526-e1d85adc377e",
 				"layer": "Objects",
-				"x": 80,
+				"x": 48,
 				"y": 80,
 				"width": 16,
 				"height": 16,
@@ -188,7 +175,7 @@
 				"id": "Orc",
 				"iid": "beb2dd70-7820-11ed-9526-790a77e53589",
 				"layer": "Objects",
-				"x": 80,
+				"x": 48,
 				"y": 32,
 				"width": 16,
 				"height": 16,
@@ -201,7 +188,7 @@
 				"id": "Orc",
 				"iid": "3c93e6d0-7820-11ed-9526-4dc0e33b9e96",
 				"layer": "Objects",
-				"x": 144,
+				"x": 112,
 				"y": 48,
 				"width": 16,
 				"height": 16,
@@ -216,7 +203,7 @@
 				"id": "Ladder",
 				"iid": "c00cef30-7820-11ed-9526-53e1e9c4cd39",
 				"layer": "Objects",
-				"x": 176,
+				"x": 144,
 				"y": 80,
 				"width": 16,
 				"height": 16,
