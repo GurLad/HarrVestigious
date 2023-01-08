@@ -40,7 +40,7 @@ public class Unit : Spatial
                 Pathfinder.MoveObject(_pos, value);
             }
             _pos = value;
-            if (FloorMarker?.IsWinFloor(_pos.x, _pos.y) ?? false)
+            if (HasVest && (FloorMarker?.IsWinFloor(_pos.x, _pos.y) ?? false))
             {
                 QueueAnimation(new AnimDie(), new AnimDie.Args(1));
                 QueueImmediateAction(() => TurnFlowController.Win());

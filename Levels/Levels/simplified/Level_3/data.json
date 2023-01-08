@@ -228,6 +228,22 @@
 						"cy": 2
 					}
 				}
+			},
+			{
+				"id": "Torch",
+				"iid": "a1121ad0-7820-11ed-9526-fb9c0c44ebae",
+				"layer": "Objects",
+				"x": 160,
+				"y": 144,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 10,
+						"cy": 8
+					}
+				}
 			}
 		]
 	}

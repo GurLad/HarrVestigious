@@ -77,8 +77,14 @@ public static class Pathfinder
 
         Dictionary<Point, int> fScore = new Dictionary<Point, int>();
         fScore.Add(source, GetCost(source, destination));
+        // Horrible infinte loop fix
+        int attempts = 0;
         while (openSet.Count > 0)
         {
+            if (attempts++ >= 100)
+            {
+                break;
+            }
             Point current = openSet[0];
             int minValue = int.MaxValue;
             openSet.ForEach(a => { if (fScore.SafeGetKey(a, int.MaxValue) < minValue) minValue = fScore.SafeGetKey(current = a, int.MaxValue); });
@@ -106,7 +112,7 @@ public static class Pathfinder
             }
         }
         // This should be impossible
-        return null;
+        return new List<Vector2Int>();
     }
 
     public static List<Vector2Int> GetMoveArea(Vector2Int start, int move)
