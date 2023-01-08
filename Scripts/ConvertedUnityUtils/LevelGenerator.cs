@@ -32,6 +32,10 @@ public class LevelGenerator : Node
     public PackedScene LadderScene;
     [Export]
     public PackedScene OrcScene;
+    [Export]
+    public PackedScene GoblinScene;
+    [Export]
+    public PackedScene SkeletonScene;
     private LevelData levelData;
     private int[,] walls;
     private Spatial objectsHolder;
@@ -212,14 +216,15 @@ public class LevelGenerator : Node
                         break;
                     case "Orc":
                         entityObject = unitObject = OrcScene.Instance<Unit>();
-                        unitObject.Init();
-                        unitObject.Pos = pos;
-                        unitObject.HasVest = entity.customFields["HasVest"].boolData;
-                        unitObject.FloorMarker = floorMarker;
-                        unitObject.TurnFlowController = turnFlowController;
-                        unitObject.PlayerUIController = playerUIController;
-                        turnFlowController.AddUnit(unitObject);
-                        Pathfinder.PlaceObject(pos);
+                        CreateUnit(unitObject, pos, entity);
+                        break;
+                    case "Goblin":
+                        entityObject = unitObject = GoblinScene.Instance<Unit>();
+                        CreateUnit(unitObject, pos, entity);
+                        break;
+                    case "Skeleton":
+                        entityObject = unitObject = SkeletonScene.Instance<Unit>();
+                        CreateUnit(unitObject, pos, entity);
                         break;
                     default:
                         throw new System.Exception("What");
@@ -230,6 +235,18 @@ public class LevelGenerator : Node
         }
         // Camrea
         camera.Translate(new Vector3(-(levelData.Width / 2.0f - 0.5f), -(levelData.Height / 2.0f - 0.5f), (levelData.Width - 2) / 2.0f) * PHYSICAL_SIZE);
+    }
+
+    private void CreateUnit(Unit unitObject, Vector2Int pos, Entity entity)
+    {
+        unitObject.Init();
+        unitObject.Pos = pos;
+        unitObject.HasVest = entity.customFields["HasVest"].boolData;
+        unitObject.FloorMarker = floorMarker;
+        unitObject.TurnFlowController = turnFlowController;
+        unitObject.PlayerUIController = playerUIController;
+        turnFlowController.AddUnit(unitObject);
+        Pathfinder.PlaceObject(pos);
     }
 
     private void BeginLevel()

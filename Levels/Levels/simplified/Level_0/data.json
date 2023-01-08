@@ -23,32 +23,6 @@
 				"customFields": {
 					"HasVest": true
 				}
-			},
-			{
-				"id": "Orc",
-				"iid": "5a77d5d0-7820-11ed-9526-c5a810da7a0a",
-				"layer": "Objects",
-				"x": 112,
-				"y": 48,
-				"width": 16,
-				"height": 16,
-				"color": 6539085,
-				"customFields": {
-					"HasVest": false
-				}
-			},
-			{
-				"id": "Orc",
-				"iid": "24b5bae0-7820-11ed-9526-13cb1bdc20b7",
-				"layer": "Objects",
-				"x": 48,
-				"y": 32,
-				"width": 16,
-				"height": 16,
-				"color": 6539085,
-				"customFields": {
-					"HasVest": false
-				}
 			}
 		],
 		"Torch": [
@@ -192,6 +166,36 @@
 				"height": 16,
 				"color": 39387,
 				"customFields" : {}
+			}
+		],
+		"Goblin": [
+			{
+				"id": "Goblin",
+				"iid": "6b870f50-7820-11ed-9526-110c0be1a8c9",
+				"layer": "Objects",
+				"x": 48,
+				"y": 32,
+				"width": 16,
+				"height": 16,
+				"color": 12470831,
+				"customFields": {
+					"HasVest": false
+				}
+			}
+		],
+		"Skeleton": [
+			{
+				"id": "Skeleton",
+				"iid": "6cfd3490-7820-11ed-9526-0bd53562a671",
+				"layer": "Objects",
+				"x": 112,
+				"y": 48,
+				"width": 16,
+				"height": 16,
+				"color": 12635100,
+				"customFields": {
+					"HasVest": false
+				}
 			}
 		]
 	}

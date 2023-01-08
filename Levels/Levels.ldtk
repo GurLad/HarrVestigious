@@ -429,20 +429,6 @@
 							}] }]
 						},
 						{
-							"__identifier": "Orc",
-							"__grid": [7,3],
-							"__pivot": [0,0],
-							"__tags": [],
-							"__tile": null,
-							"__smartColor": "#63C74D",
-							"iid": "5a77d5d0-7820-11ed-9526-c5a810da7a0a",
-							"width": 16,
-							"height": 16,
-							"defUid": 6,
-							"px": [112,48],
-							"fieldInstances": [{ "__identifier": "HasVest", "__value": false, "__type": "Bool", "__tile": null, "defUid": 11, "realEditorValues": [] }]
-						},
-						{
 							"__identifier": "Torch",
 							"__grid": [1,5],
 							"__pivot": [0,0],
@@ -579,20 +565,6 @@
 							}] }]
 						},
 						{
-							"__identifier": "Orc",
-							"__grid": [3,2],
-							"__pivot": [0,0],
-							"__tags": [],
-							"__tile": null,
-							"__smartColor": "#63C74D",
-							"iid": "24b5bae0-7820-11ed-9526-13cb1bdc20b7",
-							"width": 16,
-							"height": 16,
-							"defUid": 6,
-							"px": [48,32],
-							"fieldInstances": [{ "__identifier": "HasVest", "__value": false, "__type": "Bool", "__tile": null, "defUid": 11, "realEditorValues": [] }]
-						},
-						{
 							"__identifier": "Ladder",
 							"__grid": [6,5],
 							"__pivot": [0,0],
@@ -605,6 +577,34 @@
 							"defUid": 3,
 							"px": [96,80],
 							"fieldInstances": []
+						},
+						{
+							"__identifier": "Goblin",
+							"__grid": [3,2],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "6b870f50-7820-11ed-9526-110c0be1a8c9",
+							"width": 16,
+							"height": 16,
+							"defUid": 2,
+							"px": [48,32],
+							"fieldInstances": [{ "__identifier": "HasVest", "__value": false, "__type": "Bool", "__tile": null, "defUid": 9, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Skeleton",
+							"__grid": [7,3],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#C0CBDC",
+							"iid": "6cfd3490-7820-11ed-9526-0bd53562a671",
+							"width": 16,
+							"height": 16,
+							"defUid": 4,
+							"px": [112,48],
+							"fieldInstances": [{ "__identifier": "HasVest", "__value": false, "__type": "Bool", "__tile": null, "defUid": 10, "realEditorValues": [] }]
 						}
 					]
 				},
