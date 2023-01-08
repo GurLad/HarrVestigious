@@ -13,8 +13,7 @@ uv1_scale = Vector3( 3, 2, 1 )
 vertex_color_use_as_albedo = true
 
 [sub_resource type="Gradient" id=6]
-offsets = PoolRealArray( 0, 0.541936, 1 )
-colors = PoolColorArray( 0.555664, 0.0368996, 0.0368996, 1, 0.780059, 0.172322, 0.0374309, 1, 0.969727, 0.862346, 0.0378799, 1 )
+colors = PoolColorArray( 0.973145, 0.011404, 0.011404, 1, 0.969727, 0.515634, 0.0378799, 1 )
 
 [sub_resource type="GradientTexture" id=7]
 gradient = SubResource( 6 )

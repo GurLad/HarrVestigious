@@ -87,7 +87,8 @@
 			"intGridValues": [
 				{ "value": 1, "identifier": "Floor", "color": "#E4A672" },
 				{ "value": 2, "identifier": "OuterWall", "color": "#68386C" },
-				{ "value": 3, "identifier": "Wall", "color": "#733E39" }
+				{ "value": 3, "identifier": "Wall", "color": "#733E39" },
+				{ "value": 4, "identifier": "Lava", "color": "#E43B44" }
 			],
 			"autoRuleGroups": [],
 			"autoSourceLayerDefUid": null,
@@ -443,23 +444,6 @@
 						},
 						{
 							"__identifier": "Torch",
-							"__grid": [4,4],
-							"__pivot": [0,0],
-							"__tags": [],
-							"__tile": null,
-							"__smartColor": "#FEE761",
-							"iid": "b5cbe920-7820-11ed-9526-e52d11521a32",
-							"width": 16,
-							"height": 16,
-							"defUid": 7,
-							"px": [64,64],
-							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 5, "cy": 4 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
-								"id": "V_String",
-								"params": ["5,4"]
-							}] }]
-						},
-						{
-							"__identifier": "Torch",
 							"__grid": [1,5],
 							"__pivot": [0,0],
 							"__tags": [],
@@ -595,23 +579,6 @@
 							}] }]
 						},
 						{
-							"__identifier": "Torch",
-							"__grid": [7,5],
-							"__pivot": [0,0],
-							"__tags": [],
-							"__tile": null,
-							"__smartColor": "#FEE761",
-							"iid": "db0eb850-7820-11ed-9526-9b040c68ac49",
-							"width": 16,
-							"height": 16,
-							"defUid": 7,
-							"px": [112,80],
-							"fieldInstances": [{ "__identifier": "Direction", "__value": { "cx": 7, "cy": 4 }, "__type": "Point", "__tile": null, "defUid": 8, "realEditorValues": [{
-								"id": "V_String",
-								"params": ["7,4"]
-							}] }]
-						},
-						{
 							"__identifier": "Orc",
 							"__grid": [3,2],
 							"__pivot": [0,0],
@@ -646,9 +613,9 @@
 					"visible": true,
 					"optionalRules": [],
 					"intGridCsv": [
-						2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,2,2,2,2,1,1,1,1,1,
-						1,1,3,1,1,2,2,2,2,1,1,1,1,1,1,1,1,1,1,2,2,2,2,1,1,3,1,1,1,1,1,1,1,2,2,
-						2,2,1,1,1,1,1,3,1,1,1,1,2,2,2,2,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,
+						2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,4,4,4,4,2,2,2,2,1,1,1,1,1,
+						1,4,4,4,4,2,2,2,2,1,1,4,4,1,1,1,1,1,1,2,2,2,2,1,1,4,4,1,4,4,1,1,1,2,2,
+						2,2,1,1,1,1,1,4,4,1,1,1,2,2,2,2,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,
 						2,2,2,2,2,2,2
 					],
 					"autoLayerTiles": [],

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/ConvertedUnityUtils/LevelGenerator.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Tiles/Floor.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/UI/ActionButton.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scripts/PlayerUIController.cs" type="Script" id=13]
 [ext_resource path="res://Musics/VestInATower1.1.wav" type="AudioStream" id=14]
+[ext_resource path="res://Scenes/Tiles/Lava.tscn" type="PackedScene" id=15]
 
 [node name="Level" type="Node"]
 script = ExtResource( 1 )
@@ -22,6 +23,7 @@ EntitiesJSONPath = "Levels/Levels/simplified/Level_0/data.json"
 FloorScene = ExtResource( 2 )
 OuterWallScene = ExtResource( 5 )
 WallScene = ExtResource( 4 )
+LavaScene = ExtResource( 15 )
 TorchScene = ExtResource( 6 )
 OrcScene = ExtResource( 3 )
 

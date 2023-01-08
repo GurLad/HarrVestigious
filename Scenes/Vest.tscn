@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Textures/Vest.png" type="Texture" id=1]
-[ext_resource path="res://particle_curve.tres" type="Texture" id=2]
+[ext_resource path="res://Scenes/Particles/vest_particles.tres" type="Material" id=2]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -12,21 +12,6 @@ albedo_texture = ExtResource( 1 )
 [sub_resource type="SpatialMaterial" id=5]
 flags_transparent = true
 vertex_color_use_as_albedo = true
-
-[sub_resource type="ParticlesMaterial" id=3]
-emission_shape = 2
-emission_box_extents = Vector3( 1, 0.1, 1 )
-direction = Vector3( 0, 1, 0 )
-spread = 5.79
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 1.0
-initial_velocity_random = 0.2
-scale = 0.1
-scale_random = 0.1
-scale_curve = ExtResource( 2 )
-color = Color( 0.647059, 0.133333, 0.886275, 0.403922 )
-hue_variation = -0.11
-hue_variation_random = 1.0
 
 [sub_resource type="SphereMesh" id=4]
 
@@ -40,5 +25,5 @@ material/0 = SubResource( 2 )
 [node name="Particles" type="Particles" parent="MeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.952381, 0 )
 material_override = SubResource( 5 )
-process_material = SubResource( 3 )
+process_material = ExtResource( 2 )
 draw_pass_1 = SubResource( 4 )

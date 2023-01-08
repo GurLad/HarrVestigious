@@ -20,6 +20,8 @@ public class LevelGenerator : Node
     public PackedScene OuterWallScene;
     [Export]
     public PackedScene WallScene;
+    [Export]
+    public PackedScene LavaScene;
     // Units
     [Export]
     public PackedScene TorchScene;
@@ -59,10 +61,11 @@ public class LevelGenerator : Node
         {
             for (int y = 0; y < levelData.Height; y++)
             {
+                Floor newFloor;
                 switch (walls[x, y])
                 {
                     case 0: // Floor
-                        Floor newFloor = FloorScene.Instance<Floor>();
+                        newFloor = FloorScene.Instance<Floor>();
                         newFloor.Translate(new Vector2Int(x, y).To3D());
                         objectsHolder.AddChild(newFloor);
                         floorMarker.AddFloor(x, y, newFloor);
@@ -71,13 +74,25 @@ public class LevelGenerator : Node
                         Spatial newOuterWall = OuterWallScene.Instance<Spatial>();
                         newOuterWall.Translate(new Vector2Int(x, y).To3D());
                         objectsHolder.AddChild(newOuterWall);
+                        // Generate a floor below
+                        newFloor = FloorScene.Instance<Floor>();
+                        newFloor.Translate(new Vector2Int(x, y).To3D());
+                        objectsHolder.AddChild(newFloor);
                         break;
                     case 2: // Wall
                         Spatial newWall = WallScene.Instance<Spatial>();
                         newWall.Translate(new Vector2Int(x, y).To3D());
                         objectsHolder.AddChild(newWall);
+                        // Generate a floor below
+                        newFloor = FloorScene.Instance<Floor>();
+                        newFloor.Translate(new Vector2Int(x, y).To3D());
+                        objectsHolder.AddChild(newFloor);
                         break;
-                    case 3: // Void
+                    case 3: // Lava
+                        Floor newLava = LavaScene.Instance<Floor>();
+                        newLava.Translate(new Vector2Int(x, y).To3D());
+                        objectsHolder.AddChild(newLava);
+                        floorMarker.AddFloor(x, y, newLava);
                         break;
                     case 4: // Door
                         break;
