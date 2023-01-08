@@ -23,11 +23,11 @@ public class ActionButton : Button
         {
             if (Action.UseMoveMarkers)
             {
-                player._OnMouseEntered();
+                player.AddPreview(true);
             }
             else
             {
-                // TBA
+                player.AddPreview(false, Action.Range);
             }
         }
     }
@@ -39,11 +39,11 @@ public class ActionButton : Button
         {
             if (Action.UseMoveMarkers)
             {
-                player._OnMouseLeave();
+                player.RemovePreview(true);
             }
             else
             {
-                // TBA
+                player.RemovePreview(false);
             }
         }
     }

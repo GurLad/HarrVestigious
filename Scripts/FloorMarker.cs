@@ -30,7 +30,7 @@ public class FloorMarker : Node
         floors[pos.x, pos.y]._OnInputEvent(camera, inputEvent, position, normal, shapeIdx);
     }
 
-    public void ClearMarkers()
+    public void ClearMarkers(MarkType type = MarkType.None)
     {
         for (int x = 0; x < size.x; x++)
         {
@@ -38,10 +38,17 @@ public class FloorMarker : Node
             {
                 if (floors[x, y] != null)
                 {
-                    floors[x, y].RemoveMarker(MarkType.PreviewMove);
-                    floors[x, y].RemoveMarker(MarkType.PreviewAttack);
-                    floors[x, y].RemoveMarker(MarkType.Move);
-                    floors[x, y].RemoveMarker(MarkType.Attack);
+                    if (type != MarkType.None)
+                    {
+                        floors[x, y].RemoveMarker(type);
+                    }
+                    else
+                    {
+                        floors[x, y].RemoveMarker(MarkType.PreviewMove);
+                        floors[x, y].RemoveMarker(MarkType.PreviewAttack);
+                        floors[x, y].RemoveMarker(MarkType.Move);
+                        floors[x, y].RemoveMarker(MarkType.Attack);
+                    }
                 }
             }
         }

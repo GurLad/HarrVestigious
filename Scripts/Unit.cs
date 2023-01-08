@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using static System.Collections.Specialized.BitVector32;
 
 public class Unit : Spatial
 {
@@ -195,6 +196,38 @@ public class Unit : Spatial
         }
     }
 
+    public void AddPreview(bool previewMove, Vector2Int range = null)
+    {
+        if (previewMove)
+        {
+            List<Vector2Int> possibleMoves = Pathfinder.GetMoveArea(Pos, Movement);
+            foreach (Vector2Int move in possibleMoves)
+            {
+                FloorMarker.AddMarker(move, FloorMarker.MarkType.PreviewMove);
+            }
+        }
+        else
+        {
+            List<Vector2Int> possibleMoves = Pathfinder.GetAttackArea(Pos, range);
+            foreach (Vector2Int move in possibleMoves)
+            {
+                FloorMarker.AddMarker(move, FloorMarker.MarkType.PreviewAttack);
+            }
+        }
+    }
+
+    public void RemovePreview(bool previewMove)
+    {
+        if (previewMove)
+        {
+            FloorMarker.ClearMarkers(FloorMarker.MarkType.PreviewMove);
+        }
+        else
+        {
+            FloorMarker.ClearMarkers(FloorMarker.MarkType.PreviewAttack);
+        }
+    }
+
     public void PlaySFX(SFXType type)
     {
         audioPlayer.Stream = ResourceLoader.Load<AudioStream>("res://SFX/" + UnitType + type + rng.Next(1, 4) + ".mp3");
@@ -216,20 +249,12 @@ public class Unit : Spatial
 
     public void _OnMouseEntered()
     {
-        List<Vector2Int> possibleMoves = Pathfinder.GetMoveArea(Pos, Movement);
-        foreach (Vector2Int move in possibleMoves)
-        {
-            FloorMarker.AddMarker(move, FloorMarker.MarkType.PreviewMove);
-        }
+        AddPreview(true);
     }
 
     public void _OnMouseLeave()
     {
-        List<Vector2Int> possibleMoves = Pathfinder.GetMoveArea(Pos, Movement);
-        foreach (Vector2Int move in possibleMoves)
-        {
-            FloorMarker.RemoveMarker(move, FloorMarker.MarkType.PreviewMove);
-        }
+        RemovePreview(true);
     }
 
     public void _OnInputEvent(Node camera, InputEvent inputEvent, Vector3 position, Vector3 normal, int shapeIdx)
