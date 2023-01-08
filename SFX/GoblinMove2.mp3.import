@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GoblinMove2.mp3-1deeabde2cd1505db37c464221388a34.mp3str"
+
+[deps]
+
+source_file="res://SFX/GoblinMove2.mp3"
+dest_files=[ "res://.import/GoblinMove2.mp3-1deeabde2cd1505db37c464221388a34.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

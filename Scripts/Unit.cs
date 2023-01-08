@@ -393,6 +393,27 @@ public class Unit : Spatial
             }
             return false;
         }
+        bool MoveTowardsPoint(Vector2Int point)
+        {
+            if (!CanUseAction<UAMove>())
+            {
+                return false;
+            }
+            Pathfinder.RemoveObject(point);
+            List<Vector2Int> path = Pathfinder.GetPath(Pos, point);
+            Pathfinder.PlaceObject(point);
+            path.Reverse();
+            while (path.Count > 0 && dangerArea.Find(a => a == path[0]) == null)
+            {
+                path.RemoveAt(0);
+            }
+            if (path.Count <= 0)
+            {
+                return false;
+            }
+            UseAction<UAMove>(path[0]);
+            return true;
+        }
 
         switch (UnitType)
         {
@@ -415,16 +436,27 @@ public class Unit : Spatial
                 {
                     return;
                 }
-                else if (CanUseAction<UAMove>())
+                else if (MoveTowardsPoint(Pos == initalPos ? PatrolPoint : initalPos))
                 {
-                    if (Pos == initalPos)
-                    {
-                        UseAction<UAMove>(PatrolPoint);
-                    }
-                    else
-                    {
-                        UseAction<UAMove>(initalPos);
-                    }
+                    return;
+                }
+                else
+                {
+                    UseAction<UAWait>();
+                }
+                break;
+            case "Skeleton":
+                if (TryAttackFromPlace())
+                {
+                    return;
+                }
+                else if (TryMoveToAttack())
+                {
+                    return;
+                }
+                else if (MoveTowardsPoint(vest.Pos))
+                {
+                    return;
                 }
                 else
                 {
@@ -438,6 +470,14 @@ public class Unit : Spatial
 
     private bool CanAttackFrom(Vector2Int pos, Vector2Int target)
     {
-        return Vector2Int.Distance(pos, target) <= 1.001f;
+        if (AttackRange.y <= 1.001f)
+        {
+            return Vector2Int.Distance(pos, target) <= 1.001f;
+        }
+        else
+        {
+            List<Vector2Int> options = Pathfinder.GetAttackArea(pos, new Vector2Int(AttackRange));
+            return options.Find(a => a == target) != null;
+        }
     }
 }

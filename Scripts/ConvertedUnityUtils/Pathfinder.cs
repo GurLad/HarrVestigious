@@ -221,7 +221,7 @@ public static class Pathfinder
         {
             return true;
         }
-        return map[x, y] <= 0 && (ignoreObjects || objects[x, y] <= 0);
+        return (map[x, y] <= 0 || (ignoreObjects && map[x,y] == 3)) && (ignoreObjects || objects[x, y] <= 0);
     }
 
     private static bool HasLineOfSight(Point start, Point end)
