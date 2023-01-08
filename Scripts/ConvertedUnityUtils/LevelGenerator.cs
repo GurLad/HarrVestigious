@@ -43,6 +43,7 @@ public class LevelGenerator : Node
     private TurnFlowController turnFlowController;
     private FloorMarker floorMarker;
     private PlayerUIController playerUIController;
+    private TutorialController tutorialController;
     // Transition stuff
     private State state;
     private Control blackScreen;
@@ -59,6 +60,7 @@ public class LevelGenerator : Node
         turnFlowController = GetNode<TurnFlowController>("TurnFlowController");
         floorMarker = GetNode<FloorMarker>("FloorMarker");
         playerUIController = GetNode<PlayerUIController>("PlayerUIController");
+        tutorialController = GetNode<TutorialController>("TutorialController");
         blackScreen = GetNode<Control>("GameUI/BlackScreen");
         transitionTimer = GetNode<Timer>("TransitionTimer");
         // Generate first level
@@ -118,6 +120,11 @@ public class LevelGenerator : Node
         {
             Lose();
         }
+    }
+
+    public void _OnTutorialContinue()
+    {
+        BeginLevel();
     }
 
     private void GenerateLevel(int number)
@@ -235,6 +242,8 @@ public class LevelGenerator : Node
         }
         // Camrea
         camera.Translate(new Vector3(-(levelData.Width / 2.0f - 0.5f), -(levelData.Height / 2.0f - 0.5f), (levelData.Width - 2) / 2.0f) * PHYSICAL_SIZE);
+        // Init tutorial
+        tutorialController.NewLevel(currentLevel);
     }
 
     private void CreateUnit(Unit unitObject, Vector2Int pos, Entity entity)
@@ -251,8 +260,11 @@ public class LevelGenerator : Node
 
     private void BeginLevel()
     {
-        // Init turn flow
-        turnFlowController.Begin();
+        if (tutorialController.NextTutorial())
+        {
+            // Init turn flow
+            turnFlowController.Begin();
+        }
     }
 
     private void Transition(Action midTransition, Action postTransition)
