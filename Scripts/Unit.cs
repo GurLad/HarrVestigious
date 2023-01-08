@@ -353,6 +353,10 @@ public class Unit : Spatial
         QueueImmediateAction(() => PlaySFX(SFXType.Die));
         QueueAnimation(new AnimDie(), new AnimDie.Args(0.7f));
         QueueImmediateAction(() => TurnFlowController.RemoveUnit(this));
+        if (UnitType == "Sal")
+        {
+            QueueImmediateAction(() => TurnFlowController.Win());
+        }
     }
 
     public void _OnMouseEntered()
@@ -506,6 +510,7 @@ public class Unit : Spatial
                     case 1:
                         UseAction<UASalSummon>();
                         Stunned = true;
+                        PlaySFX(SFXType.Attack);
                         salMode = 0;
                         break;
                     case 2:
