@@ -41,6 +41,7 @@ public class UnitPanel : Panel
             case State.Focusing:
                 percent = Easing.EaseOutBack(timer.Percent());
                 RectSize = new Vector2(percent * ActiveSize + (1 - percent) * InactiveSize, baseSize.y);
+                RectMinSize = new Vector2(RectSize.x, RectMinSize.y);
                 if (timer.TimeLeft <= 0)
                 {
                     state = State.None;
@@ -50,6 +51,7 @@ public class UnitPanel : Panel
             case State.Unfocusing:
                 percent = Easing.EaseInBack(timer.Percent());
                 RectSize = new Vector2(percent * InactiveSize + (1 - percent) * ActiveSize, baseSize.y);
+                RectMinSize = new Vector2(RectSize.x, RectMinSize.y);
                 if (timer.TimeLeft <= 0)
                 {
                     state = State.None;

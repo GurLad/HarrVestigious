@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/ConvertedUnityUtils/LevelGenerator.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Tiles/Floor.tscn" type="PackedScene" id=2]
@@ -15,11 +15,13 @@
 [ext_resource path="res://Scripts/PlayerUIController.cs" type="Script" id=13]
 [ext_resource path="res://Musics/VestInATower1.1.wav" type="AudioStream" id=14]
 [ext_resource path="res://Scenes/Tiles/Lava.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Textures/Orc.png" type="Texture" id=16]
 
 [node name="Level" type="Node"]
 script = ExtResource( 1 )
-WallsCSVPath = "Levels/Levels/simplified/Level_0/Terrain.csv"
-EntitiesJSONPath = "Levels/Levels/simplified/Level_0/data.json"
+LevelsPath = "Levels/Levels/simplified/Level_"
+WallsCSVPath = "/Terrain.csv"
+EntitiesJSONPath = "/data.json"
 FloorScene = ExtResource( 2 )
 OuterWallScene = ExtResource( 5 )
 WallScene = ExtResource( 4 )
@@ -157,8 +159,19 @@ align = 1
 valign = 1
 autowrap = true
 
+[node name="BlackScreen" type="TextureRect" parent="GameUI"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 16 )
+expand = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 7 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
+
+[node name="TransitionTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true

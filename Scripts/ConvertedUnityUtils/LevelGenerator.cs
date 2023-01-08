@@ -6,7 +6,10 @@ using Newtonsoft.Json;
 public class LevelGenerator : Node
 {
     public static readonly int PHYSICAL_SIZE = 2;
+    private enum State { Idle, FadeOut, FadeIn }
     // General data
+    [Export]
+    public string LevelsPath;
     [Export]
     public string WallsCSVPath;
     [Export]
@@ -34,6 +37,13 @@ public class LevelGenerator : Node
     private TurnFlowController turnFlowController;
     private FloorMarker floorMarker;
     private PlayerUIController playerUIController;
+    // Transition stuff
+    private State state;
+    private Control blackScreen;
+    private Timer transitionTimer;
+    private int currentLevel;
+    private Action midTransition;
+    private Action postTransition;
 
     public override void _Ready()
     {
@@ -43,14 +53,75 @@ public class LevelGenerator : Node
         turnFlowController = GetNode<TurnFlowController>("TurnFlowController");
         floorMarker = GetNode<FloorMarker>("FloorMarker");
         playerUIController = GetNode<PlayerUIController>("PlayerUIController");
+        blackScreen = GetNode<Control>("GameUI/BlackScreen");
+        transitionTimer = GetNode<Timer>("TransitionTimer");
+        // Generate first level
+        GenerateLevel(0);
+        transitionTimer.Start();
+        postTransition = BeginLevel;
+        state = State.FadeIn;
+    }
+
+    public override void _Process(float delta)
+    {
+        base._Process(delta);
+        switch (state)
+        {
+            case State.Idle:
+                break;
+            case State.FadeOut:
+                blackScreen.Modulate = new Color(blackScreen.Modulate, transitionTimer.Percent());
+                if (transitionTimer.TimeLeft <= 0)
+                {
+                    state = State.FadeIn;
+                    midTransition?.Invoke();
+                    transitionTimer.Start();
+                }
+                break;
+            case State.FadeIn:
+                blackScreen.Modulate = new Color(blackScreen.Modulate, 1 - transitionTimer.Percent());
+                if (transitionTimer.TimeLeft <= 0)
+                {
+                    state = State.Idle;
+                    blackScreen.MouseFilter = Control.MouseFilterEnum.Ignore;
+                    postTransition?.Invoke();
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void Win()
+    {
+        Transition(() => GenerateLevel(currentLevel + 1), BeginLevel);
+    }
+
+    public void Lose()
+    {
+        Transition(() => GenerateLevel(currentLevel), BeginLevel);
+    }
+
+    private void GenerateLevel(int number)
+    {
+        currentLevel = number;
+        // Clear previous level
+        turnFlowController.RemoveAllUnits();
+        foreach (Node child in objectsHolder.GetChildren())
+        {
+            if (!child.IsQueuedForDeletion())
+            {
+                child.QueueFree();
+            }
+        }
         // Read CSV
         var file = new File();
-        file.Open("res://" + WallsCSVPath, File.ModeFlags.Read);
+        file.Open(LevelsPath + number + WallsCSVPath, File.ModeFlags.Read);
         string wallsCSV = file.GetAsText();
         file.Close();
         // Read JSON
         file = new File();
-        file.Open("res://" + EntitiesJSONPath, File.ModeFlags.Read);
+        file.Open(LevelsPath + number + EntitiesJSONPath, File.ModeFlags.Read);
         string entitiesJSON = file.GetAsText();
         file.Close();
         levelData = LevelData.Interpret(entitiesJSON, TileSize);
@@ -140,8 +211,21 @@ public class LevelGenerator : Node
         }
         // Camrea
         camera.Translate(new Vector3(-(levelData.Width / 2.0f - 0.5f), -(levelData.Height / 2.0f - 0.5f), (levelData.Width - 2) / 2.0f) * PHYSICAL_SIZE);
+    }
+
+    private void BeginLevel()
+    {
         // Init turn flow
         turnFlowController.Begin();
+    }
+
+    private void Transition(Action midTransition, Action postTransition)
+    {
+        blackScreen.MouseFilter = Control.MouseFilterEnum.Stop;
+        this.midTransition = midTransition;
+        this.postTransition = postTransition;
+        state = State.FadeOut;
+        transitionTimer.Start();
     }
 
     private int SafeGetWall(int x, int y)

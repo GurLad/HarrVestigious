@@ -52,6 +52,18 @@ public class TurnFlowController : Node
         }
     }
 
+    public void RemoveAllUnits()
+    {
+        while (allUnits.Count > 0)
+        {
+            UnitPanel panel = allUnits[0];
+            Pathfinder.RemoveObject(panel.Unit.Pos);
+            allUnits.Remove(panel);
+            panel.Unit.QueueFree();
+            panel.QueueFree();
+        }
+    }
+
     public void MarkUnit(Unit unit)
     {
         UnitPanel panel = allUnits.Find(a => a.Unit == unit);
