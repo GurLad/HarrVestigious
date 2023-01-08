@@ -5,6 +5,7 @@ using System;
 public class Floor : Spatial
 {
     public Vector2Int Pos;
+    public bool Win;
     private Dictionary<FloorMarker.MarkType, Spatial> markers = new Dictionary<FloorMarker.MarkType, Spatial>();
     private AUnitAction clickAction;
     private FloorMarker floorMarker;

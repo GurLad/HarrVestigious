@@ -98,7 +98,7 @@
 		}
 	], "entities": [
 		{
-			"identifier": "Stairs",
+			"identifier": "Ladder",
 			"uid": 3,
 			"tags": [],
 			"width": 16,
@@ -430,7 +430,7 @@
 						},
 						{
 							"__identifier": "Orc",
-							"__grid": [9,4],
+							"__grid": [7,3],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": null,
@@ -439,7 +439,7 @@
 							"width": 16,
 							"height": 16,
 							"defUid": 6,
-							"px": [144,64],
+							"px": [112,48],
 							"fieldInstances": [{ "__identifier": "HasVest", "__value": false, "__type": "Bool", "__tile": null, "defUid": 11, "realEditorValues": [] }]
 						},
 						{
@@ -591,6 +591,20 @@
 							"defUid": 6,
 							"px": [48,32],
 							"fieldInstances": [{ "__identifier": "HasVest", "__value": false, "__type": "Bool", "__tile": null, "defUid": 11, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Ladder",
+							"__grid": [6,5],
+							"__pivot": [0,0],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#0099DB",
+							"iid": "4961e6c0-7820-11ed-9526-ad8f7ad4be49",
+							"width": 16,
+							"height": 16,
+							"defUid": 3,
+							"px": [96,80],
+							"fieldInstances": []
 						}
 					]
 				},
@@ -614,7 +628,7 @@
 					"optionalRules": [],
 					"intGridCsv": [
 						2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,4,4,4,4,2,2,2,2,1,1,1,1,1,
-						1,4,4,4,4,2,2,2,2,1,1,4,4,1,1,1,1,1,1,2,2,2,2,1,1,4,4,1,4,4,1,1,1,2,2,
+						1,4,4,4,4,2,2,2,2,1,1,4,4,1,1,1,1,1,1,2,2,2,2,1,1,4,4,4,4,4,1,1,1,2,2,
 						2,2,1,1,1,1,1,4,4,1,1,1,2,2,2,2,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,
 						2,2,2,2,2,2,2
 					],

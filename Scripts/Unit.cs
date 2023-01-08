@@ -40,6 +40,12 @@ public class Unit : Spatial
                 Pathfinder.MoveObject(_pos, value);
             }
             _pos = value;
+            if (FloorMarker?.IsWinFloor(_pos.x, _pos.y) ?? false)
+            {
+                QueueAnimation(new AnimDie(), new AnimDie.Args(1));
+                QueueImmediateAction(() => TurnFlowController.Win());
+                QueueImmediateAction(() => actionQueue.Clear());
+            }
         }
     }
     private bool _hasVest;
@@ -130,6 +136,11 @@ public class Unit : Spatial
         if (resetExhaustedActions)
         {
             Actions.ForEach(a => a.Exhausted = false);
+        }
+        if (actionQueue.Count > 0)
+        {
+            QueueImmediateAction(() => BeginTurn(resetExhaustedActions));
+            return;
         }
         if (HasVest)
         {

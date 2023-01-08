@@ -21,6 +21,16 @@ public class FloorMarker : Node
         floors[x, y].Init(new Vector2Int(x, y), this);
     }
 
+    public void SetWinFloor(int x, int y)
+    {
+        floors[x, y].Win = true;
+    }
+
+
+    public bool IsWinFloor(int x, int y)
+    {
+        return floors[x, y].Win;
+    }
     public void FloorInputEvent(Vector2Int pos, Node camera, InputEvent inputEvent, Vector3 position, Vector3 normal, int shapeIdx)
     {
         if (floors[pos.x, pos.y] == null)

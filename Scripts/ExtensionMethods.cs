@@ -11,7 +11,7 @@ public static class ExtensionMethods
 
     public static Vector2Int To2D(this Vector3 vector3)
     {
-        return new Vector2Int(Mathf.RoundToInt(vector3.z), Mathf.RoundToInt(vector3.x));
+        return new Vector2Int(Mathf.RoundToInt(vector3.z / LevelGenerator.PHYSICAL_SIZE), Mathf.RoundToInt(vector3.x / LevelGenerator.PHYSICAL_SIZE));
     }
 
     public static float NextFloat(this Random random, Vector2 range)

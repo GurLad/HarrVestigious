@@ -43,4 +43,9 @@ public class Vector2Int // Incomplete (aka no =,+,...), but who cares
     {
         return Mathf.Sqrt(Mathf.Pow(vec1.x - vec2.x, 2) + Mathf.Pow(vec1.y - vec2.y, 2));
     }
+
+    public override string ToString()
+    {
+        return "(" + x + ", " + y + ")";
+    }
 }

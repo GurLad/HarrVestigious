@@ -29,6 +29,8 @@ public class LevelGenerator : Node
     [Export]
     public PackedScene TorchScene;
     [Export]
+    public PackedScene LadderScene;
+    [Export]
     public PackedScene OrcScene;
     private LevelData levelData;
     private int[,] walls;
@@ -203,6 +205,10 @@ public class LevelGenerator : Node
                         Vector3 offset = entity.customFields["Direction"].ToVector2Int().To3D() - pos.To3D();
                         offset = offset.Normalized() * 1.166f;
                         entityObject.Translate(offset);
+                        break;
+                    case "Ladder":
+                        entityObject = LadderScene.Instance<Spatial>();
+                        floorMarker.SetWinFloor(pos.x, pos.y);
                         break;
                     case "Orc":
                         entityObject = unitObject = OrcScene.Instance<Unit>();

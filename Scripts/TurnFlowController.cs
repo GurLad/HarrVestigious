@@ -47,8 +47,7 @@ public class TurnFlowController : Node
         {
             if (unit.HasVest)
             {
-                Running = false;
-                EmitSignal("GameOver", false);
+                Lose();
             }
             else
             {
@@ -135,6 +134,18 @@ public class TurnFlowController : Node
                 allUnits[currentUnit].Unit.BeginTurn();
             }
         }
+    }
+
+    public void Win()
+    {
+        Running = false;
+        EmitSignal("GameOver", true);
+    }
+
+    public void Lose()
+    {
+        Running = false;
+        EmitSignal("GameOver", false);
     }
 
     private void DeactivateUnit(int index)
