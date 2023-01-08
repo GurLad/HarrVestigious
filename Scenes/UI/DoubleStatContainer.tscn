@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/Stats/Health.png" type="Texture" id=1]
+[ext_resource path="res://UI/Stats/Soul.png" type="Texture" id=2]
+
+[node name="DoubleStatContainer" type="VBoxContainer"]
+margin_left = 200.0
+margin_right = 249.0
+margin_bottom = 96.0
+
+[node name="Container1" type="HBoxContainer" parent="."]
+margin_right = 60.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StatIcon" type="TextureRect" parent="Container1"]
+margin_right = 32.0
+margin_bottom = 46.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 1 )
+stretch_mode = 6
+
+[node name="StatLabel" type="Label" parent="Container1"]
+margin_left = 36.0
+margin_top = 11.0
+margin_right = 60.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 24, 0 )
+text = "9"
+
+[node name="Container2" type="HBoxContainer" parent="."]
+margin_top = 50.0
+margin_right = 60.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StatIcon" type="TextureRect" parent="Container2"]
+margin_right = 32.0
+margin_bottom = 46.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+stretch_mode = 6
+
+[node name="StatLabel" type="Label" parent="Container2"]
+margin_left = 36.0
+margin_top = 11.0
+margin_right = 60.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 24, 0 )
+text = "9"

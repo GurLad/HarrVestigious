@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class UnitPanel : Panel
 {
@@ -12,6 +13,10 @@ public class UnitPanel : Panel
     public Texture VestTexture;
     [Export]
     public Texture FreeTexture;
+    [Export]
+    public PackedScene DoubleStatContainer;
+    [Export]
+    public Texture[] StatTextures;
     public Unit Unit;
     public Action OnDone;
     private TextureRect unitIcon;
@@ -19,6 +24,7 @@ public class UnitPanel : Panel
     private Timer timer;
     private State state;
     private Vector2 baseSize;
+    private List<Label> statLabels = new List<Label>();
 
     public override void _Process(float delta)
     {
@@ -58,6 +64,18 @@ public class UnitPanel : Panel
         timer = GetNode<Timer>("AnimationDelay");
         RectSize = new Vector2(InactiveSize, RectSize.y);
         baseSize = RectSize;
+        // Generate stat labels
+        HBoxContainer container = GetNode<HBoxContainer>("HBoxContainer");
+        for (int i = 0; i < Unit.STAT_COUNT / 2; i++)
+        {
+            Control doubleStatContainer = DoubleStatContainer.Instance<Control>();
+            for (int j = 0; j < 2; j++)
+            {
+                doubleStatContainer.GetNode<TextureRect>("Container" + (j + 1) + "/StatIcon").Texture = StatTextures[i * 2 + j];
+                statLabels.Add(doubleStatContainer.GetNode<Label>("Container" + (j + 1) + "/StatLabel"));
+            }
+            container.AddChild(doubleStatContainer);
+        }
     }
 
     public void UpdateUnitData(Unit unit)
@@ -65,6 +83,10 @@ public class UnitPanel : Panel
         Unit = unit;
         unitIcon.Texture = unit.Icon;
         vestIcon.Texture = unit.HasVest ? VestTexture : FreeTexture;
+        for (int i = 0; i < Unit.STAT_COUNT; i++)
+        {
+            statLabels[i].Text = unit.GetStatString(i);
+        }
     }
 
     public void Activate(Action onDone = null)
@@ -87,5 +109,15 @@ public class UnitPanel : Panel
         OnDone = onDone;
         timer.Start();
         state = State.Unfocusing;
+    }
+
+    public void _OnMouseEntered()
+    {
+        Modulate = new Color(Modulate, 0.2f);
+    }
+
+    public void _OnMouseLeave()
+    {
+        Modulate = new Color(Modulate, 1);
     }
 }

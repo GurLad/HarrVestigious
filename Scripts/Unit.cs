@@ -1,11 +1,13 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Security.AccessControl;
 using static System.Collections.Specialized.BitVector32;
 
 public class Unit : Spatial
 {
     public enum SFXType { Begin, Attack, Damaged }
+    public static readonly int STAT_COUNT = 6;
     // Stats
     [Export]
     public int Health;
@@ -234,13 +236,28 @@ public class Unit : Spatial
         audioPlayer.Play();
     }
 
-    // Attacks & stuff
+    // Stats & stuff
+
+    public string GetStatString(int statID)
+    {
+        return statID switch
+        {
+            0 => Health.ToString(),
+            1 => Soul.ToString(),
+            2 => Attack.ToString(),
+            3 => Defense.ToString(),
+            4 => Movement.ToString(),
+            5 => AttackRange.y == AttackRange.x ? AttackRange.x.ToString() : (AttackRange.x + "-" + AttackRange.y),
+            _ => null
+        };
+    }
 
     public void TakeDamage(int amount)
     {
         Health -= amount;
         damageParticles.Emitting = true;
         PlaySFX(SFXType.Damaged);
+        TurnFlowController.UpdateUI();
         if (Health <= 0)
         {
             // TBA
