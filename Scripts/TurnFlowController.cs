@@ -50,6 +50,32 @@ public class TurnFlowController : Node
         }
     }
 
+    public void MarkUnit(Unit unit)
+    {
+        UnitPanel panel = allUnits.Find(a => a.Unit == unit);
+        if (panel != null)
+        {
+            panel.Mark();
+        }
+        else
+        {
+            throw new Exception("Marking a non-existent unit!");
+        }
+    }
+
+    public void UnmarkUnit(Unit unit)
+    {
+        UnitPanel panel = allUnits.Find(a => a.Unit == unit);
+        if (panel != null)
+        {
+            panel.Unmark();
+        }
+        else
+        {
+            throw new Exception("Marking a non-existent unit!");
+        }
+    }
+
     public Unit GetUnitAtPos(Vector2Int pos)
     {
         return allUnits.Find(a => a.Unit.Pos == pos)?.Unit;

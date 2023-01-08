@@ -10,6 +10,10 @@ public class UnitPanel : Panel
     [Export]
     public float ActiveSize;
     [Export]
+    public Color MarkedColor;
+    [Export]
+    public Color NormalColor;
+    [Export]
     public Texture VestTexture;
     [Export]
     public Texture FreeTexture;
@@ -109,6 +113,16 @@ public class UnitPanel : Panel
         OnDone = onDone;
         timer.Start();
         state = State.Unfocusing;
+    }
+
+    public void Mark()
+    {
+        Modulate = new Color(MarkedColor, Modulate.a);
+    }
+
+    public void Unmark()
+    {
+        Modulate = new Color(NormalColor, Modulate.a);
     }
 
     public void _OnMouseEntered()

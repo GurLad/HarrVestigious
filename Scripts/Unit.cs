@@ -267,11 +267,13 @@ public class Unit : Spatial
     public void _OnMouseEntered()
     {
         AddPreview(true);
+        TurnFlowController.MarkUnit(this);
     }
 
     public void _OnMouseLeave()
     {
         RemovePreview(true);
+        TurnFlowController.UnmarkUnit(this);
     }
 
     public void _OnInputEvent(Node camera, InputEvent inputEvent, Vector3 position, Vector3 normal, int shapeIdx)
