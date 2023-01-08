@@ -24,8 +24,8 @@ initial_velocity_random = 0.2
 scale = 0.1
 scale_random = 0.1
 scale_curve = ExtResource( 2 )
-color = Color( 0.156863, 0.886275, 0.133333, 0.403922 )
-hue_variation = 1.0
+color = Color( 0.647059, 0.133333, 0.886275, 0.403922 )
+hue_variation = -0.11
 hue_variation_random = 1.0
 
 [sub_resource type="SphereMesh" id=4]
