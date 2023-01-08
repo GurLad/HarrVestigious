@@ -44,4 +44,9 @@ public static class Easing
     {
         return x * x * x * x;
     }
+
+    public static float EaseInOutSin(float x)
+    {
+        return -(Mathf.Cos(Mathf.Pi * x) - 1) / 2;
+    }
 }

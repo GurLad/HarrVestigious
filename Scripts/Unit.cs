@@ -56,11 +56,16 @@ public class Unit : Spatial
             {
                 RemoveAction<UAGiveVest>();
                 vestObject.Visible = false;
+                anchorAnimations?.RemoveAnimation(UnitAnchorAnimations.Mode.Shake);
             }
             else
             {
                 AttachAction(new UAGiveVest());
                 vestObject.Visible = true;
+                if (Soul <= 1)
+                {
+                    anchorAnimations?.AddAnimation(UnitAnchorAnimations.Mode.Shake);
+                }
             }
         }
     }
@@ -240,6 +245,24 @@ public class Unit : Spatial
         audioPlayer.Play();
     }
 
+    public void EndTurn()
+    {
+        if (HasVest)
+        {
+            Soul--;
+            TurnFlowController.UpdateUI();
+            if (Soul <= 0)
+            {
+                Die();
+            }
+            else if (Soul <= 1)
+            {
+                anchorAnimations.AddAnimation(UnitAnchorAnimations.Mode.Shake);
+            }
+        }
+        QueueImmediateAction(() => Moved = true);
+    }
+
     // Stats & stuff
 
     public string GetStatString(int statID)
@@ -264,9 +287,14 @@ public class Unit : Spatial
         TurnFlowController.UpdateUI();
         if (Health <= 0)
         {
-            QueueAnimation(new AnimDie(), new AnimDie.Args(0.7f));
-            QueueImmediateAction(() => TurnFlowController.RemoveUnit(this));
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        QueueAnimation(new AnimDie(), new AnimDie.Args(0.7f));
+        QueueImmediateAction(() => TurnFlowController.RemoveUnit(this));
     }
 
     public void _OnMouseEntered()

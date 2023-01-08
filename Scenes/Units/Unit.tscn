@@ -43,6 +43,8 @@ transform = Transform( -3.93403e-08, 0, -0.9, 0, 0.9, 0, 0.9, 0, -3.93403e-08, 0
 script = ExtResource( 3 )
 BreathSizeRange = Vector2( 0.1, 0.15 )
 BreathTimeRange = Vector2( 2, 2.4 )
+ShakeSizeRange = Vector2( 0.1, 0.1 )
+ShakeTimeRange = Vector2( 0.4, 0.4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Anchor"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )

@@ -29,7 +29,7 @@ public abstract class AUnitAction
         ActivateEffect(target);
         if (!FreeAction)
         {
-            thisUnit.QueueImmediateAction(() => thisUnit.Moved = true);
+            thisUnit.QueueImmediateAction(() => thisUnit.EndTurn());
         }
         else
         {
