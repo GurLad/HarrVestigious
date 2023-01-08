@@ -23,7 +23,7 @@
 
 [node name="Level" type="Node"]
 script = ExtResource( 1 )
-LevelsPath = "Levels/Levels/simplified/Level_"
+LevelsPath = "res://Levels/Levels/simplified/Level_"
 WallsCSVPath = "/Terrain.csv"
 EntitiesJSONPath = "/data.json"
 FloorScene = ExtResource( 2 )
@@ -53,7 +53,7 @@ ActionButtonScene = ExtResource( 12 )
 
 [node name="TutorialController" type="Node" parent="."]
 script = ExtResource( 20 )
-Tutorials = [ [ "You play as the titular Cursed Vest of Harvesting. You control the monster currently wearing it, and your goal in each level is to reach the ladder. If a monster dies while wearing the vest, you lose.", "Each monster has six stats: Health, Soul, Attack, Defence, Movement and Range. You can view those on the left side of the screen.", "After every turn, the vest harvests one soul from its wearer. If the wearer runs out of souls, they die. The other monsters will attack you if you enter their range.", "New monster type: Orcs.\\nOrcs are lazy – they never move on their own. Orcs are sturdy but slow." ], [  ], [  ], [  ], [  ] ]
+Tutorials = [ [ "You play as the titular Cursed Vest of Harvesting. You control the monster currently wearing it, and your goal in each level is to reach the ladder. If a monster dies while wearing the vest, you lose.", "Each monster has six stats: Health, Soul, Attack, Defence, Movement and Range. You can view those on the left side of the screen.", "After every turn, the vest harvests one soul from its wearer. If the wearer runs out of souls, they die. The other monsters will attack you if you enter their range.", "New monster type: Orcs.\\nOrcs are lazy – they never move on their own. Orcs are sturdy but slow." ], [  ], [ "New monster type: Goblins.\\nGoblins are hyperactive - they will walk back and forth until you enter their range. Goblins are very quick, but weak and squishy." ], [  ], [ "New monster type: Skeleton.\\nSkeletons are aggressive – they will chase you across the map. Skeletons can attack from afar, but are very fragile." ] ]
 FullPanelPath = NodePath("../GameUI/TutorialContainer")
 LabelPath = NodePath("../GameUI/TutorialContainer/PanelContainer/VBoxContainer/TutorialLabel")
 
