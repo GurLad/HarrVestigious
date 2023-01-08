@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/OrcDamaged2.mp3-77c9d8b7c4d38ec644a2a3128b6b26c6.mp3str"
+
+[deps]
+
+source_file="res://SFX/OrcDamaged2.mp3"
+dest_files=[ "res://.import/OrcDamaged2.mp3-77c9d8b7c4d38ec644a2a3128b6b26c6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

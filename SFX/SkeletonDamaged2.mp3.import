@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SkeletonDamaged2.mp3-9120adf16dfc7dcd7d55c5788b76d474.mp3str"
+
+[deps]
+
+source_file="res://SFX/SkeletonDamaged2.mp3"
+dest_files=[ "res://.import/SkeletonDamaged2.mp3-9120adf16dfc7dcd7d55c5788b76d474.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

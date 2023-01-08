@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GoblinAttack3.mp3-5b1063fb62eaf83100663a5c54d8ffa1.mp3str"
+
+[deps]
+
+source_file="res://SFX/GoblinAttack3.mp3"
+dest_files=[ "res://.import/GoblinAttack3.mp3-5b1063fb62eaf83100663a5c54d8ffa1.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

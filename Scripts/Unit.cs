@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Unit : Spatial
 {
+    public enum SFXType { Begin, Attack, Damaged }
     // Stats
     [Export]
     public int Health;
@@ -19,6 +20,8 @@ public class Unit : Spatial
     public Vector2 AttackRange = Vector2.One;
     [Export]
     public Texture Icon;
+    [Export]
+    public string UnitType;
     // Data
     private Vector2Int _pos;
     public Vector2Int Pos
@@ -72,6 +75,9 @@ public class Unit : Spatial
     private UnitAnchorAnimations anchorAnimations;
     private Spatial vestObject;
     private Particles damageParticles;
+    private AudioStreamPlayer3D audioPlayer;
+    // Misc
+    private Random rng = new Random();
 
     public void Init()
     {
@@ -83,6 +89,7 @@ public class Unit : Spatial
         base._Ready();
         anchorAnimations = GetNode<UnitAnchorAnimations>("Anchor");
         damageParticles = GetNode<Particles>("Anchor/MeshInstance/DamageParticles");
+        audioPlayer = GetNode<AudioStreamPlayer3D>("AudioPlayer");
         anchorAnimations.AddAnimation(UnitAnchorAnimations.Mode.Breath);
         // All units can move, attack and wait
         AttachAction(new UAMove());
@@ -115,6 +122,10 @@ public class Unit : Spatial
         if (HasVest)
         {
             PlayerUIController.ShowUI(this);
+            if (resetExhaustedActions)
+            {
+                PlaySFX(SFXType.Begin);
+            }
         }
         else
         {
@@ -184,12 +195,19 @@ public class Unit : Spatial
         }
     }
 
+    public void PlaySFX(SFXType type)
+    {
+        audioPlayer.Stream = ResourceLoader.Load<AudioStream>("res://SFX/" + UnitType + type + rng.Next(1, 4) + ".mp3");
+        audioPlayer.Play();
+    }
+
     // Attacks & stuff
 
     public void TakeDamage(int amount)
     {
         Health -= amount;
         damageParticles.Emitting = true;
+        PlaySFX(SFXType.Damaged);
         if (Health <= 0)
         {
             // TBA

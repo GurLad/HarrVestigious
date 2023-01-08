@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/ConvertedUnityUtils/LevelGenerator.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Tiles/Floor.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scripts/FloorMarker.cs" type="Script" id=11]
 [ext_resource path="res://Scenes/UI/ActionButton.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scripts/PlayerUIController.cs" type="Script" id=13]
+[ext_resource path="res://Musics/VestInATower1.1.mp3" type="AudioStream" id=14]
 
 [node name="Level" type="Node"]
 script = ExtResource( 1 )
@@ -75,9 +76,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
 
 [node name="Torch" parent="Objects/Test" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.834, 0, 0 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 7 )
 
 [node name="GameUI" type="Control" parent="."]
 anchor_right = 1.0
@@ -156,3 +154,10 @@ a"
 align = 1
 valign = 1
 autowrap = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 7 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+autoplay = true

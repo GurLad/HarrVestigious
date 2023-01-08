@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SkeletonAttack3.mp3-099f8def2e4c3c638ea73f550dae1be9.mp3str"
+
+[deps]
+
+source_file="res://SFX/SkeletonAttack3.mp3"
+dest_files=[ "res://.import/SkeletonAttack3.mp3-099f8def2e4c3c638ea73f550dae1be9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
