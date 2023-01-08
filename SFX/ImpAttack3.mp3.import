@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ImpAttack3.mp3-992162b1e9adf05b1439bc7e360bdffe.mp3str"
+
+[deps]
+
+source_file="res://SFX/ImpAttack3.mp3"
+dest_files=[ "res://.import/ImpAttack3.mp3-992162b1e9adf05b1439bc7e360bdffe.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

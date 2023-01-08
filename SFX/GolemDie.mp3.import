@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GolemDie.mp3-78b782f5e396e0bcb1eef42794c88a21.mp3str"
+
+[deps]
+
+source_file="res://SFX/GolemDie.mp3"
+dest_files=[ "res://.import/GolemDie.mp3-78b782f5e396e0bcb1eef42794c88a21.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

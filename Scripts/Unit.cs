@@ -6,7 +6,7 @@ using static System.Collections.Specialized.BitVector32;
 
 public class Unit : Spatial
 {
-    public enum SFXType { Begin, Attack, Damaged }
+    public enum SFXType { Begin, Attack, Damaged, Move, Die }
     public static readonly int STAT_COUNT = 6;
     // Stats
     [Export]
@@ -288,7 +288,7 @@ public class Unit : Spatial
 
     public void PlaySFX(SFXType type)
     {
-        audioPlayer.Stream = ResourceLoader.Load<AudioStream>("res://SFX/" + UnitType + type + rng.Next(1, 4) + ".mp3");
+        audioPlayer.Stream = ResourceLoader.Load<AudioStream>("res://SFX/" + UnitType + type + (type == SFXType.Die ? "" : rng.Next(1, 4).ToString()) + ".mp3");
         audioPlayer.Play();
     }
 
@@ -340,6 +340,7 @@ public class Unit : Spatial
 
     public void Die()
     {
+        QueueImmediateAction(() => PlaySFX(SFXType.Die));
         QueueAnimation(new AnimDie(), new AnimDie.Args(0.7f));
         QueueImmediateAction(() => TurnFlowController.RemoveUnit(this));
     }

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GoblinDie.mp3-921cab37be026e09156033c8c962381c.mp3str"
+
+[deps]
+
+source_file="res://SFX/GoblinDie.mp3"
+dest_files=[ "res://.import/GoblinDie.mp3-921cab37be026e09156033c8c962381c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

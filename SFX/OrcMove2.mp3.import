@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/OrcMove2.mp3-c7383aa10c019482678d706ad1ceb000.mp3str"
+
+[deps]
+
+source_file="res://SFX/OrcMove2.mp3"
+dest_files=[ "res://.import/OrcMove2.mp3-c7383aa10c019482678d706ad1ceb000.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

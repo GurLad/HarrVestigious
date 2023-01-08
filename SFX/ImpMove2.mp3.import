@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ImpMove2.mp3-e65c7982d20f28dcc678f321a6899645.mp3str"
+
+[deps]
+
+source_file="res://SFX/ImpMove2.mp3"
+dest_files=[ "res://.import/ImpMove2.mp3-e65c7982d20f28dcc678f321a6899645.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

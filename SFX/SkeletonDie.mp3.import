@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SkeletonDie.mp3-a87346d39ecfaa3bf9b7680b57e576ff.mp3str"
+
+[deps]
+
+source_file="res://SFX/SkeletonDie.mp3"
+dest_files=[ "res://.import/SkeletonDie.mp3-a87346d39ecfaa3bf9b7680b57e576ff.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

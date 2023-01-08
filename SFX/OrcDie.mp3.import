@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/OrcDie.mp3-a6f6f8e37271ed9498323b104f21742f.mp3str"
+
+[deps]
+
+source_file="res://SFX/OrcDie.mp3"
+dest_files=[ "res://.import/OrcDie.mp3-a6f6f8e37271ed9498323b104f21742f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

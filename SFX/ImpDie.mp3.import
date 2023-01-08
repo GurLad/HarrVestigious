@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ImpDie.mp3-ba9ff761a3faa8a9927f5912e639d9d2.mp3str"
+
+[deps]
+
+source_file="res://SFX/ImpDie.mp3"
+dest_files=[ "res://.import/ImpDie.mp3-ba9ff761a3faa8a9927f5912e639d9d2.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

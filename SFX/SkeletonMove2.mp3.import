@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SkeletonMove2.mp3-f1dde47a9405e8c50826fb8b3c150239.mp3str"
+
+[deps]
+
+source_file="res://SFX/SkeletonMove2.mp3"
+dest_files=[ "res://.import/SkeletonMove2.mp3-f1dde47a9405e8c50826fb8b3c150239.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -21,6 +21,7 @@ public class UAMove : AUnitAction
         for (int i = 1; i < path.Count; i++)
         {
             thisUnit.QueueAnimation(new AnimSquash(), new AnimSquash.Args(0.4f / thisUnit.Movement, 0.3f, new Vector3(0, 1, 0), false));
+            thisUnit.QueueImmediateAction(() => thisUnit.PlaySFX(Unit.SFXType.Move));
             thisUnit.QueueAnimation(new AnimJump(), new AnimJump.Args(0.8f / thisUnit.Movement, 0.5f, path[i] - path[i - 1]));
         }
         thisUnit.QueueAnimation(new AnimSquash(), new AnimSquash.Args(0.6f / thisUnit.Movement, 0.3f, new Vector3(0, 1, 0), false));

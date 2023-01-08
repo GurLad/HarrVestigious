@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GolemMove2.mp3-ebb1cdc03929a7ed94f05a71e7316860.mp3str"
+
+[deps]
+
+source_file="res://SFX/GolemMove2.mp3"
+dest_files=[ "res://.import/GolemMove2.mp3-ebb1cdc03929a7ed94f05a71e7316860.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
