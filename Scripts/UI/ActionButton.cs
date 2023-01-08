@@ -6,6 +6,7 @@ public class ActionButton : Button
     public AUnitAction Action;
     private PlayerUIController uiController;
     private Unit player;
+    private bool clicked;
 
     public void Init(AUnitAction action, PlayerUIController playerUIController, Unit unit)
     {
@@ -17,6 +18,10 @@ public class ActionButton : Button
 
     public void _OnMouseEntered()
     {
+        if (clicked)
+        {
+            return;
+        }
         uiController.HelpLabel.Text = Action.Description;
         uiController.HelpLabel.GetParent<Control>().Visible = true;
         if (Action.RequiresTarget)
@@ -34,6 +39,10 @@ public class ActionButton : Button
 
     public void _OnMouseLeave()
     {
+        if (clicked)
+        {
+            return;
+        }
         uiController.HelpLabel.GetParent<Control>().Visible = false;
         if (Action.RequiresTarget)
         {
@@ -51,6 +60,8 @@ public class ActionButton : Button
     public void _OnPressed()
     {
         base._Pressed();
+        _OnMouseLeave();
+        clicked = true;
         uiController.HideUI();
         if (Action.RequiresTarget)
         {

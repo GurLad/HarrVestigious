@@ -81,6 +81,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
 [node name="Torch" parent="Objects/Test" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.834, 0, 0 )
 
+[node name="LevelObjects" type="Spatial" parent="Objects"]
+
 [node name="GameUI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -175,3 +177,5 @@ stream = ExtResource( 14 )
 [node name="TransitionTimer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[connection signal="GameOver" from="TurnFlowController" to="." method="_OnGameOver"]

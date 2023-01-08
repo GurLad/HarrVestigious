@@ -8,6 +8,7 @@ public class TurnFlowController : Node
     public PackedScene BasePanel;
     [Export]
     public NodePath PanelHolderPath;
+    public bool Running;
     private Control panelHolder;
     private List<UnitPanel> allUnits = new List<UnitPanel>();
     private int currentUnit;
@@ -21,9 +22,12 @@ public class TurnFlowController : Node
     public override void _Process(float delta)
     {
         base._Process(delta);
-        if (allUnits[currentUnit].Unit.Moved)
+        if (Running)
         {
-            NextUnit();
+            if (allUnits[currentUnit].Unit.Moved)
+            {
+                NextUnit();
+            }
         }
     }
 
@@ -41,10 +45,18 @@ public class TurnFlowController : Node
         UnitPanel panel = allUnits.Find(a => a.Unit == unit);
         if (panel != null)
         {
-            Pathfinder.RemoveObject(panel.Unit.Pos);
-            allUnits.Remove(panel);
-            panel.Unit.QueueFree();
-            panel.QueueFree();
+            if (unit.HasVest)
+            {
+                Running = false;
+                EmitSignal("GameOver", false);
+            }
+            else
+            {
+                Pathfinder.RemoveObject(panel.Unit.Pos);
+                allUnits.Remove(panel);
+                panel.Unit.QueueFree();
+                panel.QueueFree();
+            }
         }
         else
         {
@@ -99,6 +111,7 @@ public class TurnFlowController : Node
     {
         currentUnit = allUnits.FindIndex(a => a.Unit.HasVest);
         ActivateUnit(currentUnit);
+        Running = true;
     }
 
     public void UpdateUI()
@@ -134,4 +147,9 @@ public class TurnFlowController : Node
     {
         allUnits[currentUnit = index].Activate(() => allUnits[index].Unit.BeginTurn());
     }
+
+    // Signals
+
+    [Signal]
+    public delegate void GameOver(bool won);
 }

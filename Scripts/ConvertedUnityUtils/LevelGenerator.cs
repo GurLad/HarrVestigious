@@ -48,7 +48,7 @@ public class LevelGenerator : Node
     public override void _Ready()
     {
         base._Ready();
-        objectsHolder = GetNode<Spatial>("Objects");
+        objectsHolder = GetNode<Spatial>("Objects/LevelObjects");
         camera = GetNode<Camera>("Objects/Camera");
         turnFlowController = GetNode<TurnFlowController>("TurnFlowController");
         floorMarker = GetNode<FloorMarker>("FloorMarker");
@@ -102,6 +102,18 @@ public class LevelGenerator : Node
         Transition(() => GenerateLevel(currentLevel), BeginLevel);
     }
 
+    public void _OnGameOver(bool won)
+    {
+        if (won)
+        {
+            Win();
+        }
+        else
+        {
+            Lose();
+        }
+    }
+
     private void GenerateLevel(int number)
     {
         currentLevel = number;
@@ -114,6 +126,7 @@ public class LevelGenerator : Node
                 child.QueueFree();
             }
         }
+        camera.Translation = Vector3.Zero;
         // Read CSV
         var file = new File();
         file.Open(LevelsPath + number + WallsCSVPath, File.ModeFlags.Read);
