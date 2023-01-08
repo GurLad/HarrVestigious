@@ -95,6 +95,8 @@ public class Unit : Spatial
     public TurnFlowController TurnFlowController;
     public FloorMarker FloorMarker;
     public PlayerUIController PlayerUIController;
+    // Misc external
+    public Vector2Int PatrolPoint;
     // For animations
     private AAnimation currentAnimation;
     private Queue<Action> actionQueue = new Queue<Action>();
@@ -106,6 +108,7 @@ public class Unit : Spatial
     private AudioStreamPlayer3D audioPlayer;
     // Misc
     private Random rng = new Random();
+    private Vector2Int initalPos;
 
     public void Init()
     {
@@ -120,6 +123,7 @@ public class Unit : Spatial
         damageParticles = GetNode<Particles>("Anchor/MeshInstance/DamageParticles");
         audioPlayer = GetNode<AudioStreamPlayer3D>("AudioPlayer");
         anchorAnimations.AddAnimation(UnitAnchorAnimations.Mode.Breath);
+        initalPos = new Vector2Int(Pos.x, Pos.y);
         // All units can move, attack and wait
         AttachAction(new UAMove());
         AttachAction(new UAAttack());
@@ -196,6 +200,16 @@ public class Unit : Spatial
     {
         unitAction.AttachToUnit(this);
         Actions.Add(unitAction);
+    }
+
+    public bool CanUseAction<T>() where T : AUnitAction
+    {
+        T target = (T)Actions.Find(a => a is T);
+        if (target != null)
+        {
+            return !target.Exhausted;
+        }
+        return false;
     }
 
     public void RemoveAction<T>() where T : AUnitAction
@@ -349,7 +363,79 @@ public class Unit : Spatial
 
     protected virtual void AIAction()
     {
-        // By default, does the wait action (aka action 0)
-        UseAction<UAWait>();
+        Unit vest = TurnFlowController.GetVestUnit();
+        List<Vector2Int> dangerArea = Pathfinder.GetMoveArea(Pos, Movement);
+
+        bool TryAttackFromPlace()
+        {
+            if (CanAttackFrom(Pos, vest.Pos))
+            {
+                UseAction<UAAttack>(vest.Pos);
+                return true;
+            }
+            return false;
+        }
+        bool TryMoveToAttack()
+        {
+            if (!CanUseAction<UAMove>())
+            {
+                return false;
+            }
+            foreach (var pos in dangerArea)
+            {
+                if (CanAttackFrom(pos, vest.Pos))
+                {
+                    UseAction<UAMove>(pos);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        switch (UnitType)
+        {
+            case "Orc":
+                if (TryAttackFromPlace())
+                {
+                    return;
+                }
+                else
+                {
+                    UseAction<UAWait>();
+                }
+                break;
+            case "Goblin":
+                if (TryAttackFromPlace())
+                {
+                    return;
+                }
+                else if (TryMoveToAttack())
+                {
+                    return;
+                }
+                else if (CanUseAction<UAMove>())
+                {
+                    if (Pos == initalPos)
+                    {
+                        UseAction<UAMove>(PatrolPoint);
+                    }
+                    else
+                    {
+                        UseAction<UAMove>(initalPos);
+                    }
+                }
+                else
+                {
+                    UseAction<UAWait>();
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    private bool CanAttackFrom(Vector2Int pos, Vector2Int target)
+    {
+        return Vector2Int.Distance(pos, target) <= 1.001f;
     }
 }

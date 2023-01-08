@@ -1,0 +1,228 @@
+{
+	"identifier": "Level_1",
+	"uniqueIdentifer": "76d02f60-7820-11ed-9526-3752cfdf9bac",
+	"x": -16,
+	"y": 0,
+	"width": 224,
+	"height": 128,
+	"bgColor": "#696A79",
+	"neighbourLevels": [
+		{
+			"levelIid": "c570c960-7820-11ed-9526-1599af99f2bb",
+			"dir": "e"
+		},
+		{
+			"levelIid": "bc1532b0-7820-11ed-9526-4dfb90713ecc",
+			"dir": "w"
+		},
+		{
+			"levelIid": "24faaee0-7820-11ed-9526-77ef075e55e9",
+			"dir": "s"
+		},
+		{
+			"levelIid": "121fc250-7820-11ed-9526-3129960befe9",
+			"dir": "s"
+		}
+	],
+	"customFields" : {},
+	"layers": [],
+	"entities": {
+		"Torch": [
+			{
+				"id": "Torch",
+				"iid": "c3e72360-7820-11ed-9526-cd915d1cdeed",
+				"layer": "Objects",
+				"x": 16,
+				"y": 80,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 3,
+						"cy": 5
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "cda8b260-7820-11ed-9526-4109933263ef",
+				"layer": "Objects",
+				"x": 16,
+				"y": 32,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 3,
+						"cy": 2
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "cf6d6cd0-7820-11ed-9526-c9810e1c5921",
+				"layer": "Objects",
+				"x": 192,
+				"y": 80,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 11,
+						"cy": 5
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "d09216b0-7820-11ed-9526-95d326421819",
+				"layer": "Objects",
+				"x": 192,
+				"y": 32,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 11,
+						"cy": 2
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "d1f7e840-7820-11ed-9526-c37da34abff6",
+				"layer": "Objects",
+				"x": 144,
+				"y": 0,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 10,
+						"cy": 1
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "d33b64c0-7820-11ed-9526-3f8136b2a1af",
+				"layer": "Objects",
+				"x": 64,
+				"y": 0,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 5,
+						"cy": 1
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "d766e600-7820-11ed-9526-c3833d61ee2e",
+				"layer": "Objects",
+				"x": 144,
+				"y": 112,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 10,
+						"cy": 6
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "d8e28980-7820-11ed-9526-6349b55d4e0a",
+				"layer": "Objects",
+				"x": 64,
+				"y": 112,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 5,
+						"cy": 6
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "510a2c80-7820-11ed-9526-f1ea50a220de",
+				"layer": "Objects",
+				"x": 128,
+				"y": 64,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": null
+				}
+			}
+		],
+		"Orc": [
+			{
+				"id": "Orc",
+				"iid": "ba301470-7820-11ed-9526-e1d85adc377e",
+				"layer": "Objects",
+				"x": 80,
+				"y": 80,
+				"width": 16,
+				"height": 16,
+				"color": 6539085,
+				"customFields": {
+					"HasVest": true
+				}
+			},
+			{
+				"id": "Orc",
+				"iid": "beb2dd70-7820-11ed-9526-790a77e53589",
+				"layer": "Objects",
+				"x": 80,
+				"y": 32,
+				"width": 16,
+				"height": 16,
+				"color": 6539085,
+				"customFields": {
+					"HasVest": false
+				}
+			},
+			{
+				"id": "Orc",
+				"iid": "3c93e6d0-7820-11ed-9526-4dc0e33b9e96",
+				"layer": "Objects",
+				"x": 144,
+				"y": 48,
+				"width": 16,
+				"height": 16,
+				"color": 6539085,
+				"customFields": {
+					"HasVest": false
+				}
+			}
+		],
+		"Ladder": [
+			{
+				"id": "Ladder",
+				"iid": "c00cef30-7820-11ed-9526-53e1e9c4cd39",
+				"layer": "Objects",
+				"x": 176,
+				"y": 80,
+				"width": 16,
+				"height": 16,
+				"color": 39387,
+				"customFields" : {}
+			}
+		]
+	}
+}

@@ -1,0 +1,234 @@
+{
+	"identifier": "Level_3",
+	"uniqueIdentifer": "24faaee0-7820-11ed-9526-77ef075e55e9",
+	"x": 176,
+	"y": 128,
+	"width": 256,
+	"height": 160,
+	"bgColor": "#696A79",
+	"neighbourLevels": [
+		{
+			"levelIid": "76d02f60-7820-11ed-9526-3752cfdf9bac",
+			"dir": "n"
+		},
+		{
+			"levelIid": "c570c960-7820-11ed-9526-1599af99f2bb",
+			"dir": "n"
+		},
+		{
+			"levelIid": "121fc250-7820-11ed-9526-3129960befe9",
+			"dir": "w"
+		}
+	],
+	"customFields" : {},
+	"layers": [],
+	"entities": {
+		"Orc": [
+			{
+				"id": "Orc",
+				"iid": "3a072c00-7820-11ed-9526-4d050a12906a",
+				"layer": "Objects",
+				"x": 48,
+				"y": 32,
+				"width": 16,
+				"height": 16,
+				"color": 6539085,
+				"customFields": {
+					"HasVest": true
+				}
+			},
+			{
+				"id": "Orc",
+				"iid": "a2a16e60-7820-11ed-9526-8bb8373e5cc6",
+				"layer": "Objects",
+				"x": 112,
+				"y": 80,
+				"width": 16,
+				"height": 16,
+				"color": 6539085,
+				"customFields": {
+					"HasVest": false
+				}
+			}
+		],
+		"Goblin": [
+			{
+				"id": "Goblin",
+				"iid": "3f747c10-7820-11ed-9526-4f0e3c62458e",
+				"layer": "Objects",
+				"x": 160,
+				"y": 32,
+				"width": 16,
+				"height": 16,
+				"color": 14957380,
+				"customFields": {
+					"HasVest": false,
+					"Patrol": {
+						"cx": 10,
+						"cy": 6
+					}
+				}
+			},
+			{
+				"id": "Goblin",
+				"iid": "87ceabc0-7820-11ed-9526-77dbd3cdd31e",
+				"layer": "Objects",
+				"x": 112,
+				"y": 96,
+				"width": 16,
+				"height": 16,
+				"color": 14957380,
+				"customFields": {
+					"HasVest": false,
+					"Patrol": {
+						"cx": 3,
+						"cy": 6
+					}
+				}
+			}
+		],
+		"Ladder": [
+			{
+				"id": "Ladder",
+				"iid": "bbe99960-7820-11ed-9526-471a78ebda80",
+				"layer": "Objects",
+				"x": 192,
+				"y": 32,
+				"width": 16,
+				"height": 16,
+				"color": 39387,
+				"customFields" : {}
+			}
+		],
+		"Torch": [
+			{
+				"id": "Torch",
+				"iid": "e4be2cc0-7820-11ed-9526-4185c79446d5",
+				"layer": "Objects",
+				"x": 48,
+				"y": 0,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 3,
+						"cy": 1
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "e79a71b0-7820-11ed-9526-e58d715b14e7",
+				"layer": "Objects",
+				"x": 16,
+				"y": 32,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 2,
+						"cy": 2
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "e9ae0f70-7820-11ed-9526-c74c0dcc4390",
+				"layer": "Objects",
+				"x": 16,
+				"y": 96,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 2,
+						"cy": 6
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "ec010020-7820-11ed-9526-d7be9aa0913e",
+				"layer": "Objects",
+				"x": 80,
+				"y": 144,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 5,
+						"cy": 8
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "edee5130-7820-11ed-9526-bd6e59ec0836",
+				"layer": "Objects",
+				"x": 112,
+				"y": 48,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 7,
+						"cy": 4
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "eff1e960-7820-11ed-9526-0916b7e566b5",
+				"layer": "Objects",
+				"x": 224,
+				"y": 112,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 13,
+						"cy": 7
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "f162b770-7820-11ed-9526-310236bbfebc",
+				"layer": "Objects",
+				"x": 192,
+				"y": 0,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 12,
+						"cy": 1
+					}
+				}
+			},
+			{
+				"id": "Torch",
+				"iid": "06841c20-7820-11ed-9526-63de24cf773a",
+				"layer": "Objects",
+				"x": 112,
+				"y": 32,
+				"width": 16,
+				"height": 16,
+				"color": 16705377,
+				"customFields": {
+					"Direction": {
+						"cx": 8,
+						"cy": 2
+					}
+				}
+			}
+		]
+	}
+}

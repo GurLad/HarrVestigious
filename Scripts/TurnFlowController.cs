@@ -111,6 +111,11 @@ public class TurnFlowController : Node
         return allUnits.Find(a => a.Unit.Pos == pos)?.Unit;
     }
 
+    public Unit GetVestUnit()
+    {
+        return allUnits.Find(a => a.Unit.HasVest)?.Unit;
+    }
+
     public void Begin()
     {
         currentUnit = allUnits.FindIndex(a => a.Unit.HasVest);
